@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "задача-MainWindow",
+      "appliesTo": "castleFlex_alfa/MainWindow.xaml",
+      "type": "launch"
+    }
+  ]
+}

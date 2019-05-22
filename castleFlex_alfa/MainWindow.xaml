@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid>
+            <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="273,111,0,0" VerticalAlignment="Top" Width="245" Height="105" Click="OneGame"/>
+            <Button x:Name="button_Copy" Content="Button" HorizontalAlignment="Left" Margin="273,246,0,0" VerticalAlignment="Top" Width="245" Height="105" Click="TwoGether"/>
+
+        </Grid>
     </Grid>
 </Window>

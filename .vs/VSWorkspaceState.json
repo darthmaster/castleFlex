@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\castleFlex_alfa"
+    "\\castleFlex_alfa",
+    "\\castleFlex_alfa\\bin",
+    "\\castleFlex_alfa\\bin\\Debug",
+    "\\castleFlex_alfa\\obj",
+    "\\castleFlex_alfa\\Properties"
   ],
-  "SelectedNode": "\\README.md",
+  "SelectedNode": "\\castleFlex_alfa\\MainWindow.xaml",
   "PreviewInSolutionExplorer": false
 }

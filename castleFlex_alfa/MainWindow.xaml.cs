@@ -24,5 +24,16 @@ namespace castleFlex_alfa
         {
             InitializeComponent();
         }
+
+        private void OneGame(object sender, RoutedEventArgs e)
+        {
+            OneGameWin onegame = new OneGameWin();
+            onegame.Show();
+        }
+        private void TwoGether(object sender, RoutedEventArgs e)
+        {
+            TwoGameWin toggame = new TwoGameWin();
+            toggame.Show();
+        }
     }
 }
