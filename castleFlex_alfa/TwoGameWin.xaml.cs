@@ -18,22 +18,11 @@ namespace castleFlex_alfa
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TwoGameWin : Window
     {
-        public MainWindow()
+        public TwoGameWin()
         {
             InitializeComponent();
-        }
-
-        private void OneGame(object sender, RoutedEventArgs e)
-        {
-            OneGameWin onegame = new OneGameWin();
-            onegame.Show();
-        }
-        private void TwoGether(object sender, RoutedEventArgs e)
-        {
-            TwoGameWin toggame = new TwoGameWin();
-            toggame.Show();
         }
     }
 }
