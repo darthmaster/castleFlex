@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SQLite;
+using System.Data;
+
 
 namespace castleFlex_alfa
 {
@@ -20,9 +23,12 @@ namespace castleFlex_alfa
     /// </summary>
     public partial class MainWindow : Window
     {
+        public SQLiteConnection dbCon= new SQLiteConnection(@"Data Source = data.db; Version=3;");
+
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void OneGame(object sender, RoutedEventArgs e)

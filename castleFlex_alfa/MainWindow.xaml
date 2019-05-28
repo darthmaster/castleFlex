@@ -10,6 +10,7 @@
         <Grid>
             <Button x:Name="button" Content="Play" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="245" Height="105" Click="OneGame"/>
             <Button x:Name="button_Copy" Content="Multiplayer" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" Width="245" Height="105" Click="TwoGether"/>
+            <Image HorizontalAlignment="Left" Height="400" Margin="341,10,0,0" VerticalAlignment="Top" Width="360"/>
 
         </Grid>
     </Grid>
