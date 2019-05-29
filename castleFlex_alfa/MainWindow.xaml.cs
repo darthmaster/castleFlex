@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 
 namespace castleFlex_alfa
 {
@@ -32,7 +33,13 @@ namespace castleFlex_alfa
             db.cards.Load();
             this.DataContext = db.cards.Local.ToBindingList();
             //MessageBox.Show(db.cards.Find(3).name);
+            //картинка не работает :с
             //testImg.Source = db.cards.Find(1).pic;
+        }
+
+        private void FromStream(MemoryStream mStream)
+        {
+            throw new NotImplementedException();
         }
 
         private void OneGame(object sender, RoutedEventArgs e) 
