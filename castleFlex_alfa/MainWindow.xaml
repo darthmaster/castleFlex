@@ -10,8 +10,20 @@
         <Grid>
             <Button x:Name="button" Content="Play" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="245" Height="105" Click="OneGame"/>
             <Button x:Name="button_Copy" Content="Multiplayer" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" Width="245" Height="105" Click="TwoGether"/>
-            <Image HorizontalAlignment="Left" Height="400" Margin="341,10,0,0" VerticalAlignment="Top" Width="360"/>
-
+            <ListBox x:Name="phonesList" ItemsSource="{Binding}" Margin="500,0,0,0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding name}" FontSize="18" />
+                            <TextBlock Text="{Binding id}" FontSize="16" />
+                            <TextBlock Text="{Binding cost}" FontSize="12" />
+                            <TextBlock Text="{Binding type}" FontSize="13" />
+                            <Image Source="{Binding pic}" Width="165" Height="250" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Image Name="testImg" HorizontalAlignment="Left" Height="250" Margin="275,42,0,0" VerticalAlignment="Top" Width="165"/>
         </Grid>
     </Grid>
 </Window>

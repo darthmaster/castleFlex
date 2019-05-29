@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.Data;
-
+using System.Data.Entity;
 
 namespace castleFlex_alfa
 {
@@ -23,15 +23,19 @@ namespace castleFlex_alfa
     /// </summary>
     public partial class MainWindow : Window
     {
-        public SQLiteConnection dbCon= new SQLiteConnection(@"Data Source = data.db; Version=3;");
-
+        ApplicationContext db;
         public MainWindow()
         {
             InitializeComponent();
-            
+
+            db = new ApplicationContext();
+            db.cards.Load();
+            this.DataContext = db.cards.Local.ToBindingList();
+            //MessageBox.Show(db.cards.Find(3).name);
+            //testImg.Source = db.cards.Find(1).pic;
         }
 
-        private void OneGame(object sender, RoutedEventArgs e)
+        private void OneGame(object sender, RoutedEventArgs e) 
         {
             OneGameWin onegame = new OneGameWin();
             onegame.Show();
