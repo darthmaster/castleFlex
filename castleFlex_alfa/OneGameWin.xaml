@@ -17,14 +17,36 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250*"/>
-                <ColumnDefinition Width="400*"/>
-                <ColumnDefinition Width="250*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="1300*"/>
+                <ColumnDefinition Width="50*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="400*"/>
-                <RowDefinition Height="200*"/>
+                <RowDefinition Height="250*"/>
             </Grid.RowDefinitions>
+            <Grid Grid.Column="1" Margin="0,0,0,0" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250*"/>
+                    <ColumnDefinition Width="250*"/>
+                    <ColumnDefinition Width="250*"/>
+                    <ColumnDefinition Width="250*"/>
+                    <ColumnDefinition Width="250*"/>
+                    <ColumnDefinition Width="250*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="400*"/>
+                </Grid.RowDefinitions>
+                <Image Name="Card1" HorizontalAlignment="Left" Height="250" Margin="15,15,0,0" VerticalAlignment="Top" Width="165" Grid.Column="0" Grid.Row="1"/>
+                <Image Name="Card2" HorizontalAlignment="Left" Height="250" Margin="15,15,0,0" VerticalAlignment="Top" Width="165" Grid.Column="1" Grid.Row="1"/>
+                <Image Name="Card3" HorizontalAlignment="Left" Height="250" Margin="15,15,0,0" VerticalAlignment="Top" Width="165" Grid.Column="2" Grid.Row="1"/>
+                <Image Name="Card4" HorizontalAlignment="Left" Height="250" Margin="15,15,0,0" VerticalAlignment="Top" Width="165" Grid.Column="3" Grid.Row="1"/>
+                <Image Name="Card5" HorizontalAlignment="Left" Height="250" Margin="15,15,0,0" VerticalAlignment="Top" Width="165" Grid.Column="4" Grid.Row="1"/>
+                <Image Name="Card6" HorizontalAlignment="Left" Height="250" Margin="15,15,0,0" VerticalAlignment="Top" Width="165" Grid.Column="5" Grid.Row="1"/>
+            </Grid>
+            <Grid Grid.Column="1" Margin="0,0,0,0" Grid.Row="0">
+                
+            </Grid>
         </Grid>
 
     </Grid>

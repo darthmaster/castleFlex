@@ -24,5 +24,10 @@ namespace castleFlex_alfa
         {
             InitializeComponent();
         }
+
+        public void startGame()
+        {
+
+        }
     }
 }
