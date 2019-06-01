@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <MediaElement x:Name="MediaElement" Source="C:\background_dev.mpg" Stretch="UniformToFill" MediaEnded="MediaElement_MediaEnded_1" LoadedBehavior="Manual"/>
+        <!--Source="C:\1_JbgEYICf4aZn_r2eEOj47Q.gif"    ыыыыыыыыыы      -->
+        <!--Source="pack://siteoforigin:,,,/Resources/background_dev.mpg"     так не хочет   --> 
         <Grid>
             <Button x:Name="button" Content="Play" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="245" Height="105" Click="OneGame"/>
             <Button x:Name="button_Copy" Content="Multiplayer" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" Width="245" Height="105" Click="TwoGether"/>
@@ -23,7 +26,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Image Name="testImg" HorizontalAlignment="Left" Height="250" Margin="275,42,0,0" VerticalAlignment="Top" Width="165"/>
+            <Image Name="testImg" HorizontalAlignment="Left" Height="250" Margin="317,163,0,0" VerticalAlignment="Top" Width="165"/>
         </Grid>
     </Grid>
 </Window>

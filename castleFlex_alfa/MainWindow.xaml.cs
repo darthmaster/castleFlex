@@ -17,7 +17,6 @@ using System.Data;
 using System.Data.Entity;
 using System.IO;
 //using System.Drawing;
-
 namespace castleFlex_alfa
 {
     /// <summary>
@@ -29,6 +28,7 @@ namespace castleFlex_alfa
         public MainWindow()
         {
             InitializeComponent();
+            MediaElement.Play();
 
             db = new ApplicationContext();
             db.cards.Load();
@@ -46,7 +46,10 @@ namespace castleFlex_alfa
             //image.StreamSource = byteStream;
             //image.EndInit();
             //testImg.Source = image;
+
+            
         }
+
 
         //public static byte[] imageToByteArray(System.Drawing.Image imageIn)
         //{
@@ -89,5 +92,13 @@ namespace castleFlex_alfa
             TwoGameWin toggame = new TwoGameWin();
             toggame.Show();
         }
+
+        private void MediaElement_MediaEnded_1(object sender, RoutedEventArgs e)
+        {
+            MediaElement.Stop();
+            TimeSpan ts = new TimeSpan(0, 0, 0, 0, 0);
+            MediaElement.Position = ts;
+            MediaElement.Play();
+        } //зацикливание фона
     }
 }
