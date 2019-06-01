@@ -107,3 +107,15 @@ C:\Users\Commander\source\repos\castleFlex\castleFlex\castleFlex_alfa\obj\Debug\
 C:\Users\Commander\source\repos\castleFlex\castleFlex\castleFlex_alfa\obj\Debug\castleFlex_alfa.csproj.CopyComplete
 C:\Users\Commander\source\repos\castleFlex\castleFlex\castleFlex_alfa\obj\Debug\castleFlex_alfa.exe
 C:\Users\Commander\source\repos\castleFlex\castleFlex\castleFlex_alfa\obj\Debug\castleFlex_alfa.pdb
+C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\data.db
+C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\EntityFramework.dll
+C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\SQLite.Net.Standard.dll
+C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\System.Data.SqlClient.dll
+C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\System.Data.SQLite.dll
+C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\EntityFramework.xml
+C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\System.Data.SQLite.xml
+C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\System.Data.SQLite.dll.config
