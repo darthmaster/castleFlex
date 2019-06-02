@@ -587,8 +587,8 @@ namespace castleFlex_alfa
             if (TwoGameWin.p1.ore >= db.cards.Find(id).cost)
             {
                 POM(db.cards.Find(id).cost);
-                if (TwoGameWin.p1.wall == 0) { PWP(5); }
-                else { PWP(3); }
+                if (TwoGameWin.p1.wall == 0) { PWlP(5); }
+                else { PWlP(3); }
             }
             else TwoGameWin.resMessage(db.cards.Find(id).cost);
 

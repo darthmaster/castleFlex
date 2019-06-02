@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:castleFlex_alfa"
         mc:Ignorable="d"
-        Title="TwoGameWin" Height="450" Width="788.2">
+        Title="TwoGameWin" d:DesignWidth="978.2" d:DesignHeight="571.4">
     <Grid Margin="0,0,-6.4,0">
         <Label Content="Label" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Width="79" Name="playerMages"/>
         <Label Content="Label" HorizontalAlignment="Left" Margin="23,51,0,0" VerticalAlignment="Top" Width="79" Name="playerRecruts"/>
@@ -23,6 +23,11 @@
         <Label Content="Label" HorizontalAlignment="Left" Margin="250,142,0,0" VerticalAlignment="Top" Width="68" Name="pwv"/>
         <Label Content="Label" HorizontalAlignment="Left" Margin="463,142,0,0" VerticalAlignment="Top" Width="69" Name="ewv"/>
         <Label Content="Label" HorizontalAlignment="Left" Margin="532,142,0,0" VerticalAlignment="Top" Width="68" Name="etv"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="65,295,0,0" VerticalAlignment="Top" Width="115" Height="34" Click="Button_Click"/>
+        <Button x:Name="card1" Content="Button" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" Width="155" Height="240" Click="Card1_Click"/>
+        <Button x:Name="card2" Content="Button" HorizontalAlignment="Left" Margin="170,292,0,0" VerticalAlignment="Top" Width="155" Height="240" Click="Card2_Click"/>
+        <Button x:Name="card3" Content="Button" HorizontalAlignment="Left" Margin="330,292,0,0" VerticalAlignment="Top" Width="155" Height="240" Click="Card3_Click"/>
+        <Button x:Name="card4" Content="Button" HorizontalAlignment="Left" Margin="490,292,0,0" VerticalAlignment="Top" Width="155" Height="240" Click="Card4_Click"/>
+        <Button x:Name="card5" Content="Button" HorizontalAlignment="Left" Margin="650,292,0,0" VerticalAlignment="Top" Width="155" Height="240" Click="Card5_Click"/>
+        <Button x:Name="card6" Content="Button" HorizontalAlignment="Left" Margin="810,292,0,0" VerticalAlignment="Top" Width="155" Height="240" Click="Card6_Click"/>
     </Grid>
 </Window>

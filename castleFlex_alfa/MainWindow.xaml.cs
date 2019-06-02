@@ -25,19 +25,27 @@ namespace castleFlex_alfa
     public partial class MainWindow : Window
     {
         ApplicationContext db;
+        public static BitmapImage CreateImage(byte[] imageData)
+        {
+            MemoryStream byteStream = new MemoryStream(imageData);
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = byteStream;
+            image.EndInit();
+            return image;
+        }  // функция преобразование byto to ImageSourse
         public MainWindow()
         {
             InitializeComponent();
             MediaElement.Play();
-
             db = new ApplicationContext();
             db.cards.Load();
             this.DataContext = db.cards.Local.ToBindingList();
-            MessageBox.Show(db.cards.Find(3).name);
+            //MessageBox.Show(db.cards.Find(3).name);
             //картинка не работает: с
             //testImg.Source = (db.cards.Find(1).pic);
             //работает если всё нормально преобразовать!
-            testImg.Source = CreateImage(db.cards.Find(9).pic);
+            //testImg.Source = CreateImage(db.cards.Find(9).pic);
 
             // хороший код, но хуйня жи столько строчек не выносить в другую функцю
             //MemoryStream byteStream = new MemoryStream(db.cards.Find(1).pic);
@@ -63,25 +71,7 @@ namespace castleFlex_alfa
         //    System.Drawing.Image returnImage = System.Drawing.Image.FromStream(ms);
         //    return returnImage;
         //} //говнокод для вин форм и System.Drawing, т.к. мы используем WPF - юзелес
-
-
-
-        public static System.Windows.Media.Imaging.BitmapImage CreateImage(byte[] imageData)
-        {
-            MemoryStream byteStream = new MemoryStream(imageData);
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            image.StreamSource = byteStream;
-            image.EndInit();
-            return image;
-        }  // функция преобразование byto to ImageSourse
-
-
-        private void FromStream(MemoryStream mStream)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         private void OneGame(object sender, RoutedEventArgs e) 
         {
             OneGameWin onegame = new OneGameWin();
@@ -95,10 +85,13 @@ namespace castleFlex_alfa
 
         private void MediaElement_MediaEnded_1(object sender, RoutedEventArgs e)
         {
-            MediaElement.Stop();
             TimeSpan ts = new TimeSpan(0, 0, 0, 0, 0);
             MediaElement.Position = ts;
             MediaElement.Play();
-        } //зацикливание фона
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

@@ -14,14 +14,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Reflection;
+using System.IO;
 
 namespace castleFlex_alfa
 {
     public partial class TwoGameWin : Window
     {
         ApplicationContext db;
-        //public delegate void del();
-        public cardsList cards = new cardsList(); 
+        public cardsList cards = new cardsList();
+        public Random rnd = new Random();
         public class player
         {
             public string name;
@@ -79,19 +80,72 @@ namespace castleFlex_alfa
         {
             MessageBox.Show("Недостаточно ресурсов");
         }
+
         public TwoGameWin()
         {
             InitializeComponent();
             db = new ApplicationContext();
             db.cards.Load();
             updateInfo(p1, p2);
+            for (int i = 0; i <= 5; i++)
+            {
+                p1.hand[i] = rnd.Next(1, 50);
+                p1.usedCards.Add(p1.hand[i]);
+            }
+
+            card1.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[0]).pic));
+            card2.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[1]).pic));
+            card3.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[2]).pic));
+            card4.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[3]).pic));
+            card5.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[4]).pic));
+            card6.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[5]).pic));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Card1_Click(object sender, RoutedEventArgs e)
         {
-            cardsList.id = 1;
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(1).name);
+            cardsList.id = p1.hand[0];
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[0]).name);
             card.Invoke(this,null);
+            updateInfo(p1, p2);
+        }
+
+        private void Card2_Click(object sender, RoutedEventArgs e)
+        {
+            cardsList.id = p1.hand[1];
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[1]).name);
+            card.Invoke(this, null);
+            updateInfo(p1, p2);
+        }
+
+        private void Card3_Click(object sender, RoutedEventArgs e)
+        {
+            cardsList.id = p1.hand[2];
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[2]).name);
+            card.Invoke(this, null);
+            updateInfo(p1, p2);
+        }
+
+        private void Card4_Click(object sender, RoutedEventArgs e)
+        {
+            cardsList.id = p1.hand[3];
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[3]).name);
+            card.Invoke(this, null);
+            updateInfo(p1, p2);
+        }
+
+        private void Card5_Click(object sender, RoutedEventArgs e)
+        {
+            cardsList.id = p1.hand[4];
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[4]).name);
+            card.Invoke(this, null);
+            updateInfo(p1, p2);
+        }
+
+        private void Card6_Click(object sender, RoutedEventArgs e)
+        {
+            cardsList.id = p1.hand[5];
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[5]).name);
+            card.Invoke(this, null);
             updateInfo(p1, p2);
         }
     }

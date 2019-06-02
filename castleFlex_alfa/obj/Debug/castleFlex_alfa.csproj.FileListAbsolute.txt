@@ -119,3 +119,4 @@ C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\Ent
 C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\System.Data.SQLite.xml
 C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\alber\Source\Repos\darthmaster\castleFlex\castleFlex_alfa\bin\Debug\Resources\background_dev.mpg
