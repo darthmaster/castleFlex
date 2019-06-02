@@ -9,13 +9,28 @@
         Title="OneGameWin" Height="720" Width="1280" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Grid HorizontalAlignment="Left" Height="718" VerticalAlignment="Top" Width="1278">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140*"/>
+            <ColumnDefinition Width="73*"/>
+        </Grid.ColumnDefinitions>
         <!--<Grid.Background>
             <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/1_JbgEYICf4aZn_r2eEOj47Q.gif" Stretch="UniformToFill" TileMode="Tile"/>
         </Grid.Background>-->
 
-        <!--<Image Source="pack://siteoforigin:,,,/Resources/1_JbgEYICf4aZn_r2eEOj47Q.gif" Stretch="UniformToFill" StretchDirection="UpOnly" />-->
-        <MediaElement x:Name="MediaElement" Source="C:\1_JbgEYICf4aZn_r2eEOj47Q.mpg" Stretch="UniformToFill" MediaEnded="MediaElement_MediaEnded_1" LoadedBehavior="Manual"/>
-        <Grid>
+        <!--      Source="C:\1_JbgEYICf4aZn_r2eEOj47Q.mpg"                 <Image Source="pack://siteoforigin:,,,/Resources/1_JbgEYICf4aZn_r2eEOj47Q.gif" Stretch="UniformToFill" StretchDirection="UpOnly" />-->
+        <MediaElement x:Name="MediaElement" Source="C:\zelenaya-polyana-mezhdu-gor.jpg" Stretch="UniformToFill" MediaEnded="MediaElement_MediaEnded_1" LoadedBehavior="Manual" Grid.ColumnSpan="2"/>
+        <Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,442,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.ColumnSpan="2" Height="276" Width="1278" />
+        <Image Source="C:\322.png" HorizontalAlignment="Left"  Margin="312,187,0,0" VerticalAlignment="Top" Height="260" Width="179" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-1.317"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Grid Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50*"/>
                 <ColumnDefinition Width="1300*"/>
@@ -25,6 +40,12 @@
                 <RowDefinition Height="400*"/>
                 <RowDefinition Height="250*"/>
             </Grid.RowDefinitions>
+            <Image Source="C:\temnaya_derevyannaya_tekstura.jpg" HorizontalAlignment="Left"  Margin="0,8,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="1" Grid.Row="1"/>
+            <!--<Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="0" Grid.Row="0"/>-->
+            <Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="0" Grid.Row="1"/>
+            <!--<Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="2" Grid.Row="0"/>-->
+            <Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="2" Grid.Row="1"/>
+
             <Grid Grid.Column="1" Margin="0,0,0,0" Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="250*"/>
@@ -37,15 +58,16 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="400*"/>
                 </Grid.RowDefinitions>
-                <Image Name="Card1" HorizontalAlignment="Left" Height="250" Margin="15,15,0,0" VerticalAlignment="Top" Width="165" Grid.Column="0" Grid.Row="1"/>
-                <Image Name="Card2" HorizontalAlignment="Left" Height="250" Margin="15,15,0,0" VerticalAlignment="Top" Width="165" Grid.Column="1" Grid.Row="1"/>
-                <Image Name="Card3" HorizontalAlignment="Left" Height="250" Margin="15,15,0,0" VerticalAlignment="Top" Width="165" Grid.Column="2" Grid.Row="1"/>
-                <Image Name="Card4" HorizontalAlignment="Left" Height="250" Margin="15,15,0,0" VerticalAlignment="Top" Width="165" Grid.Column="3" Grid.Row="1"/>
-                <Image Name="Card5" HorizontalAlignment="Left" Height="250" Margin="15,15,0,0" VerticalAlignment="Top" Width="165" Grid.Column="4" Grid.Row="1"/>
-                <Image Name="Card6" HorizontalAlignment="Left" Height="250" Margin="15,15,0,0" VerticalAlignment="Top" Width="165" Grid.Column="5" Grid.Row="1"/>
+                <Image Name="Card1" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="0" Grid.Row="1"/>
+                <Image Name="Card2" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="1" Grid.Row="1"/>
+                <Image Name="Card3" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="2" Grid.Row="1"/>
+                <Image Name="Card4" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="3" Grid.Row="1"/>
+                <Image Name="Card5" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="4" Grid.Row="1"/>
+                <Image Name="Card6" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="5" Grid.Row="1"/>
             </Grid>
+
             <Grid Grid.Column="1" Margin="0,0,0,0" Grid.Row="0">
-                <ListBox x:Name="phonesList" ItemsSource="{Binding}" Margin="135,40,647,43">
+                <ListBox x:Name="phonesList" ItemsSource="{Binding}" Margin="135,40,647,43" Visibility="Hidden">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -58,9 +80,25 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-
+                <Label Content="Label" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Width="79" Name="playerMages"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="23,51,0,0" VerticalAlignment="Top" Width="79" Name="playerRecruts"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="23,77,0,0" VerticalAlignment="Top" Width="79" Name="playerMines"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="101,25,0,0" VerticalAlignment="Top" Width="79" Name="playerMagic"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="101,51,0,0" VerticalAlignment="Top" Width="79" Name="playerArmy"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="101,77,0,0" VerticalAlignment="Top" Width="79" Name="playerOre"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="603,25,0,0" VerticalAlignment="Top" Width="79" Name="enemyMages"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="603,51,0,0" VerticalAlignment="Top" Width="79" Name="enemyRecruts"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="603,77,0,0" VerticalAlignment="Top" Width="79" Name="enemyMines"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="681,25,0,0" VerticalAlignment="Top" Width="79" Name="enemyMagic"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="681,51,0,0" VerticalAlignment="Top" Width="79" Name="enemyArmy"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="681,77,0,0" VerticalAlignment="Top" Width="79" Name="enemyOre"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="182,142,0,0" VerticalAlignment="Top" Width="69" Name="ptv"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="250,142,0,0" VerticalAlignment="Top" Width="68" Name="pwv"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="463,142,0,0" VerticalAlignment="Top" Width="69" Name="ewv"/>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="532,142,0,0" VerticalAlignment="Top" Width="68" Name="etv"/>
             </Grid>
         </Grid>
+        <!--<Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,438,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.ColumnSpan="2" Height="20" Width="1278" />-->
 
     </Grid>
 </Window>

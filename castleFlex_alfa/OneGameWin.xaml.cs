@@ -23,6 +23,36 @@ namespace castleFlex_alfa
     public partial class OneGameWin : Window
     {
         ApplicationContext db;
+        public cardList cards = new cardList();
+        public class player
+        {
+            public string name;
+            public int tower;
+            public int wall;
+            public int wiz;
+            public int magic;
+            public int rec;
+            public int army;
+            public int mine;
+            public int ore;
+            public int[] hand;
+            public List<int> usedCards;
+            public player(int tower, int wall, int wiz, int magic, int rec, int army, int mine, int ore)
+            {
+                this.tower = tower;
+                this.wall = wall;
+                this.wiz = wiz;
+                this.magic = magic;
+                this.rec = rec;
+                this.army = army;
+                this.mine = mine;
+                this.ore = ore;
+                hand = new int[6];
+                usedCards = new List<int>() { };
+            }
+        }
+        public static player p1 = new player(50, 0, 1, 15, 1, 15, 1, 15);
+        public static player p2 = new player(50, 0, 1, 15, 1, 15, 1, 15);
         public OneGameWin()
         {
             InitializeComponent();
@@ -37,6 +67,11 @@ namespace castleFlex_alfa
             Card5.Source = CreateImage(db.cards.Find(7).pic);
             Card6.Source = CreateImage(db.cards.Find(39).pic);
             this.DataContext = db.cards.Local.ToBindingList();
+        }
+
+        public void resMessage(int cost)
+        {
+            MessageBox.Show("Недостаточно ресурсов");
         }
 
         public void startGame()
