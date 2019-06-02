@@ -26,6 +26,7 @@ namespace castleFlex_alfa
     {
         static ApplicationContext db = new ApplicationContext();
         public static int id;
+        
         static TwoGameWin TwoGameWin = new TwoGameWin();
         #region Эффекты карт
         public static void Attack(int a) //нанесение урона врагу
@@ -1016,7 +1017,7 @@ namespace castleFlex_alfa
         #region Зелёные
         public static void АрмияГоблинов()
         {
-            //3;
+            //3; 
             if (TwoGameWin.p1.army >= db.cards.Find(id).cost)
             {
                 PAM(db.cards.Find(id).cost);

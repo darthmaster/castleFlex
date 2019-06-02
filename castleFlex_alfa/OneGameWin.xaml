@@ -14,7 +14,7 @@
         </Grid.Background>-->
 
         <!--<Image Source="pack://siteoforigin:,,,/Resources/1_JbgEYICf4aZn_r2eEOj47Q.gif" Stretch="UniformToFill" StretchDirection="UpOnly" />-->
-
+        <MediaElement x:Name="MediaElement" Source="C:\1_JbgEYICf4aZn_r2eEOj47Q.mpg" Stretch="UniformToFill" MediaEnded="MediaElement_MediaEnded_1" LoadedBehavior="Manual"/>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50*"/>
@@ -45,7 +45,20 @@
                 <Image Name="Card6" HorizontalAlignment="Left" Height="250" Margin="15,15,0,0" VerticalAlignment="Top" Width="165" Grid.Column="5" Grid.Row="1"/>
             </Grid>
             <Grid Grid.Column="1" Margin="0,0,0,0" Grid.Row="0">
-                
+                <ListBox x:Name="phonesList" ItemsSource="{Binding}" Margin="135,40,647,43">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding name}" FontSize="18" />
+                                <TextBlock Text="{Binding id}" FontSize="16" />
+                                <TextBlock Text="{Binding cost}" FontSize="12" />
+                                <TextBlock Text="{Binding type}" FontSize="13" />
+                                <Image Source="{Binding pic}" Width="165" Height="250" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
             </Grid>
         </Grid>
 

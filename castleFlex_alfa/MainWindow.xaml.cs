@@ -37,7 +37,8 @@ namespace castleFlex_alfa
             //картинка не работает: с
             //testImg.Source = (db.cards.Find(1).pic);
             //работает если всё нормально преобразовать!
-            testImg.Source = CreateImage(db.cards.Find(9).pic);
+
+            //testImg.Source = CreateImage(db.cards.Find(9).pic);
 
             // хороший код, но хуйня жи столько строчек не выносить в другую функцю
             //MemoryStream byteStream = new MemoryStream(db.cards.Find(1).pic);
