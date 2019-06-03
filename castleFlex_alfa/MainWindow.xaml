@@ -5,12 +5,111 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:castleFlex_alfa"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
+        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing" WindowStyle="None" ResizeMode="CanMinimize">
     <Grid>
         <MediaElement x:Name="MediaElement" Source="pack://siteoforigin:,,,/Resources/background_dev.mpg" Stretch="UniformToFill" MediaEnded="MediaElement_MediaEnded_1" LoadedBehavior="Manual" IsMuted="True"/>
-        <Grid>
-            <Button x:Name="button" Content="Play" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top" Width="245" Height="105" Click="OneGame"/>
-            <Button x:Name="button_Copy" Content="Multiplayer" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top" Width="245" Height="105" Click="TwoGether"/>
+        <Label Content="CastleFlex" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="85" Width="220" FontSize="72" VerticalContentAlignment="Center" FontFamily="Parchment" TextOptions.TextHintingMode="Animated" FontWeight="Bold" TextOptions.TextFormattingMode="Display" HorizontalContentAlignment="Center">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFC000" Offset="1"/>
+                    <GradientStop Color="#FF9000FF"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <Button x:Name="button" Content="Play" Margin="241,0,0,382.6" Width="267" Click="OneGame" Foreground="#FF9000FF" FontFamily="Ink Free" FontWeight="Bold" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="40" FontStyle="Italic">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="15"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FFFFD300"/>
+                    <GradientStop Color="#FF7D00FF" Offset="1"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="button_Copy" Content="Multiplayer" Margin="616,0,-83,382.6" Width="267" Click="TwoGether" Foreground="#FF9000FF" FontFamily="Ink Free" FontWeight="Bold" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" FontStyle="Italic">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="15"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FFFFD300"/>
+                    <GradientStop Color="#FF7D00FF" Offset="1"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="exitButton" Content="Exit" Margin="600,0,-57.4,8.2" Width="251" Foreground="#FF9000FF" FontFamily="Ink Free" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" Click="ExitButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontStyle="Italic" FontWeight="Bold">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="15"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FFFFD300"/>
+                    <GradientStop Color="#FF7D00FF" Offset="1"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="infoButton" Content="Information" Margin="340,0,0,8.2" Width="252" Foreground="#FF9000FF" FontFamily="Ink Free" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="InfoButton_Click" FontStyle="Italic" FontWeight="Bold">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="15"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FFFFD300"/>
+                    <GradientStop Color="#FF7D00FF" Offset="1"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="otherButton" Content="Other" Margin="80,0,0,8.2" Width="251" Foreground="#FF9000FF" FontFamily="Ink Free" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="OtherButton_Click" FontStyle="Italic" FontWeight="Bold">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="15"/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FFFFD300"/>
+                    <GradientStop Color="#FF7D00FF" Offset="1"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Grid x:Name="multi" Height="305" Margin="0,90,-0.4,48.2" VerticalAlignment="Center" Opacity="0.5">
+            <Grid.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FFFFDC00"/>
+                    <GradientStop Color="#FFC700FF" Offset="1"/>
+                </RadialGradientBrush>
+            </Grid.Background>
+            <Label Content="multiplayer game configuration" HorizontalAlignment="Left" Margin="510,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontFamily="Monotype Corsiva" Width="274"/>
+            <Label Content="Your name:" HorizontalAlignment="Left" Margin="0,99,0,173" Foreground="White" FontFamily="Monotype Corsiva" FontSize="20"/>
+            <Label Content="IP addres:" HorizontalAlignment="Left" Margin="8,132,0,141" Foreground="White" FontFamily="Monotype Corsiva" FontSize="20"/>
+            <Label Content="Port:" HorizontalAlignment="Left" Margin="45,164,0,115" Foreground="White" FontFamily="Monotype Corsiva" FontSize="20" Height="32"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="91,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Background="#7F000000" Foreground="White" BorderBrush="#00ABADB3" TextDecorations="{x:Null}" FontStyle="Italic" TextOptions.TextHintingMode="Animated" SelectionBrush="#FFFFDC00"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="91,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Background="#7F000000" Foreground="White" BorderBrush="#00ABADB3" TextDecorations="{x:Null}" FontStyle="Italic" TextOptions.TextHintingMode="Animated"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="91,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Background="#7F000000" Foreground="White" BorderBrush="#00ABADB3" TextDecorations="{x:Null}" FontStyle="Italic" TextOptions.TextHintingMode="Animated"/>
         </Grid>
     </Grid>
 </Window>

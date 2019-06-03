@@ -37,6 +37,7 @@ namespace castleFlex_alfa
         public MainWindow()
         {
             InitializeComponent();
+            //multi.IsVisible=false;
             MediaElement.Play();
             db = new ApplicationContext();
             db.cards.Load();
@@ -92,6 +93,21 @@ namespace castleFlex_alfa
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void InfoButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OtherButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

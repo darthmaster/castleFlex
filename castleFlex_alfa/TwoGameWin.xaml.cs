@@ -15,11 +15,13 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Reflection;
 using System.IO;
+using System.Windows.Threading;
 
 namespace castleFlex_alfa
 {
     public partial class TwoGameWin : Window
     {
+        int t = 0;
         ApplicationContext db;
         public cardsList cards = new cardsList();
         public Random rnd = new Random();
@@ -60,9 +62,9 @@ namespace castleFlex_alfa
             playerArmy.Content = $"{a.army}";
             playerMines.Content = $"{a.mine}";
             playerOre.Content = $"{a.ore}";
-            //playerTower.Value = a.tower;
+            playerTower.Value = a.tower;
             ptv.Content = a.tower;
-            //playerWall.Value = a.wall;
+            playerWall.Value = a.wall;
             pwv.Content = a.wall;
 
             enemyMages.Content = $"{b.wiz}";
@@ -71,28 +73,183 @@ namespace castleFlex_alfa
             enemyArmy.Content = $"{b.army}";
             enemyMines.Content = $"{b.mine}";
             enemyOre.Content = $"{b.ore}";
-            //enemyTower.Value = b.tower;
+            enemyTower.Value = b.tower;
             etv.Content = b.tower;
-            //enemyWall.Value = b.wall;
+            enemyWall.Value = b.wall;
             ewv.Content = b.wall;
         }
         public void resMessage(int cost)
         {
             MessageBox.Show("Недостаточно ресурсов");
         }
+        private void Timer_Tick(object sender, object e)
+        {
+            t += 1;
+            gameTimer.Content = t;
+        }
 
+        public void endTurn()
+        {
+            if ((p2.tower <= 0) || (p1.tower >= 100))
+            {
+                MessageBox.Show("Вы победили!", "Игра окончена", MessageBoxButton.OK, MessageBoxImage.Information);
+                Close();
+            }
+            else if ((p1.tower <= 0) || (p2.tower >= 100))
+            {
+                MessageBox.Show("Вы проиграли!", "Игра окончена", MessageBoxButton.OK, MessageBoxImage.Information);
+                Close();
+            }
+            newTurn();
+        }
+        public void newTurn()
+        {
+            if (p1.wiz <= 0) { p1.wiz = 1; }
+            if (p1.rec <= 0) { p1.rec = 1; }
+            if (p1.mine <= 0) { p1.mine = 1; }
+
+            if (p2.wiz <= 0) { p2.wiz = 1; }
+            if (p2.rec <= 0) { p2.rec = 1; }
+            if (p2.mine <= 0) { p2.mine = 1; }
+
+            if (p1.magic < 0) { p1.magic = 0; }
+            if (p1.army < 0) { p1.army = 0; }
+            if (p1.ore < 0) { p1.ore = 0; }
+
+            if (p2.magic < 0) { p2.magic = 0; }
+            if (p2.army < 0) { p2.army = 0; }
+            if (p2.ore < 0) { p2.ore = 0; }
+
+            if (card1.IsEnabled == false)
+            {
+                int i;
+                do
+                {
+                    i = rnd.Next(1, 100);
+                    p1.hand[0] = i;
+                    if (p1.usedCards.Count == 99)
+                    {
+                        MessageBox.Show("В колоде закончились карты!\nРаздаётся новая...", "Колода пуста!");
+                        p1.usedCards.Clear();
+                        break;
+                    }
+                } while (p1.usedCards.Contains(i));
+                p1.usedCards.Add(p1.hand[0]);
+                card1.IsEnabled = true;
+            }
+            if (card2.IsEnabled == false)
+            {
+                int i;
+                do
+                {
+                    i = rnd.Next(1, 100);
+                    p1.hand[1] = i;
+                    if (p1.usedCards.Count == 99)
+                    {
+                        MessageBox.Show("В колоде закончились карты!\nРаздаётся новая...", "Колода пуста!");
+                        p1.usedCards.Clear();
+                        break;
+                    }
+                } while (p1.usedCards.Contains(i));
+                p1.usedCards.Add(p1.hand[1]);
+                card2.IsEnabled = true;
+            }
+            if (card3.IsEnabled == false)
+            {
+                int i;
+                do
+                {
+                    i = rnd.Next(1, 100);
+                    p1.hand[2] = i;
+                    if (p1.usedCards.Count == 99)
+                    {
+                        MessageBox.Show("В колоде закончились карты!\nРаздаётся новая...", "Колода пуста!");
+                        p1.usedCards.Clear();
+                        break;
+                    }
+                } while (p1.usedCards.Contains(i));
+                p1.usedCards.Add(p1.hand[2]);
+                card3.IsEnabled = true;
+            }
+            if (card4.IsEnabled == false)
+            {
+                int i;
+                do
+                {
+                    i = rnd.Next(1, 100);
+                    p1.hand[3] = i;
+                    if (p1.usedCards.Count == 99)
+                    {
+                        MessageBox.Show("В колоде закончились карты!\nРаздаётся новая...", "Колода пуста!");
+                        p1.usedCards.Clear();
+                        break;
+                    }
+                } while (p1.usedCards.Contains(i));
+                p1.usedCards.Add(p1.hand[3]);
+                card4.IsEnabled = true;
+            }
+            if (card5.IsEnabled == false)
+            {
+                int i;
+                do
+                {
+                    i = rnd.Next(1, 100);
+                    p1.hand[4] = i;
+                    if (p1.usedCards.Count == 99)
+                    {
+                        MessageBox.Show("В колоде закончились карты!\nРаздаётся новая...", "Колода пуста!");
+                        p1.usedCards.Clear();
+                        break;
+                    }
+                } while (p1.usedCards.Contains(i));
+                p1.usedCards.Add(p1.hand[4]);
+                card5.IsEnabled = true;
+            }
+            if (card6.IsEnabled == false)
+            {
+                int i;
+                do
+                {
+                    i = rnd.Next(1, 100);
+                    p1.hand[5] = i;
+                    if (p1.usedCards.Count == 99)
+                    {
+                        MessageBox.Show("В колоде закончились карты!\nРаздаётся новая...", "Колода пуста!");
+                        p1.usedCards.Clear();
+                        break;
+                    }
+                } while (p1.usedCards.Contains(i));
+                p1.usedCards.Add(p1.hand[5]);
+                card6.IsEnabled = true;
+            }
+            card1.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[0]).pic));
+            card2.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[1]).pic));
+            card3.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[2]).pic));
+            card4.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[3]).pic));
+            card5.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[4]).pic));
+            card6.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[5]).pic));
+            p1.magic += p1.wiz;
+            p1.army += p1.rec;
+            p1.ore += p1.mine;
+            updateInfo(p1, p2);
+        }
         public TwoGameWin()
         {
             InitializeComponent();
             db = new ApplicationContext();
             db.cards.Load();
+            DispatcherTimer time = new DispatcherTimer
+            {
+                Interval = new TimeSpan(0, 0, 1)
+            };
+            time.Tick += Timer_Tick;
+            time.Start();
             updateInfo(p1, p2);
             for (int i = 0; i <= 5; i++)
             {
-                p1.hand[i] = rnd.Next(1, 50);
+                p1.hand[i] = rnd.Next(1, 100);
                 p1.usedCards.Add(p1.hand[i]);
             }
-
             card1.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[0]).pic));
             card2.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[1]).pic));
             card3.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[2]).pic));
@@ -107,6 +264,12 @@ namespace castleFlex_alfa
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[0]).name);
             card.Invoke(this,null);
             updateInfo(p1, p2);
+            if (db.cards.Find(p1.hand[0]).doubleTurn == 0)
+            {
+                card1.IsEnabled = false;
+                endTurn();
+            }
+            else card1.IsEnabled = false;
         }
 
         private void Card2_Click(object sender, RoutedEventArgs e)
@@ -115,6 +278,12 @@ namespace castleFlex_alfa
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[1]).name);
             card.Invoke(this, null);
             updateInfo(p1, p2);
+            if (db.cards.Find(p1.hand[1]).doubleTurn == 0)
+            {
+                card2.IsEnabled = false;
+                endTurn();
+            }
+            else card2.IsEnabled = false;
         }
 
         private void Card3_Click(object sender, RoutedEventArgs e)
@@ -123,6 +292,12 @@ namespace castleFlex_alfa
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[2]).name);
             card.Invoke(this, null);
             updateInfo(p1, p2);
+            if (db.cards.Find(p1.hand[2]).doubleTurn == 0)
+            {
+                card3.IsEnabled = false;
+                endTurn();
+            }
+            else card3.IsEnabled = false;
         }
 
         private void Card4_Click(object sender, RoutedEventArgs e)
@@ -131,6 +306,12 @@ namespace castleFlex_alfa
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[3]).name);
             card.Invoke(this, null);
             updateInfo(p1, p2);
+            if (db.cards.Find(p1.hand[3]).doubleTurn == 0)
+            {
+                card4.IsEnabled = false;
+                endTurn();
+            }
+            else card4.IsEnabled = false;
         }
 
         private void Card5_Click(object sender, RoutedEventArgs e)
@@ -139,6 +320,12 @@ namespace castleFlex_alfa
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[4]).name);
             card.Invoke(this, null);
             updateInfo(p1, p2);
+            if (db.cards.Find(p1.hand[4]).doubleTurn == 0)
+            {
+                card5.IsEnabled = false;
+                endTurn();
+            }
+            else card5.IsEnabled = false;
         }
 
         private void Card6_Click(object sender, RoutedEventArgs e)
@@ -147,6 +334,29 @@ namespace castleFlex_alfa
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[5]).name);
             card.Invoke(this, null);
             updateInfo(p1, p2);
+            if (db.cards.Find(p1.hand[5]).doubleTurn == 0)
+            {
+                card6.IsEnabled = false;
+                endTurn();
+            }
+            else card6.IsEnabled = false;
+        }
+
+        private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            grid.IsEnabled = false;
+            if (MessageBox.Show("Вы действительно хотите выйти из матча?", "Выход", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                p1.usedCards.Clear();
+                this.Close();                
+            }
+            else grid.IsEnabled = true;
         }
     }
 }

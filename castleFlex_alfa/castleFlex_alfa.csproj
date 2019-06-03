@@ -117,6 +117,7 @@
     </Compile>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="cards.cs" />
+    <Compile Include="net.cs" />
     <Compile Include="TwoGameWin.xaml.cs">
       <DependentUpon>TwoGameWin.xaml</DependentUpon>
     </Compile>
@@ -182,7 +183,27 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="t2.png" />
+    <Resource Include="Resources\1920x1080-4579640-fantasy-art-nature.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\18598454a7f7ced9fbd44546143b54a9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\wall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\!army.png" />
+    <Resource Include="Resources\!mag.png" />
+    <Resource Include="Resources\!mine.png" />
+    <Resource Include="Resources\!ore.png" />
+    <Resource Include="Resources\!rec.png" />
+    <Resource Include="Resources\!wiz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icons8-боковое-меню-80.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets')" />

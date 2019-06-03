@@ -20,6 +20,7 @@ namespace castleFlex_alfa
         public int cost { get; set; }
         public string type { get; set; }
         public string name { get; set; }
+        public int doubleTurn { get; set; }
     }
 
     public class cardsList
