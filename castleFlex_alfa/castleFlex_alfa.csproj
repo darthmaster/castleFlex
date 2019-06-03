@@ -117,6 +117,7 @@
     </Compile>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="cards.cs" />
+    <Compile Include="net.cs" />
     <Compile Include="TwoGameWin.xaml.cs">
       <DependentUpon>TwoGameWin.xaml</DependentUpon>
     </Compile>
