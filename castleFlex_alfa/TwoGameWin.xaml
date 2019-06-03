@@ -5,29 +5,316 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:castleFlex_alfa"
         mc:Ignorable="d"
-        Title="TwoGameWin" d:DesignWidth="978.2" d:DesignHeight="571.4">
-    <Grid Margin="0,0,-6.4,0">
-        <Label Content="Label" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Width="79" Name="playerMages"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="23,51,0,0" VerticalAlignment="Top" Width="79" Name="playerRecruts"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="23,77,0,0" VerticalAlignment="Top" Width="79" Name="playerMines"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="101,25,0,0" VerticalAlignment="Top" Width="79" Name="playerMagic"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="101,51,0,0" VerticalAlignment="Top" Width="79" Name="playerArmy"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="101,77,0,0" VerticalAlignment="Top" Width="79" Name="playerOre"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="603,25,0,0" VerticalAlignment="Top" Width="79" Name="enemyMages"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="603,51,0,0" VerticalAlignment="Top" Width="79" Name="enemyRecruts"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="603,77,0,0" VerticalAlignment="Top" Width="79" Name="enemyMines"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="681,25,0,0" VerticalAlignment="Top" Width="79" Name="enemyMagic"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="681,51,0,0" VerticalAlignment="Top" Width="79" Name="enemyArmy"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="681,77,0,0" VerticalAlignment="Top" Width="79" Name="enemyOre"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="182,142,0,0" VerticalAlignment="Top" Width="69" Name="ptv"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="250,142,0,0" VerticalAlignment="Top" Width="68" Name="pwv"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="463,142,0,0" VerticalAlignment="Top" Width="69" Name="ewv"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="532,142,0,0" VerticalAlignment="Top" Width="68" Name="etv"/>
-        <Button x:Name="card1" Content="Button" HorizontalAlignment="Left" Margin="10,292,0,0" VerticalAlignment="Top" Width="155" Height="240" Click="Card1_Click"/>
-        <Button x:Name="card2" Content="Button" HorizontalAlignment="Left" Margin="170,292,0,0" VerticalAlignment="Top" Width="155" Height="240" Click="Card2_Click"/>
-        <Button x:Name="card3" Content="Button" HorizontalAlignment="Left" Margin="330,292,0,0" VerticalAlignment="Top" Width="155" Height="240" Click="Card3_Click"/>
-        <Button x:Name="card4" Content="Button" HorizontalAlignment="Left" Margin="490,292,0,0" VerticalAlignment="Top" Width="155" Height="240" Click="Card4_Click"/>
-        <Button x:Name="card5" Content="Button" HorizontalAlignment="Left" Margin="650,292,0,0" VerticalAlignment="Top" Width="155" Height="240" Click="Card5_Click"/>
-        <Button x:Name="card6" Content="Button" HorizontalAlignment="Left" Margin="810,292,0,0" VerticalAlignment="Top" Width="155" Height="240" Click="Card6_Click"/>
+        Title="CastleFlex. Multiplayer." d:DesignHeight="571.4" Width="960" Height="600" UseLayoutRounding="False" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" BorderThickness="1" AllowsTransparency="True" WindowStyle="None" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="100" Opacity="0.9" RenderingBias="Quality" ShadowDepth="1"/>
+    </Window.Effect>
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo/>
+    </Window.TaskbarItemInfo>
+    <Grid x:Name="grid" Margin="0">
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/1920x1080-4579640-fantasy-art-nature.jpg" Stretch="UniformToFill" TileMode="FlipXY"/>
+        </Grid.Background>
+
+        <DockPanel Height="244" Margin="50,350,50,0" VerticalAlignment="Top" LastChildFill="False">
+            <DockPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="0.136"/>
+                    <GradientStop Color="#BE000000" Offset="0.242"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="0.727"/>
+                    <GradientStop Color="#C0000000" Offset="0.357"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
+        </DockPanel>
+
+        <Label Content="Label" HorizontalAlignment="Left" Margin="2,25,0,0" VerticalAlignment="Top" Width="100" x:Name="playerMages" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="2,51,0,0" VerticalAlignment="Top" Width="100" x:Name="playerRecruts" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="2,77,0,0" VerticalAlignment="Top" Width="100" x:Name="playerMines" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="102,25,0,0" VerticalAlignment="Top" Width="100" x:Name="playerMagic" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="102,51,0,0" VerticalAlignment="Top" Width="100" x:Name="playerArmy" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="102,77,0,0" VerticalAlignment="Top" Width="100" x:Name="playerOre" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="761,24,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyMages" Height="25" Foreground="#7FFFFFFF">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="761,50,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyRecruts" Height="25" Foreground="#7FFFFFFF">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="761,76,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyMines" Height="25" Foreground="#7FFFFFFF">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="859,24,-0.6,0" VerticalAlignment="Top" Width="100" x:Name="enemyMagic" Height="25" Foreground="#7FFFFFFF">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="859,50,-0.6,0" VerticalAlignment="Top" Width="100" x:Name="enemyArmy" Height="25" Foreground="#7FFFFFFF">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="859,76,-0.6,0" VerticalAlignment="Top" Width="100" x:Name="enemyOre" Height="25" Foreground="#7FFFFFFF">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="50,300,0,0" VerticalAlignment="Top" Width="65" x:Name="ptv" Height="25" Foreground="#7FFFFFFF">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="115,300,0,0" VerticalAlignment="Top" Width="45" x:Name="pwv" Height="25" Foreground="#7FFFFFFF">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="785,300,0,0" VerticalAlignment="Top" Width="59" x:Name="ewv" Height="25" Foreground="#7FFFFFFF">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="844,300,0,0" VerticalAlignment="Top" Width="64" x:Name="etv" Height="25" Foreground="#7FFFFFFF">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+
+        <Button x:Name="card1" Content="" HorizontalAlignment="Left" Margin="60,364,0,0" VerticalAlignment="Top" Width="130" Height="220" Click="Card1_Click" AutomationProperties.AccessKey="1" AutomationProperties.AutomationId="1" Foreground="Black" Background="Black">
+            
+        </Button>
+        <Button x:Name="card2" Content="" HorizontalAlignment="Left" Margin="201,364,0,0" VerticalAlignment="Top" Width="130" Height="220" Click="Card2_Click" AutomationProperties.AccessKey="2" AutomationProperties.AutomationId="2" Foreground="Black" Background="Black">
+            
+        </Button>
+        <Button x:Name="card3" Content="" HorizontalAlignment="Left" Margin="342,364,0,0" VerticalAlignment="Top" Width="130" Height="220" Click="Card3_Click" AutomationProperties.AccessKey="3" AutomationProperties.AutomationId="3" Foreground="Black" Background="Black">
+            
+        </Button>
+        <Button x:Name="card4" Content="" HorizontalAlignment="Left" Margin="483,364,0,0" VerticalAlignment="Top" Width="130" Height="220" Click="Card4_Click" AutomationProperties.AutomationId="4" AutomationProperties.AccessKey="4" Foreground="Black" Background="Black">
+            
+        </Button>
+        <Button x:Name="card5" Content="" HorizontalAlignment="Left" Margin="623,364,0,0" VerticalAlignment="Top" Width="130" Height="220" Click="Card5_Click" AutomationProperties.AutomationId="5" AutomationProperties.AccessKey="5" Foreground="Black" Background="Black">
+            
+        </Button>
+        <Button x:Name="card6" Content="" HorizontalAlignment="Left" Margin="764,364,0,0" VerticalAlignment="Top" Width="130" Height="220" Click="Card6_Click" AutomationProperties.AccessKey="6" AutomationProperties.AutomationId="6" Foreground="Black" Background="Black">
+            
+        </Button>
+
+        <DockPanel Height="25" Margin="0,0,0.4,0" LastChildFill="False" MouseDown="DockPanel_MouseDown" VerticalAlignment="Top">
+            <DockPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#B5000000" Offset="1"/>
+                    <GradientStop Color="#BE000000"/>
+                    <GradientStop Color="#33000000" Offset="1"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
+            <Label x:Name="gameTimer" Content="gameTimer" Foreground="#7FFFFFFF" FontFamily="Century Gothic" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0.4,0" FontWeight="Bold" DockPanel.Dock="Top" HorizontalAlignment="Center"/>
+        </DockPanel>
+
+        <ProgressBar x:Name="playerWall" Height="270" Margin="120,30,0,0" VerticalAlignment="Top" Width="100" Value="50" Orientation="Vertical" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+            <ProgressBar.Foreground>
+                <ImageBrush ImageSource="Resources/wall.png">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleY="-1" ScaleX="1"/>
+                            <SkewTransform AngleY="0" AngleX="0" CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="-90" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </ProgressBar.Foreground>
+            <ProgressBar.BorderBrush>
+                <ImageBrush/>
+            </ProgressBar.BorderBrush>
+            <ProgressBar.Background>
+                <ImageBrush Stretch="Uniform"/>
+            </ProgressBar.Background>
+        </ProgressBar>
+        <ProgressBar x:Name="enemyWall" Height="270" Margin="720,30,0,0" VerticalAlignment="Top" Width="100" Value="50" Orientation="Vertical" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+            <ProgressBar.Foreground>
+                <ImageBrush ImageSource="Resources/wall.png">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleY="1" ScaleX="1"/>
+                            <SkewTransform AngleY="0" AngleX="0" CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </ProgressBar.Foreground>
+            <ProgressBar.BorderBrush>
+                <ImageBrush/>
+            </ProgressBar.BorderBrush>
+            <ProgressBar.Background>
+                <ImageBrush Stretch="Uniform"/>
+            </ProgressBar.Background>
+        </ProgressBar>
+        <ProgressBar x:Name="playerTower" HorizontalAlignment="Left" Height="208" Margin="0,102,0,0" VerticalAlignment="Top" Width="135" BorderBrush="#00BCBCBC" Orientation="Vertical" Value="50" RenderTransformOrigin="0.5,0.5">
+            <ProgressBar.Foreground>
+                <ImageBrush ImageSource="Resources/18598454a7f7ced9fbd44546143b54a9.png" TileMode="FlipXY" Opacity="0.9">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleY="1" ScaleX="1"/>
+                            <SkewTransform AngleY="0" AngleX="0" CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="90" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </ProgressBar.Foreground>
+            <ProgressBar.Background>
+                <ImageBrush/>
+            </ProgressBar.Background>
+        </ProgressBar>
+        <ProgressBar x:Name="enemyTower" HorizontalAlignment="Left" Height="208" Margin="809,102,0,0" VerticalAlignment="Top" Width="135" BorderBrush="#00BCBCBC" Orientation="Vertical" Value="50" RenderTransformOrigin="0.5,0.5">
+            <ProgressBar.Foreground>
+                <ImageBrush ImageSource="Resources/18598454a7f7ced9fbd44546143b54a9.png" TileMode="FlipXY" Opacity="0.9">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleY="-1" ScaleX="1"/>
+                            <SkewTransform AngleY="0" AngleX="0" CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="-90" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </ProgressBar.Foreground>
+            <ProgressBar.Background>
+                <ImageBrush/>
+            </ProgressBar.Background>
+        </ProgressBar>
+
+        <Label x:Name="p1name" Content="player1" HorizontalAlignment="Left" Margin="0,-1,0,0" VerticalAlignment="Top" Foreground="#7FFFFFFF" FontFamily="Century Gothic" FontWeight="Bold" FontStyle="Italic" Background="#7F0031FF"/>
+        <Label x:Name="p2name" Content="player2" HorizontalAlignment="Right" Margin="0,0,-1,0" VerticalAlignment="Top" Foreground="#7FFFFFFF" FontFamily="Century Gothic" FontWeight="Bold" FontStyle="Italic" Background="#7FFF0000"/>
+
+        <Image HorizontalAlignment="Left" Height="25" Margin="10,28,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!wiz.png"/>
+        <Image HorizontalAlignment="Left" Height="25" Margin="102,81,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!ore.png"/>
+        <Image HorizontalAlignment="Left" Height="25" Margin="106,50,0,0" VerticalAlignment="Top" Width="18" Source="Resources/!army.png"/>
+        <Image HorizontalAlignment="Left" Height="25" Margin="102,25,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!mag.png"/>
+        <Image HorizontalAlignment="Left" Height="25" Margin="10,77,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!mine.png"/>
+        <Image HorizontalAlignment="Left" Height="22" Margin="10,53,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!rec.png"/>
+        <Image HorizontalAlignment="Left" Height="25" Margin="829,29,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!wiz.png"/>
+        <Image HorizontalAlignment="Left" Height="25" Margin="921,82,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!ore.png"/>
+        <Image HorizontalAlignment="Left" Height="25" Margin="925,51,0,0" VerticalAlignment="Top" Width="18" Source="Resources/!army.png"/>
+        <Image HorizontalAlignment="Left" Height="25" Margin="921,26,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!mag.png"/>
+        <Image HorizontalAlignment="Left" Height="25" Margin="829,78,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!mine.png"/>
+        <Image HorizontalAlignment="Left" Height="22" Margin="829,54,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!rec.png"/>
+        <Button x:Name="menu" Content="Button" HorizontalAlignment="Left" Margin="908,540,-11.6,0" VerticalAlignment="Top" Width="62" Height="54" BorderBrush="White" Background="White" Click="Button_Click">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="Resources/icons8-боковое-меню-80.png"/>
+            </Button.OpacityMask>
+        </Button>
     </Grid>
 </Window>
