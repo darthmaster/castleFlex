@@ -56,7 +56,6 @@ namespace castleFlex_alfa
         public OneGameWin()
         {
             InitializeComponent();
-            MediaElement.Play();
             db = new ApplicationContext();
             db.cards.Load();
             //this.DataContext = db.cards.Local.ToBindingList();
@@ -67,6 +66,9 @@ namespace castleFlex_alfa
             Card5.Source = CreateImage(db.cards.Find(7).pic);
             Card6.Source = CreateImage(db.cards.Find(39).pic);
             this.DataContext = db.cards.Local.ToBindingList();
+            //t3z.Height = 125;
+            //System.Windows.Thickness bs = new System.Windows.Thickness(85, 125, 0, 0);
+            //t3.Margin = bs;
         }
 
         public void resMessage(int cost)
@@ -89,12 +91,18 @@ namespace castleFlex_alfa
             return image;
         }  // функция преобразование byto to ImageSourse
 
-        private void MediaElement_MediaEnded_1(object sender, RoutedEventArgs e)
+        //private void MediaElement_MediaEnded_1(object sender, RoutedEventArgs e)
+        //{
+        //    MediaElement.Stop();
+        //    TimeSpan ts = new TimeSpan(0, 0, 0, 0, 0);
+        //    MediaElement.Position = ts;
+        //    MediaElement.Play();
+        //} //зацикливание фона
+        
+        private void MediaElement_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MediaElement.Stop();
-            TimeSpan ts = new TimeSpan(0, 0, 0, 0, 0);
-            MediaElement.Position = ts;
-            MediaElement.Play();
-        } //зацикливание фона
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
     }
 }

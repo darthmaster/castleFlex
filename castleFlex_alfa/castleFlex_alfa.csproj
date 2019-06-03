@@ -205,6 +205,34 @@
   <ItemGroup>
     <Resource Include="Resources\icons8-боковое-меню-80.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\castle.png" />
+    <Resource Include="Resources\castle_e.png" />
+    <Resource Include="Resources\magic.png" />
+    <Resource Include="Resources\ora.jpg" />
+    <Resource Include="Resources\ore.png" />
+    <Resource Include="Resources\t1.png" />
+    <Resource Include="Resources\t1e.png" />
+    <Resource Include="Resources\t2.png" />
+    <Resource Include="Resources\t2e.png" />
+    <Resource Include="Resources\t3.png" />
+    <Resource Include="Resources\t3e.png" />
+    <Resource Include="Resources\t3ez.png" />
+    <Resource Include="Resources\t3z.png" />
+    <Resource Include="Resources\temnaya_derevyannaya_tekstura.jpg" />
+    <Resource Include="Resources\trava.png" />
+    <Resource Include="Resources\ybv6ppsQyutAVFMHiiJ2stCM7.png" />
+    <Resource Include="Resources\zelenaya-polyana-mezhdu-gor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\army.png" />
+    <Resource Include="Resources\mine.png" />
+    <Resource Include="Resources\rec.png" />
+    <Resource Include="Resources\wiz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\bmine.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('packages\System.Data.SQLite.Core.1.0.110.0\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

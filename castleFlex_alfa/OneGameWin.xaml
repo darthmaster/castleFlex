@@ -18,21 +18,58 @@
             <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/1_JbgEYICf4aZn_r2eEOj47Q.gif" Stretch="UniformToFill" TileMode="Tile"/>
         </Grid.Background>-->
 
-        <!--      Source="C:\1_JbgEYICf4aZn_r2eEOj47Q.mpg"                 <Image Source="pack://siteoforigin:,,,/Resources/1_JbgEYICf4aZn_r2eEOj47Q.gif" Stretch="UniformToFill" StretchDirection="UpOnly" />-->
-        <MediaElement x:Name="MediaElement" Source="C:\zelenaya-polyana-mezhdu-gor.jpg" Stretch="UniformToFill" MediaEnded="MediaElement_MediaEnded_1" LoadedBehavior="Manual" Grid.ColumnSpan="3"/>
-        <Image Source="C:\t3.png" HorizontalAlignment="Left"  Margin="267,212,0,0" VerticalAlignment="Top"  Height="230" Width="56" />
-        <Image Source="C:\t3.png" HorizontalAlignment="Left"  Margin="382,128,0,0" VerticalAlignment="Top" Height="314" Width="142" />
-        <Image Source="C:\t2.png" HorizontalAlignment="Left"  Margin="244,270,0,0" VerticalAlignment="Top" Height="230" Width="60" />
-        <Image Source="C:\t1.png" HorizontalAlignment="Left"  Margin="163,308,0,-84" VerticalAlignment="Top" Height="230" Width="60" />
-        <Image Source="C:\castle.png" HorizontalAlignment="Left"  Margin="10,226,0,0" VerticalAlignment="Top" Height="230" Width="234" />
+        <!--      Source="Resources/1_JbgEYICf4aZn_r2eEOj47Q.mpg"                 <Image Source="pack://siteoforigin:,,,/Resources/1_JbgEYICf4aZn_r2eEOj47Q.gif" Stretch="UniformToFill" StretchDirection="UpOnly" />-->
+        <!--<MediaElement x:Name="MediaElement" Source="Resources/zelenaya-polyana-mezhdu-gor.jpg" Stretch="UniformToFill" MediaEnded="MediaElement_MediaEnded_1" LoadedBehavior="Manual" Grid.ColumnSpan="3" MouseDown="MediaElement_MouseDown"/>-->
+        <Image x:Name="MediaElement" Source="Resources/zelenaya-polyana-mezhdu-gor.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Stretch="UniformToFill" MouseDown="MediaElement_MouseDown"/>
 
-        <Image Source="C:\t3e.png" HorizontalAlignment="Left"  Margin="30,41,0,0" VerticalAlignment="Top" Height="495" Width="115" Grid.Column="1" />
-        <Image Source="C:\t2e.png" HorizontalAlignment="Left"  Margin="30,176,0,0" VerticalAlignment="Top" Height="280" Width="102" Grid.Column="1" />
-        <Image Source="C:\t1e.png" HorizontalAlignment="Left"  Margin="30,212,0,0" VerticalAlignment="Top" Height="496" Width="113" Grid.Column="1" />
-        <Image Source="C:\castle_e.png" HorizontalAlignment="Left"  Margin="237,308,0,0" VerticalAlignment="Top" Height="167" Width="169" Grid.Column="1" RenderTransformOrigin="0.245,0.319" Grid.ColumnSpan="2" />
+        <Image Name="t3" Source="Resources/t3.png" HorizontalAlignment="Left"  Margin="162,36,0,0" VerticalAlignment="Top" Height="314" Width="90" />
 
 
-        <Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,442,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.ColumnSpan="3" Height="276" Width="1278" />
+        <Image Source="Resources/t2.png" HorizontalAlignment="Left"  Margin="443,151,0,0" VerticalAlignment="Top"  Height="245" Width="90" />
+        <Image Source="Resources/t3z.png" HorizontalAlignment="Right"  Margin="0,0,308,305" VerticalAlignment="Bottom"  Height="63" Width="90" Stretch="Fill" RenderTransformOrigin="0.322,0.484" />
+        <Image Source="Resources/t1.png" HorizontalAlignment="Left"  Margin="408,197,0,0" VerticalAlignment="Top" Height="199" Width="90" />
+        <Image Source="Resources/t3z.png" HorizontalAlignment="Right"  Margin="0,0,348,300" VerticalAlignment="Bottom"  Height="63" Width="85" Stretch="Fill" />
+        <Image Source="Resources/t1.png" HorizontalAlignment="Left"  Margin="372,216,0,0" VerticalAlignment="Top" Height="199" Width="90" />
+        <Image Source="Resources/t3z.png" HorizontalAlignment="Right"  Margin="0,0,385,284" VerticalAlignment="Bottom"  Height="63" Width="90" Stretch="Fill" />
+        <Image Source="Resources/t2.png" HorizontalAlignment="Left"  Margin="336,159,0,0" VerticalAlignment="Top"  Height="294" Width="90" />
+
+
+        <Image Source="Resources/t2e.png" HorizontalAlignment="Left"   Margin="820,176,0,0" VerticalAlignment="Top"  Height="245" Width="90" Grid.ColumnSpan="2" />
+        <Image Source="Resources/t3ez.png" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Height="44" Width="90" Stretch="Fill" RenderTransformOrigin="0.322,0.484" Margin="0,0,313,299" Grid.ColumnSpan="2" />
+        <Image Source="Resources/t1e.png" HorizontalAlignment="Left"   Margin="10,222,0,0" VerticalAlignment="Top" Height="199" Width="90" Grid.Column="1" />
+        <Image Source="Resources/t3ez.png" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Height="42" Width="86" Stretch="Fill" Margin="0,0,286,289" Grid.Column="1" />
+        <Image Source="Resources/t1e.png" HorizontalAlignment="Left"   Margin="51,238,0,0" VerticalAlignment="Top" Height="199" Width="90" Grid.Column="1" />
+        <Image Source="Resources/t3ez.png" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Height="47" Width="90" Stretch="Fill" Margin="0,0,241,283" Grid.Column="1" />
+        <Image Source="Resources/t2e.png" HorizontalAlignment="Left"  Margin="69,192,0,0" VerticalAlignment="Top"  Height="294" Width="90" Grid.Column="1" />
+
+
+
+        <Image Source="Resources/t3e.png" HorizontalAlignment="Left"  Margin="187,92,0,0" VerticalAlignment="Top" Height="494" Width="90" Grid.Column="1" />
+
+        <Image Source="Resources/trava.png" HorizontalAlignment="Left"  Margin="0,415,0,0" VerticalAlignment="Top" Height="41" Width="1270" Grid.ColumnSpan="3" />
+        <Image Name="t3z" Source="Resources/t3z.png" HorizontalAlignment="Right"  Margin="0,0,589,267" VerticalAlignment="Bottom"  Height="272" Width="90" Stretch="Fill" />
+        <Image Name="t3ez" Source="Resources/t3ez.png" HorizontalAlignment="Right"  Margin="0,0,105,264" VerticalAlignment="Bottom"  Height="272" Width="90" Stretch="Fill" Grid.Column="1" />
+
+        <Image Source="Resources/t3ez.png" HorizontalAlignment="Right"  Margin="0,0,223,283" VerticalAlignment="Bottom"  Height="69" Width="90" Stretch="Fill" Grid.Column="1" />
+        <Image Source="Resources/t3z.png" HorizontalAlignment="Right"  Margin="0,0,415,278" VerticalAlignment="Bottom"  Height="69" Width="90" Stretch="Fill" />
+
+
+
+        <Image Source="Resources/ybv6ppsQyutAVFMHiiJ2stCM7.png" HorizontalAlignment="Left"  Margin="282,10,0,0" VerticalAlignment="Top"  Height="196" Width="147" Grid.ColumnSpan="2" Grid.Column="1" />
+        <Image Source="Resources/ybv6ppsQyutAVFMHiiJ2stCM7.png" HorizontalAlignment="Left"  Margin="10,10,0,0" VerticalAlignment="Top"  Height="196" Width="147" />
+        <Image HorizontalAlignment="Left" Height="40" Margin="25,48,0,0" VerticalAlignment="Top" Width="40" Source="Resources/wiz.png"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="87,133,0,0" VerticalAlignment="Top" Width="40" Source="Resources/ore.png"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="97,88,0,0" VerticalAlignment="Top" Width="40" Source="Resources/army.png"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="92,43,0,0" VerticalAlignment="Top" Width="40" Source="Resources/magic.png"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="25,133,0,0" VerticalAlignment="Top" Width="40" Source="Resources/bmine.png"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="25,92,0,0" VerticalAlignment="Top" Width="40" Source="Resources/rec.png" />
+        <Image HorizontalAlignment="Left" Height="40" Margin="298,48,0,0" VerticalAlignment="Top" Width="40" Source="Resources/wiz.png" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="37" Margin="360,136,0,0" VerticalAlignment="Top" Width="37" Source="Resources/ore.png" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="369,88,0,0" VerticalAlignment="Top" Width="40" Source="Resources/army.png" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="365,43,0,0" VerticalAlignment="Top" Width="40" Source="Resources/magic.png" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="37" Margin="298,133,0,0" VerticalAlignment="Top" Width="37" Source="Resources/bmine.png" Grid.Column="1"/>
+        <Image Height="40" Margin="298,92,44,0" VerticalAlignment="Top" Source="Resources/rec.png" Grid.Column="1"/>
+        <Image Source="Resources/ora.jpg" HorizontalAlignment="Left"  Margin="0,442,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.ColumnSpan="3" Height="276" Width="1278" />
         <Grid Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50*"/>
@@ -43,11 +80,11 @@
                 <RowDefinition Height="400*"/>
                 <RowDefinition Height="250*"/>
             </Grid.RowDefinitions>
-            <Image Source="C:\temnaya_derevyannaya_tekstura.jpg" HorizontalAlignment="Left"  Margin="0,8,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="1" Grid.Row="1"/>
-            <!--<Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="0" Grid.Row="0"/>-->
-            <Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="0" Grid.Row="1"/>
-            <!--<Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="2" Grid.Row="0"/>-->
-            <Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="2" Grid.Row="1"/>
+            <Image Source="Resources/temnaya_derevyannaya_tekstura.jpg" HorizontalAlignment="Left"  Margin="0,8,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="1" Grid.Row="1"/>
+            <!--<Image Source="Resources/ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="0" Grid.Row="0"/>-->
+            <Image Source="Resources/ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="0" Grid.Row="1"/>
+            <!--<Image Source="Resources/ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="2" Grid.Row="0"/>-->
+            <Image Source="Resources/ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="2" Grid.Row="1"/>
 
             <Grid Grid.Column="1" Margin="0,0,0,0" Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -70,7 +107,7 @@
             </Grid>
 
             <Grid Grid.Column="1" Margin="0,0,0,0" Grid.Row="0">
-                <ListBox x:Name="phonesList" ItemsSource="{Binding}" Margin="994,10,10,309">
+                <ListBox x:Name="phonesList" ItemsSource="{Binding}" Margin="507,0,475,61">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -83,26 +120,63 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="23,25,0,0" VerticalAlignment="Top" Width="79" Name="playerMages"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="23,51,0,0" VerticalAlignment="Top" Width="79" Name="playerRecruts"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="23,77,0,0" VerticalAlignment="Top" Width="79" Name="playerMines"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="101,25,0,0" VerticalAlignment="Top" Width="79" Name="playerMagic"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="101,51,0,0" VerticalAlignment="Top" Width="79" Name="playerArmy"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="101,77,0,0" VerticalAlignment="Top" Width="79" Name="playerOre"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="603,25,0,0" VerticalAlignment="Top" Width="79" Name="enemyMages"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="603,51,0,0" VerticalAlignment="Top" Width="79" Name="enemyRecruts"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="603,77,0,0" VerticalAlignment="Top" Width="79" Name="enemyMines"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="681,25,0,0" VerticalAlignment="Top" Width="79" Name="enemyMagic"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="681,51,0,0" VerticalAlignment="Top" Width="79" Name="enemyArmy"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="681,77,0,0" VerticalAlignment="Top" Width="79" Name="enemyOre"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="182,142,0,0" VerticalAlignment="Top" Width="69" Name="ptv"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="250,142,0,0" VerticalAlignment="Top" Width="68" Name="pwv"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="463,142,0,0" VerticalAlignment="Top" Width="69" Name="ewv"/>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="532,142,0,0" VerticalAlignment="Top" Width="68" Name="etv"/>
+                <Label Content="60" HorizontalAlignment="Left" Margin="10,68,0,0" VerticalAlignment="Top" Width="50" Name="playerMages"/>
+                <Label Content="50" HorizontalAlignment="Left" Margin="12,113,0,0" VerticalAlignment="Top" Width="22" Name="playerRecruts"/>
+                <Label Content="99" HorizontalAlignment="Left" Margin="12,153,0,0" VerticalAlignment="Top" Width="30" Name="playerMines"/>
+                <Label Content="120" HorizontalAlignment="Left" Margin="75,68,0,0" VerticalAlignment="Top" Width="35" Name="playerMagic"/>
+                <Label Content="500" HorizontalAlignment="Left" Margin="75,113,0,0" VerticalAlignment="Top" Width="38" Name="playerArmy"/>
+                <Label Content="800" HorizontalAlignment="Left" Margin="75,150,0,0" VerticalAlignment="Top" Width="35" Name="playerOre"/>
+                <Label Content="60" HorizontalAlignment="Left" Margin="1120,68,0,0" VerticalAlignment="Top" Width="30" Name="enemyMages"/>
+                <Label Content="50" HorizontalAlignment="Left" Margin="1122,113,-9,0" VerticalAlignment="Top" Width="78" Name="enemyRecruts"/>
+                <Label Content="99" HorizontalAlignment="Left" Margin="1122,153,0,0" VerticalAlignment="Top" Width="30" Name="enemyMines"/>
+                <Label Content="120" HorizontalAlignment="Left" Margin="1187,68,-38,0" VerticalAlignment="Top" Width="40" Name="enemyMagic"/>
+                <Label Content="500" HorizontalAlignment="Left" Margin="1187,113,-38,0" VerticalAlignment="Top" Width="40" Name="enemyArmy"/>
+                <Label Content="800" HorizontalAlignment="Left" Margin="1187,150,-26,0" VerticalAlignment="Top" Width="28" Name="enemyOre" Height="26"/>
+
+                <Label Content="Label" HorizontalAlignment="Left" Margin="142,393,0,0" VerticalAlignment="Top" Width="38" x:Name="ptv" Height="25" Foreground="#7FFFFFFF">
+                    <Label.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#B5000000" Offset="1"/>
+                            <GradientStop Color="#BE000000"/>
+                            <GradientStop Color="#33000000"/>
+                            <GradientStop Color="Black" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Background>
+                </Label>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="383,384,0,0" VerticalAlignment="Top" Width="44" x:Name="pwv" Height="25" Foreground="#7FFFFFFF">
+                    <Label.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#B5000000" Offset="1"/>
+                            <GradientStop Color="#BE000000"/>
+                            <GradientStop Color="#33000000"/>
+                            <GradientStop Color="Black" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Background>
+                </Label>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="827,384,0,0" VerticalAlignment="Top" Width="59" x:Name="ewv" Height="25" Foreground="#7FFFFFFF">
+                    <Label.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#B5000000" Offset="1"/>
+                            <GradientStop Color="#BE000000"/>
+                            <GradientStop Color="#33000000"/>
+                            <GradientStop Color="Black" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Background>
+                </Label>
+                <Label Content="Label" HorizontalAlignment="Left" Margin="1008,393,0,0" VerticalAlignment="Top" Width="42" x:Name="etv" Height="25" Foreground="#7FFFFFFF">
+                    <Label.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#B5000000" Offset="1"/>
+                            <GradientStop Color="#BE000000"/>
+                            <GradientStop Color="#33000000"/>
+                            <GradientStop Color="Black" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Label.Background>
+                </Label>
             </Grid>
         </Grid>
-        <Image Source="t2.png" HorizontalAlignment="Left"  Margin="317,344,0,0" VerticalAlignment="Top" Height="230" Width="60" />
-        <!--<Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,438,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.ColumnSpan="2" Height="20" Width="1278" />-->
+
+        <!--<Image Source="Resources/ora.jpg" HorizontalAlignment="Left"  Margin="0,438,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.ColumnSpan="2" Height="20" Width="1278" />-->
 
     </Grid>
 </Window>
