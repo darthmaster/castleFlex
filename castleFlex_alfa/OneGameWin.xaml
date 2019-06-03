@@ -8,29 +8,32 @@
         mc:Ignorable="d"
         Title="OneGameWin" Height="720" Width="1280" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
-    <Grid HorizontalAlignment="Left" Height="718" VerticalAlignment="Top" Width="1278">
+    <Grid HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="140*"/>
-            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="280*"/>
+            <ColumnDefinition Width="127*"/>
+            <ColumnDefinition Width="19*"/>
         </Grid.ColumnDefinitions>
         <!--<Grid.Background>
             <ImageBrush ImageSource="pack://siteoforigin:,,,/Resources/1_JbgEYICf4aZn_r2eEOj47Q.gif" Stretch="UniformToFill" TileMode="Tile"/>
         </Grid.Background>-->
 
         <!--      Source="C:\1_JbgEYICf4aZn_r2eEOj47Q.mpg"                 <Image Source="pack://siteoforigin:,,,/Resources/1_JbgEYICf4aZn_r2eEOj47Q.gif" Stretch="UniformToFill" StretchDirection="UpOnly" />-->
-        <MediaElement x:Name="MediaElement" Source="C:\zelenaya-polyana-mezhdu-gor.jpg" Stretch="UniformToFill" MediaEnded="MediaElement_MediaEnded_1" LoadedBehavior="Manual" Grid.ColumnSpan="2"/>
-        <Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,442,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.ColumnSpan="2" Height="276" Width="1278" />
-        <Image Source="C:\322.png" HorizontalAlignment="Left"  Margin="312,187,0,0" VerticalAlignment="Top" Height="260" Width="179" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5" >
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-1.317"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Grid Grid.ColumnSpan="2">
+        <MediaElement x:Name="MediaElement" Source="C:\zelenaya-polyana-mezhdu-gor.jpg" Stretch="UniformToFill" MediaEnded="MediaElement_MediaEnded_1" LoadedBehavior="Manual" Grid.ColumnSpan="3"/>
+        <Image Source="C:\t3.png" HorizontalAlignment="Left"  Margin="267,212,0,0" VerticalAlignment="Top"  Height="230" Width="56" />
+        <Image Source="C:\t3.png" HorizontalAlignment="Left"  Margin="382,128,0,0" VerticalAlignment="Top" Height="314" Width="142" />
+        <Image Source="C:\t2.png" HorizontalAlignment="Left"  Margin="244,270,0,0" VerticalAlignment="Top" Height="230" Width="60" />
+        <Image Source="C:\t1.png" HorizontalAlignment="Left"  Margin="163,308,0,-84" VerticalAlignment="Top" Height="230" Width="60" />
+        <Image Source="C:\castle.png" HorizontalAlignment="Left"  Margin="10,226,0,0" VerticalAlignment="Top" Height="230" Width="234" />
+
+        <Image Source="C:\t3e.png" HorizontalAlignment="Left"  Margin="30,41,0,0" VerticalAlignment="Top" Height="495" Width="115" Grid.Column="1" />
+        <Image Source="C:\t2e.png" HorizontalAlignment="Left"  Margin="30,176,0,0" VerticalAlignment="Top" Height="280" Width="102" Grid.Column="1" />
+        <Image Source="C:\t1e.png" HorizontalAlignment="Left"  Margin="30,212,0,0" VerticalAlignment="Top" Height="496" Width="113" Grid.Column="1" />
+        <Image Source="C:\castle_e.png" HorizontalAlignment="Left"  Margin="237,308,0,0" VerticalAlignment="Top" Height="167" Width="169" Grid.Column="1" RenderTransformOrigin="0.245,0.319" Grid.ColumnSpan="2" />
+
+
+        <Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,442,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.ColumnSpan="3" Height="276" Width="1278" />
+        <Grid Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50*"/>
                 <ColumnDefinition Width="1300*"/>
@@ -67,7 +70,7 @@
             </Grid>
 
             <Grid Grid.Column="1" Margin="0,0,0,0" Grid.Row="0">
-                <ListBox x:Name="phonesList" ItemsSource="{Binding}" Margin="135,40,647,43" Visibility="Hidden">
+                <ListBox x:Name="phonesList" ItemsSource="{Binding}" Margin="994,10,10,309">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -98,6 +101,7 @@
                 <Label Content="Label" HorizontalAlignment="Left" Margin="532,142,0,0" VerticalAlignment="Top" Width="68" Name="etv"/>
             </Grid>
         </Grid>
+        <Image Source="t2.png" HorizontalAlignment="Left"  Margin="317,344,0,0" VerticalAlignment="Top" Height="230" Width="60" />
         <!--<Image Source="C:\ora.jpg" HorizontalAlignment="Left"  Margin="0,438,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.ColumnSpan="2" Height="20" Width="1278" />-->
 
     </Grid>
