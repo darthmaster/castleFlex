@@ -34,6 +34,8 @@ namespace castleFlex_alfa
             image.EndInit();
             return image;
         }  // функция преобразование byto to ImageSourse
+        //OneGameWin onegame = new OneGameWin();
+        //TwoGameWin toggame = new TwoGameWin();
         public MainWindow()
         {
             InitializeComponent();
@@ -42,48 +44,19 @@ namespace castleFlex_alfa
             db = new ApplicationContext();
             db.cards.Load();
             this.DataContext = db.cards.Local.ToBindingList();
-            //MessageBox.Show(db.cards.Find(3).name);
-            //картинка не работает: с
-            //testImg.Source = (db.cards.Find(1).pic);
-            //работает если всё нормально преобразовать!
-            //testImg.Source = CreateImage(db.cards.Find(9).pic);
-
-            // хороший код, но хуйня жи столько строчек не выносить в другую функцю
-            //MemoryStream byteStream = new MemoryStream(db.cards.Find(1).pic);
-            //BitmapImage image = new BitmapImage();
-            //image.BeginInit();
-            //image.StreamSource = byteStream;
-            //image.EndInit();
-            //testImg.Source = image;
-
-            
         }
-
-
-        //public static byte[] imageToByteArray(System.Drawing.Image imageIn)
-        //{
-        //    MemoryStream ms = new MemoryStream();
-        //    imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
-        //    return ms.ToArray();
-        //}
-        //public static System.Drawing.Image byteArrayToImage(byte[] byteArrayIn)
-        //{
-        //    MemoryStream ms = new MemoryStream(byteArrayIn);
-        //    System.Drawing.Image returnImage = System.Drawing.Image.FromStream(ms);
-        //    return returnImage;
-        //} //говнокод для вин форм и System.Drawing, т.к. мы используем WPF - юзелес
-        
         private void OneGame(object sender, RoutedEventArgs e) 
         {
             OneGameWin onegame = new OneGameWin();
             onegame.Show();
+            //onegame.InitializeComponent();
         }
         private void TwoGether(object sender, RoutedEventArgs e)
         {
             TwoGameWin toggame = new TwoGameWin();
             toggame.Show();
+            //toggame.InitializeComponent();
         }
-
         private void MediaElement_MediaEnded_1(object sender, RoutedEventArgs e)
         {
             TimeSpan ts = new TimeSpan(0, 0, 0, 0, 0);
@@ -94,7 +67,6 @@ namespace castleFlex_alfa
         {
             Application.Current.Shutdown();
         }
-
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

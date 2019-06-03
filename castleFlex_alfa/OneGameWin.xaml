@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:castleFlex_alfa"
         xmlns:Properties="clr-namespace:castleFlex_alfa.Properties" x:Class="castleFlex_alfa.OneGameWin"
         mc:Ignorable="d"
-        Title="OneGameWin" Height="720" Width="1280" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="OneGameWin" Height="720" Width="1280" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" IsEnabled="True">
 
     <Grid HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280">
         <Grid.ColumnDefinitions>
@@ -85,7 +85,11 @@
             <Image Source="Resources/ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="0" Grid.Row="1"/>
             <!--<Image Source="Resources/ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="2" Grid.Row="0"/>-->
             <Image Source="Resources/ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="2" Grid.Row="1"/>
-
+            <Button x:Name="menu" Content="Button" HorizontalAlignment="Right" Margin="0,0,-16,0" VerticalAlignment="Bottom" Width="62" Height="54" BorderBrush="White" Background="White" Click="menu_Click" Grid.Column="2" Grid.Row="1">
+                <Button.OpacityMask>
+                    <ImageBrush ImageSource="Resources/icons8-боковое-меню-80.png"/>
+                </Button.OpacityMask>
+            </Button>
             <Grid Grid.Column="1" Margin="0,0,0,0" Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="250*"/>
@@ -98,24 +102,24 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="400*"/>
                 </Grid.RowDefinitions>
-                <Image Name="Card1" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="0" Grid.Row="1"/>
-                <Image Name="Card2" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="1" Grid.Row="1"/>
-                <Image Name="Card3" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="2" Grid.Row="1"/>
-                <Image Name="Card4" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="3" Grid.Row="1"/>
-                <Image Name="Card5" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="4" Grid.Row="1"/>
-                <Image Name="Card6" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="5" Grid.Row="1"/>
+                <Image Name="Card1" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="0" Grid.Row="1" AutomationProperties.AccessKey="1" AutomationProperties.AutomationId="1" MouseDown="Card1_MouseDown"/>
+                <Image Name="Card2" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="1" Grid.Row="1" AutomationProperties.AccessKey="1" AutomationProperties.AutomationId="1" MouseDown="Card2_MouseDown"/>
+                <Image Name="Card3" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="2" Grid.Row="1" AutomationProperties.AccessKey="1" AutomationProperties.AutomationId="1" MouseDown="Card3_MouseDown"/>
+                <Image Name="Card4" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="3" Grid.Row="1" AutomationProperties.AccessKey="1" AutomationProperties.AutomationId="1" MouseDown="Card4_MouseDown"/>
+                <Image Name="Card5" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="4" Grid.Row="1" AutomationProperties.AccessKey="1" AutomationProperties.AutomationId="1" MouseDown="Card5_MouseDown"/>
+                <Image Name="Card6" HorizontalAlignment="Left" Height="250" Margin="15,18,0,0" VerticalAlignment="Top" Width="165" Grid.Column="5" Grid.Row="1" AutomationProperties.AccessKey="1" AutomationProperties.AutomationId="1" MouseDown="Card6_MouseDown"/>
             </Grid>
 
             <Grid Grid.Column="1" Margin="0,0,0,0" Grid.Row="0">
-                <ListBox x:Name="phonesList" ItemsSource="{Binding}" Margin="507,0,475,61">
+                <ListBox x:Name="phonesList" ItemsSource="{Binding}" Margin="-19,225,1079,10">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <TextBlock Text="{Binding name}" FontSize="18" />
-                                <TextBlock Text="{Binding id}" FontSize="16" />
-                                <TextBlock Text="{Binding cost}" FontSize="12" />
-                                <TextBlock Text="{Binding type}" FontSize="13" />
-                                <Image Source="{Binding pic}" Width="165" Height="250" />
+                                <TextBlock Text="{Binding name}" FontSize="12" />
+                                <TextBlock Text="{Binding id}" FontSize="10" />
+                                <TextBlock Text="{Binding cost}" FontSize="10" />
+                                <TextBlock Text="{Binding type}" FontSize="10" />
+                                <Image Source="{Binding pic}" Width="100" Height="150" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="UniformToFill"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
