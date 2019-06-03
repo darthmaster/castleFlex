@@ -85,9 +85,19 @@
             <Image Source="Resources/ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="0" Grid.Row="1"/>
             <!--<Image Source="Resources/ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="2" Grid.Row="0"/>-->
             <Image Source="Resources/ora.jpg" HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.Column="2" Grid.Row="1"/>
-            <Button x:Name="menu" Content="Button" HorizontalAlignment="Right" Margin="0,0,-16,0" VerticalAlignment="Bottom" Width="62" Height="54" BorderBrush="White" Background="White" Click="menu_Click" Grid.Column="2" Grid.Row="1">
+            <Button x:Name="menu" Content="o" HorizontalAlignment="Right" Margin="3,3,3,3" VerticalAlignment="Bottom" Width="45" Height="54" Click="menu_Click" Grid.Column="2" Grid.Row="1">
+                <Button.BorderBrush>
+                    <RadialGradientBrush>
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="#FFFF9000" Offset="1"/>
+                    </RadialGradientBrush>
+                </Button.BorderBrush>
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/temnaya_derevyannaya_tekstura.jpg"/>
+                </Button.Background>
                 <Button.OpacityMask>
-                    <ImageBrush ImageSource="Resources/icons8-боковое-меню-80.png"/>
+                    <!--<ImageBrush ImageSource="Resources/icons8-боковое-меню-80.png"/>-->
+                    <ImageBrush ImageSource="Resources/door.png" Stretch="Fill"/>
                 </Button.OpacityMask>
             </Button>
             <Grid Grid.Column="1" Margin="0,0,0,0" Grid.Row="1">

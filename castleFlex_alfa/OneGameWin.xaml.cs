@@ -81,7 +81,7 @@ namespace castleFlex_alfa
         }
         public void krupbe()
         {
-
+            //dealer
         }
         public OneGameWin()
         {
@@ -102,7 +102,7 @@ namespace castleFlex_alfa
                     newElement = rand.Next(100) + 1;
                 } while (!knownNumbers.Add(newElement));
                 arr[i] = newElement;
-            }
+            } //украинский рандом
 
             for (int i = 0; i <= 5; i++)
             {
@@ -321,23 +321,69 @@ namespace castleFlex_alfa
         }
         private void Card2_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            cardList.id = p1.hand[1];
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[1]).name);
+            card.Invoke(this, null);
+            updateInfo(p1, p2);
+            if (db.cards.Find(p1.hand[1]).doubleTurn == 0)
+            {
+                Card2.IsEnabled = false;
+                endTurn();
+            }
+            else Card2.IsEnabled = false;
         }
         private void Card3_MouseDown(object sender, MouseButtonEventArgs e)
         {
             MessageBox.Show("иди нахуй");
+            cardList.id = p1.hand[2];
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[2]).name);
+            card.Invoke(this, null);
+            updateInfo(p1, p2);
+            if (db.cards.Find(p1.hand[2]).doubleTurn == 0)
+            {
+                Card3.IsEnabled = false;
+                endTurn();
+            }
+            else Card3.IsEnabled = false;
         }
         private void Card4_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            cardList.id = p1.hand[3];
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[3]).name);
+            card.Invoke(this, null);
+            updateInfo(p1, p2);
+            if (db.cards.Find(p1.hand[3]).doubleTurn == 0)
+            {
+                Card4.IsEnabled = false;
+                endTurn();
+            }
+            else Card4.IsEnabled = false;
         }
         private void Card5_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            cardList.id = p1.hand[4];
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[4]).name);
+            card.Invoke(this, null);
+            updateInfo(p1, p2);
+            if (db.cards.Find(p1.hand[4]).doubleTurn == 0)
+            {
+                Card5.IsEnabled = false;
+                endTurn();
+            }
+            else Card5.IsEnabled = false;
         }
         private void Card6_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.Hide();
+            cardList.id = p1.hand[5];
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[5]).name);
+            card.Invoke(this, null);
+            updateInfo(p1, p2);
+            if (db.cards.Find(p1.hand[5]).doubleTurn == 0)
+            {
+                Card6.IsEnabled = false;
+                endTurn();
+            }
+            else Card6.IsEnabled = false;
         }
 
         private void menu_Click(object sender, RoutedEventArgs e)
