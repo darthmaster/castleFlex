@@ -100,5 +100,6 @@ namespace castleFlex_alfa
             TwoGameWin multiGame = new TwoGameWin();
             multiGame.Show();
         }
+        //просто бессмысленный коммент
     }
 }

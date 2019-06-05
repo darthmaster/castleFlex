@@ -334,7 +334,6 @@ namespace castleFlex_alfa
         }
         private void Card3_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("иди нахуй");
             cardList.id = p1.hand[2];
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[2]).name);
             card.Invoke(this, null);
