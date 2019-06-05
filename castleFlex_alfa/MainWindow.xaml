@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Closing="Window_Closing" WindowStyle="None" ResizeMode="CanMinimize">
     <Grid>
-        <MediaElement x:Name="MediaElement" Source="pack://siteoforigin:,,,/Resources/background_dev.mpg" Stretch="UniformToFill" MediaEnded="MediaElement_MediaEnded_1" LoadedBehavior="Manual" IsMuted="True"/>
+        <MediaElement x:Name="MediaElement" Source="pack://siteoforigin:,,,/Resources/background_dev.mpg" Stretch="UniformToFill" MediaEnded="MediaElement_MediaEnded_1" LoadedBehavior="Manual" IsMuted="True" MouseDown="MediaElement_MouseDown"/>
         <Label Content="CastleFlex" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="85" Width="220" FontSize="72" VerticalContentAlignment="Center" FontFamily="Parchment" TextOptions.TextHintingMode="Animated" FontWeight="Bold" TextOptions.TextFormattingMode="Display" HorizontalContentAlignment="Center">
             <Label.Foreground>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
@@ -16,7 +16,7 @@
                 </LinearGradientBrush>
             </Label.Foreground>
         </Label>
-        <Button x:Name="button" Content="Play" Margin="241,0,0,382.6" Width="267" Click="OneGame" Foreground="#FF9000FF" FontFamily="Ink Free" FontWeight="Bold" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="40" FontStyle="Italic">
+        <Button x:Name="button" Content="Singleplayer" Margin="241,0,0,382.6" Width="267" Click="OneGame" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontWeight="Bold" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="40" FontStyle="Italic">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -32,7 +32,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="button_Copy" Content="Multiplayer" Margin="616,0,-83,382.6" Width="267" Click="TwoGether" Foreground="#FF9000FF" FontFamily="Ink Free" FontWeight="Bold" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" FontStyle="Italic">
+        <Button x:Name="button_Copy" Content="Multiplayer" Margin="616,0,-83,382.6" Width="267" Click="TwoGether" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontWeight="Bold" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" FontStyle="Italic">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -48,7 +48,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="exitButton" Content="Exit" Margin="600,0,-57.4,8.2" Width="251" Foreground="#FF9000FF" FontFamily="Ink Free" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" Click="ExitButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontStyle="Italic" FontWeight="Bold">
+        <Button x:Name="exitButton" Content="Exit" Margin="637,0,-91,4.6" Width="254" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" Click="ExitButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontStyle="Italic" FontWeight="Bold" Height="40">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -64,7 +64,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="infoButton" Content="Information" Margin="340,0,0,8.2" Width="252" Foreground="#FF9000FF" FontFamily="Ink Free" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="InfoButton_Click" FontStyle="Italic" FontWeight="Bold">
+        <Button x:Name="infoButton" Content="Information" Margin="374,0,0,4.6" Width="255" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="InfoButton_Click" FontStyle="Italic" FontWeight="Bold" Height="40">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -80,7 +80,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="otherButton" Content="Other" Margin="80,0,0,8.2" Width="251" Foreground="#FF9000FF" FontFamily="Ink Free" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="OtherButton_Click" FontStyle="Italic" FontWeight="Bold">
+        <Button x:Name="otherButton" Content="Other" Margin="110,0,0,4.6" Width="255" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="OtherButton_Click" FontStyle="Italic" FontWeight="Bold" Height="40">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -96,20 +96,17 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Grid x:Name="multi" Height="305" Margin="0,90,-0.4,48.2" VerticalAlignment="Center" Opacity="0.5">
-            <Grid.Background>
-                <RadialGradientBrush>
-                    <GradientStop Color="#FFFFDC00"/>
-                    <GradientStop Color="#FFC700FF" Offset="1"/>
-                </RadialGradientBrush>
-            </Grid.Background>
-            <Label Content="multiplayer game configuration" HorizontalAlignment="Left" Margin="510,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontFamily="Monotype Corsiva" Width="274"/>
-            <Label Content="Your name:" HorizontalAlignment="Left" Margin="0,99,0,173" Foreground="White" FontFamily="Monotype Corsiva" FontSize="20"/>
-            <Label Content="IP addres:" HorizontalAlignment="Left" Margin="8,132,0,141" Foreground="White" FontFamily="Monotype Corsiva" FontSize="20"/>
-            <Label Content="Port:" HorizontalAlignment="Left" Margin="45,164,0,115" Foreground="White" FontFamily="Monotype Corsiva" FontSize="20" Height="32"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="91,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Background="#7F000000" Foreground="White" BorderBrush="#00ABADB3" TextDecorations="{x:Null}" FontStyle="Italic" TextOptions.TextHintingMode="Animated" SelectionBrush="#FFFFDC00"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="91,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Background="#7F000000" Foreground="White" BorderBrush="#00ABADB3" TextDecorations="{x:Null}" FontStyle="Italic" TextOptions.TextHintingMode="Animated"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="91,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Background="#7F000000" Foreground="White" BorderBrush="#00ABADB3" TextDecorations="{x:Null}" FontStyle="Italic" TextOptions.TextHintingMode="Animated"/>
+        <Grid x:Name="multi" Margin="519,67,13,77.6" VerticalAlignment="Center" Opacity="0.5" RenderTransformOrigin="0.5,0.5" Background="#FF7D00FF">
+            <Label Content="game configuration" HorizontalAlignment="Left" Margin="83,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" FontFamily="Monotype Corsiva" Width="175"/>
+            <Label Content="Your name:" HorizontalAlignment="Left" Margin="13,47,0,224.8" Foreground="White" FontFamily="Monotype Corsiva" FontSize="20" Height="32"/>
+            <Label Content="IP addres:" HorizontalAlignment="Left" Margin="21,85,0,187.8" Foreground="White" FontFamily="Monotype Corsiva" FontSize="20" Height="32"/>
+            <Label Content="Port:" HorizontalAlignment="Left" Margin="58,122,0,150.8" Foreground="White" FontFamily="Monotype Corsiva" FontSize="20" Height="32"/>
+            <TextBox x:Name="username" HorizontalAlignment="Left" Height="32" Margin="109,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Background="#7F000000" Foreground="White" BorderBrush="#00ABADB3" TextDecorations="{x:Null}" TextOptions.TextHintingMode="Animated" SelectionBrush="#FFFFDC00" FontSize="18" FontStyle="Italic" Text="player"/>
+            <TextBox x:Name="ip" HorizontalAlignment="Left" Height="32" Margin="109,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Background="#7F000000" Foreground="White" BorderBrush="#00ABADB3" TextDecorations="{x:Null}" TextOptions.TextHintingMode="Animated" FontSize="18" FontStyle="Italic" Text="127.0.0.1"/>
+            <TextBox x:Name="port" HorizontalAlignment="Left" Height="32" Margin="109,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Background="#7F000000" Foreground="White" BorderBrush="#00ABADB3" TextDecorations="{x:Null}" TextOptions.TextHintingMode="Animated" FontSize="18" FontStyle="Italic" Text="654"/>
+            <TextBox x:Name="recport" HorizontalAlignment="Left" Height="32" Margin="109,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Background="#7F000000" Foreground="White" BorderBrush="#00ABADB3" TextDecorations="{x:Null}" TextOptions.TextHintingMode="Animated" FontSize="18" FontStyle="Italic" Text="456"/>
+            <Label Content="ReceivePort:" HorizontalAlignment="Left" Margin="5,159,0,113.8" Foreground="White" FontFamily="Monotype Corsiva" FontSize="20" Height="32"/>
+            <Button x:Name="multiStart" Content="Start Game" HorizontalAlignment="Left" Margin="0,263,0,-0.2" VerticalAlignment="Top" Width="268" Height="42" Foreground="White" Background="#FF370071" BorderBrush="#00707070" FontFamily="Monotype Corsiva" FontSize="22" Click="MultiStart_Click"/>
         </Grid>
     </Grid>
 </Window>

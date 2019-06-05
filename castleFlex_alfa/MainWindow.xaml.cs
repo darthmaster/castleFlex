@@ -22,6 +22,14 @@ namespace castleFlex_alfa
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    public class GlobalVariables
+    {
+        public static MainWindow mw = new MainWindow();
+        public string username = mw.username.Text;
+        public string ip = mw.ip.Text;
+        public int port = Convert.ToInt32(mw.port.Text);
+        public int recport = Convert.ToInt32(mw.recport.Text);
+    }
     public partial class MainWindow : Window
     {
         ApplicationContext db;
@@ -34,12 +42,11 @@ namespace castleFlex_alfa
             image.EndInit();
             return image;
         }  // функция преобразование byto to ImageSourse
-        //OneGameWin onegame = new OneGameWin();
-        //TwoGameWin toggame = new TwoGameWin();
+        public OneGameWin onegame = new OneGameWin();
         public MainWindow()
         {
             InitializeComponent();
-            //multi.IsVisible=false;
+            multi.Visibility = Visibility.Hidden;
             MediaElement.Play();
             db = new ApplicationContext();
             db.cards.Load();
@@ -47,15 +54,15 @@ namespace castleFlex_alfa
         }
         private void OneGame(object sender, RoutedEventArgs e) 
         {
-            OneGameWin onegame = new OneGameWin();
             onegame.Show();
-            //onegame.InitializeComponent();
         }
         private void TwoGether(object sender, RoutedEventArgs e)
         {
-            TwoGameWin toggame = new TwoGameWin();
-            toggame.Show();
-            //toggame.InitializeComponent();
+            if (multi.Visibility == Visibility.Visible)
+            {
+                multi.Visibility = Visibility.Hidden;
+            }
+            else multi.Visibility = Visibility.Visible;
         }
         private void MediaElement_MediaEnded_1(object sender, RoutedEventArgs e)
         {
@@ -80,6 +87,18 @@ namespace castleFlex_alfa
         private void OtherButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void MediaElement_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+
+        private void MultiStart_Click(object sender, RoutedEventArgs e)
+        {
+            TwoGameWin multiGame = new TwoGameWin();
+            multiGame.Show();
         }
     }
 }

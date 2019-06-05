@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Reflection;
 using System.IO;
 using System.Windows.Threading;
+using System.Threading;
 
 namespace castleFlex_alfa
 {
@@ -23,8 +24,9 @@ namespace castleFlex_alfa
     {
         int t = 0;
         ApplicationContext db;
-        public cardsList cards = new cardsList();
+        public cardsList cards;// = new cardsList();
         public Random rnd = new Random();
+        public GlobalVariables global = new GlobalVariables();
         public class player
         {
             public string name;
@@ -90,6 +92,16 @@ namespace castleFlex_alfa
 
         public void endTurn()
         {
+            string gameInfo =
+                $"{p1.tower}*{p1.wall}*" +
+                $"{p1.wiz}*{p1.magic}*" +
+                $"{p1.rec}*{p1.army}*" +
+                $"{p1.mine}*{p1.ore}*" +
+                $"{p2.tower}*{p2.wall}*" +
+                $"{p2.wiz}*{p2.magic}*" +
+                $"{p2.rec}*{p2.army}*" +
+                $"{p2.mine}*{p2.ore}*";
+            net.sendData(gameInfo, global.ip , global.port);
             if ((p2.tower <= 0) || (p1.tower >= 100))
             {
                 MessageBox.Show("Вы победили!", "Игра окончена", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -104,6 +116,20 @@ namespace castleFlex_alfa
         }
         public void newTurn()
         {
+            //Thread rt = new Thread(new ThreadStart(rt));
+            string gameInfo = net.receiveData(global.recport);
+            string[] data = gameInfo.Split('*');
+
+            p2.tower = Convert.ToInt32(data[0]); p2.wall = Convert.ToInt32(data[1]);
+            p2.wiz = Convert.ToInt32(data[2]); p2.magic = Convert.ToInt32(data[3]);
+            p2.rec = Convert.ToInt32(data[4]); p2.army = Convert.ToInt32(data[5]);
+            p2.mine = Convert.ToInt32(data[6]); p2.ore = Convert.ToInt32(data[7]);
+
+            p1.tower = Convert.ToInt32(data[8]); p1.wall = Convert.ToInt32(data[9]);
+            p1.wiz = Convert.ToInt32(data[10]); p1.magic = Convert.ToInt32(data[11]);
+            p1.rec = Convert.ToInt32(data[12]); p1.army = Convert.ToInt32(data[13]);
+            p1.mine = Convert.ToInt32(data[14]); p1.ore = Convert.ToInt32(data[15]);
+
             if (p1.wiz <= 0) { p1.wiz = 1; }
             if (p1.rec <= 0) { p1.rec = 1; }
             if (p1.mine <= 0) { p1.mine = 1; }
@@ -238,6 +264,7 @@ namespace castleFlex_alfa
             InitializeComponent();
             db = new ApplicationContext();
             db.cards.Load();
+            cards = new cardsList();
             DispatcherTimer time = new DispatcherTimer
             {
                 Interval = new TimeSpan(0, 0, 1)
