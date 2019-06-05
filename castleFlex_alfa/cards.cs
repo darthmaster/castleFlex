@@ -318,7 +318,7 @@ namespace castleFlex_alfa
             else TwoGameWin.resMessage(db.cards.Find(id).cost);
 
         }
-        public static void Землятрясение()
+        public static void Землетрясение()
         {
             //0;
             if (TwoGameWin.p1.ore >= db.cards.Find(id).cost)
@@ -381,7 +381,7 @@ namespace castleFlex_alfa
             else TwoGameWin.resMessage(db.cards.Find(id).cost);
 
         }
-        public static void Новшевства()
+        public static void Новшества()
         {
             //2;
             if (TwoGameWin.p1.ore >= db.cards.Find(id).cost)
@@ -846,7 +846,7 @@ namespace castleFlex_alfa
             else TwoGameWin.resMessage(db.cards.Find(id).cost);
 
         }
-        public static void ОгенныйРубин()
+        public static void ОгненныйРубин()
         {
             //13;
             if (TwoGameWin.p1.magic >= db.cards.Find(id).cost)
@@ -1386,7 +1386,7 @@ namespace castleFlex_alfa
 
             //играем снова
         }
-        public static void Черт()
+        public static void Бес()
         {
             //5;
             if (TwoGameWin.p1.army >= db.cards.Find(id).cost)
@@ -1713,7 +1713,7 @@ namespace castleFlex_alfa
             else OneGameWin.resMessage(db.cards.Find(id).cost);
 
         }
-        public static void Землятрясение()
+        public static void Землетрясение()
         {
             //0;
             if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
@@ -1776,7 +1776,7 @@ namespace castleFlex_alfa
             else OneGameWin.resMessage(db.cards.Find(id).cost);
 
         }
-        public static void Новшевства()
+        public static void Новшества()
         {
             //2;
             if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
@@ -2241,7 +2241,7 @@ namespace castleFlex_alfa
             else OneGameWin.resMessage(db.cards.Find(id).cost);
 
         }
-        public static void ОгенныйРубин()
+        public static void ОгненныйРубин()
         {
             //13;
             if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
@@ -2781,7 +2781,7 @@ namespace castleFlex_alfa
 
             //играем снова
         }
-        public static void Черт()
+        public static void Бес()
         {
             //5;
             if (OneGameWin.p1.army >= db.cards.Find(id).cost)
