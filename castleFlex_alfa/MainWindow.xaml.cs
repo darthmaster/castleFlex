@@ -41,7 +41,7 @@ namespace castleFlex_alfa
             image.StreamSource = byteStream;
             image.EndInit();
             return image;
-        }  // функция преобразование byto to ImageSourse
+        }  // функция преобразование byte to ImageSourse
         public OneGameWin onegame = new OneGameWin();
         public MainWindow()
         {

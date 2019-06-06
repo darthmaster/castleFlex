@@ -26,5 +26,19 @@ namespace castleFlex_alfa
             receiver.Close();
             return info;
         }
+        public static void nameChanger(string ip, int port, int recport)
+        {
+            GlobalVariables global = new GlobalVariables();
+            UdpClient namer = new UdpClient();
+            byte[] name = Encoding.Unicode.GetBytes(global.username);
+            namer.Send(name, name.Length, ip, port);
+            namer.Close();
+            namer = new UdpClient(recport);
+            IPEndPoint ipend = null;
+            name = namer.Receive(ref ipend);
+            TwoGameWin twoGameWin = new TwoGameWin();
+            twoGameWin.p2name.Content = Encoding.Unicode.GetString(name);
+            namer.Close();
+        }
     }
 }
