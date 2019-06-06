@@ -26,6 +26,7 @@ namespace castleFlex_alfa
         ApplicationContext db;
         public int k;
         public int[] arr = new int[100];
+        //public cardList cards;// = new cardsList();
         public cardList cards = new cardList();
         public class player
         {
@@ -310,7 +311,7 @@ namespace castleFlex_alfa
         private void Card1_MouseDown(object sender, MouseButtonEventArgs e)
         {
             cardList.id = p1.hand[0];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[0]).name);
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(1).name);
             card.Invoke(this, null);
             updateInfo(p1, p2);
             if (db.cards.Find(p1.hand[0]).doubleTurn == 0)
