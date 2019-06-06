@@ -26,7 +26,8 @@ namespace castleFlex_alfa
         ApplicationContext db;
         public int k;
         public int[] arr = new int[100];
-        public cardList cards = new cardList();
+        public cardList cards;// = new cardsList();
+        //public cardList cards = new cardList();
         public class player
         {
             public string name;
