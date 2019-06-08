@@ -52,7 +52,7 @@ namespace castleFlex_alfa
                 this.mine = mine;
                 this.ore = ore;
                 hand = new int[6];
-                usedCards = new List<int>() { };
+                //usedCards = new List<int>() { };
             }
         }
         public static player p1 = new player(50, 0, 1, 15, 1, 15, 1, 15);
@@ -79,6 +79,14 @@ namespace castleFlex_alfa
             //t3z.Height = 125;
             //System.Windows.Thickness bs = new System.Windows.Thickness(85, 125, 0, 0);
             //t3.Margin = bs;
+
+
+            Card1.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
+            Card2.Source = CreateImage(db.cards.Find(p1.hand[1]).pic);
+            Card3.Source = CreateImage(db.cards.Find(p1.hand[2]).pic);
+            Card4.Source = CreateImage(db.cards.Find(p1.hand[3]).pic);
+            Card5.Source = CreateImage(db.cards.Find(p1.hand[4]).pic);
+            Card6.Source = CreateImage(db.cards.Find(p1.hand[5]).pic);
         }
         public void krupbe()
         {
@@ -108,7 +116,7 @@ namespace castleFlex_alfa
             for (int i = 0; i <= 5; i++)
             {
                 p1.hand[i] = arr[i];
-                p1.usedCards.Add(p1.hand[i]);
+                //p1.usedCards.Add(p1.hand[i]);
             }
             Card1.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
             Card2.Source = CreateImage(db.cards.Find(p1.hand[1]).pic);
@@ -118,8 +126,8 @@ namespace castleFlex_alfa
             Card6.Source = CreateImage(db.cards.Find(p1.hand[5]).pic);
             for (int i = 0; i <= 5; i++)
             {
-                p2.hand[i] = arr[i];
-                p2.usedCards.Add(p2.hand[i]);
+                p2.hand[i] = arr[i+6];
+                //p2.usedCards.Add(p2.hand[i]);
             }
             k = 12;
 
@@ -145,6 +153,11 @@ namespace castleFlex_alfa
 
         }
 
+        public void Ksort()
+        {
+
+        }
+
         public static System.Windows.Media.Imaging.BitmapImage CreateImage(byte[] imageData)
         {
             MemoryStream byteStream = new MemoryStream(imageData);
@@ -155,14 +168,7 @@ namespace castleFlex_alfa
             return image;
         }  // функция преобразование byto to ImageSourse
 
-        //private void MediaElement_MediaEnded_1(object sender, RoutedEventArgs e)
-        //{
-        //    MediaElement.Stop();
-        //    TimeSpan ts = new TimeSpan(0, 0, 0, 0, 0);
-        //    MediaElement.Position = ts;
-        //    MediaElement.Play();
-        //} //зацикливание фона
-        public void endTurn()
+        public void win()
         {
             if ((p2.tower <= 0) || (p1.tower >= 100))
             {
@@ -181,125 +187,81 @@ namespace castleFlex_alfa
             if (p1.wiz <= 0) { p1.wiz = 1; }
             if (p1.rec <= 0) { p1.rec = 1; }
             if (p1.mine <= 0) { p1.mine = 1; }
-
-            if (p2.wiz <= 0) { p2.wiz = 1; }
-            if (p2.rec <= 0) { p2.rec = 1; }
-            if (p2.mine <= 0) { p2.mine = 1; }
-
             if (p1.magic < 0) { p1.magic = 0; }
             if (p1.army < 0) { p1.army = 0; }
             if (p1.ore < 0) { p1.ore = 0; }
-
+            if (p2.wiz <= 0) { p2.wiz = 1; }
+            if (p2.rec <= 0) { p2.rec = 1; }
+            if (p2.mine <= 0) { p2.mine = 1; }
             if (p2.magic < 0) { p2.magic = 0; }
             if (p2.army < 0) { p2.army = 0; }
             if (p2.ore < 0) { p2.ore = 0; }
 
             if (Card1.IsEnabled == false)
             {
-                do
+                p1.hand[0] = arr[k];
+                if (k == 100)
                 {
-                    p1.hand[0] = arr[k];
-                    if (p1.usedCards.Count == 99)
-                    {
-                        MessageBox.Show("В колоде закончились карты!\nРаздаётся новая...", "Колода пуста!");
-                        p1.usedCards.Clear();
-                        break;
-                    }
-                } while (p1.usedCards.Contains(k));
-                p1.usedCards.Add(p1.hand[0]);
+                    Ksort();
+                } else { k++; }
                 Card1.IsEnabled = true;
-                k++;
             }
             if (Card2.IsEnabled == false)
             {
-                do
+                p1.hand[1] = arr[k];
+                if (k == 100)
                 {
-                    p1.hand[1] = arr[k];
-                    if (p1.usedCards.Count == 99)
-                    {
-                        MessageBox.Show("В колоде закончились карты!\nРаздаётся новая...", "Колода пуста!");
-                        p1.usedCards.Clear();
-                        break;
-                    }
-                } while (p1.usedCards.Contains(k));
-                p1.usedCards.Add(p1.hand[1]);
+                    Ksort();
+                }
+                else { k++; }
                 Card2.IsEnabled = true;
-                k++;
             }
             if (Card3.IsEnabled == false)
             {
-                do
+                p1.hand[2] = arr[k];
+                if (k == 100)
                 {
-                    p1.hand[2] = arr[k];
-                    if (p1.usedCards.Count == 99)
-                    {
-                        MessageBox.Show("В колоде закончились карты!\nРаздаётся новая...", "Колода пуста!");
-                        p1.usedCards.Clear();
-                        break;
-                    }
-                } while (p1.usedCards.Contains(k));
-                p1.usedCards.Add(p1.hand[2]);
+                    Ksort();
+                }
+                else { k++; }
                 Card3.IsEnabled = true;
-                k++;
             }
             if (Card4.IsEnabled == false)
             {
-                do
+                p1.hand[3] = arr[k];
+                if (k == 100)
                 {
-                    p1.hand[3] = arr[k];
-                    if (p1.usedCards.Count == 99)
-                    {
-                        MessageBox.Show("В колоде закончились карты!\nРаздаётся новая...", "Колода пуста!");
-                        p1.usedCards.Clear();
-                        break;
-                    }
-                } while (p1.usedCards.Contains(k));
-                p1.usedCards.Add(p1.hand[3]);
+                    Ksort();
+                }
+                else { k++; }
                 Card4.IsEnabled = true;
-                k++;
             }
             if (Card5.IsEnabled == false)
             {
-                do
+                p1.hand[4] = arr[k];
+                if (k == 100)
                 {
-                    p1.hand[4] = arr[k];
-                    if (p1.usedCards.Count == 99)
-                    {
-                        MessageBox.Show("В колоде закончились карты!\nРаздаётся новая...", "Колода пуста!");
-                        p1.usedCards.Clear();
-                        break;
-                    }
-                } while (p1.usedCards.Contains(k));
-                p1.usedCards.Add(p1.hand[4]);
+                    Ksort();
+                }
+                else { k++; }
                 Card5.IsEnabled = true;
-                k++;
             }
             if (Card6.IsEnabled == false)
             {
-                do
+                p1.hand[5] = arr[k];
+                if (k == 100)
                 {
-                    p1.hand[5] = arr[k];
-                    if (p1.usedCards.Count == 99)
-                    {
-                        MessageBox.Show("В колоде закончились карты!\nРаздаётся новая...", "Колода пуста!");
-                        p1.usedCards.Clear();
-                        break;
-                    }
-                } while (p1.usedCards.Contains(k));
-                p1.usedCards.Add(p1.hand[5]);
+                    Ksort();
+                }
+                else { k++; }
                 Card6.IsEnabled = true;
-                k++;
             }
-            Card1.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
-            Card2.Source = CreateImage(db.cards.Find(p1.hand[1]).pic);
-            Card3.Source = CreateImage(db.cards.Find(p1.hand[2]).pic);
-            Card4.Source = CreateImage(db.cards.Find(p1.hand[3]).pic);
-            Card5.Source = CreateImage(db.cards.Find(p1.hand[4]).pic);
-            Card6.Source = CreateImage(db.cards.Find(p1.hand[5]).pic);
+
             p1.magic += p1.wiz;
             p1.army += p1.rec;
             p1.ore += p1.mine;
             updateInfo(p1, p2);
+            win();
         }
 
         private void MediaElement_MouseDown(object sender, MouseButtonEventArgs e)
@@ -311,13 +273,13 @@ namespace castleFlex_alfa
         private void Card1_MouseDown(object sender, MouseButtonEventArgs e)
         {
             cardList.id = p1.hand[0];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(1).name);
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[0]).name);
             card.Invoke(this, null);
             updateInfo(p1, p2);
             if (db.cards.Find(p1.hand[0]).doubleTurn == 0)
             {
                 Card1.IsEnabled = false;
-                endTurn();
+                newTurn();
             } else Card1.IsEnabled = false;
         }
         private void Card2_MouseDown(object sender, MouseButtonEventArgs e)
@@ -329,7 +291,7 @@ namespace castleFlex_alfa
             if (db.cards.Find(p1.hand[1]).doubleTurn == 0)
             {
                 Card2.IsEnabled = false;
-                endTurn();
+                newTurn();
             }
             else Card2.IsEnabled = false;
         }
@@ -342,7 +304,7 @@ namespace castleFlex_alfa
             if (db.cards.Find(p1.hand[2]).doubleTurn == 0)
             {
                 Card3.IsEnabled = false;
-                endTurn();
+                newTurn();
             }
             else Card3.IsEnabled = false;
         }
@@ -355,7 +317,7 @@ namespace castleFlex_alfa
             if (db.cards.Find(p1.hand[3]).doubleTurn == 0)
             {
                 Card4.IsEnabled = false;
-                endTurn();
+                newTurn();
             }
             else Card4.IsEnabled = false;
         }
@@ -368,7 +330,7 @@ namespace castleFlex_alfa
             if (db.cards.Find(p1.hand[4]).doubleTurn == 0)
             {
                 Card5.IsEnabled = false;
-                endTurn();
+                newTurn();
             }
             else Card5.IsEnabled = false;
         }
@@ -381,7 +343,7 @@ namespace castleFlex_alfa
             if (db.cards.Find(p1.hand[5]).doubleTurn == 0)
             {
                 Card6.IsEnabled = false;
-                endTurn();
+                newTurn();
             }
             else Card6.IsEnabled = false;
         }
