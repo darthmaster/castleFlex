@@ -81,12 +81,12 @@ namespace castleFlex_alfa
             //t3.Margin = bs;
 
 
-            Card1.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
-            Card2.Source = CreateImage(db.cards.Find(p1.hand[1]).pic);
-            Card3.Source = CreateImage(db.cards.Find(p1.hand[2]).pic);
-            Card4.Source = CreateImage(db.cards.Find(p1.hand[3]).pic);
-            Card5.Source = CreateImage(db.cards.Find(p1.hand[4]).pic);
-            Card6.Source = CreateImage(db.cards.Find(p1.hand[5]).pic);
+            //Card1.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
+            //Card2.Source = CreateImage(db.cards.Find(p1.hand[1]).pic);
+            //Card3.Source = CreateImage(db.cards.Find(p1.hand[2]).pic);
+            //Card4.Source = CreateImage(db.cards.Find(p1.hand[3]).pic);
+            //Card5.Source = CreateImage(db.cards.Find(p1.hand[4]).pic);
+            //Card6.Source = CreateImage(db.cards.Find(p1.hand[5]).pic);
         }
         public void krupbe()
         {
@@ -353,7 +353,6 @@ namespace castleFlex_alfa
             this.IsEnabled = false;
             if (MessageBox.Show("Вы действительно хотите выйти из матча?", "Выход", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                p1.usedCards.Clear();
                 this.Close();
             }
             this.IsEnabled = true;

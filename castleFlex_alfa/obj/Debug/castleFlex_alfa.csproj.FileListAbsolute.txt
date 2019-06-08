@@ -138,7 +138,6 @@ C:\Users\Commander\source\repos\Castle_Flex\castleFlex\castleFlex_alfa\bin\Debug
 C:\Users\Commander\source\repos\Castle_Flex\castleFlex\castleFlex_alfa\bin\Debug\LiteDB.xml
 C:\Users\Commander\source\repos\Castle_Flex\castleFlex\castleFlex_alfa\bin\Debug\System.Data.SQLite.xml
 C:\Users\Commander\source\repos\Castle_Flex\castleFlex\castleFlex_alfa\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\Commander\source\repos\Castle_Flex\castleFlex\castleFlex_alfa\obj\Debug\castleFlex_alfa.csprojAssemblyReference.cache
 C:\Users\Commander\source\repos\Castle_Flex\castleFlex\castleFlex_alfa\obj\Debug\TwoGameWin.g.cs
 C:\Users\Commander\source\repos\Castle_Flex\castleFlex\castleFlex_alfa\obj\Debug\OneGameWin.g.cs
 C:\Users\Commander\source\repos\Castle_Flex\castleFlex\castleFlex_alfa\obj\Debug\MainWindow.g.cs
