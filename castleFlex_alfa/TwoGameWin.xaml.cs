@@ -24,6 +24,7 @@ namespace castleFlex_alfa
     {
         int t = 0;
         ApplicationContext db;
+        
         public cardsList cards;// = new cardsList();
         public Random rnd = new Random();
         public GlobalVariables global = new GlobalVariables();
@@ -161,7 +162,7 @@ namespace castleFlex_alfa
                 int i;
                 do
                 {
-                    i = rnd.Next(1, 100);
+                    i = rnd.Next(0,99);
                     p1.hand[0] = i;
                     if (p1.usedCards.Count == 99)
                     {
@@ -178,7 +179,7 @@ namespace castleFlex_alfa
                 int i;
                 do
                 {
-                    i = rnd.Next(1, 100);
+                    i = rnd.Next(0, 99);
                     p1.hand[1] = i;
                     if (p1.usedCards.Count == 99)
                     {
@@ -195,7 +196,7 @@ namespace castleFlex_alfa
                 int i;
                 do
                 {
-                    i = rnd.Next(1, 100);
+                    i = rnd.Next(0, 99);
                     p1.hand[2] = i;
                     if (p1.usedCards.Count == 99)
                     {
@@ -212,7 +213,7 @@ namespace castleFlex_alfa
                 int i;
                 do
                 {
-                    i = rnd.Next(1, 100);
+                    i = rnd.Next(0, 99);
                     p1.hand[3] = i;
                     if (p1.usedCards.Count == 99)
                     {
@@ -229,7 +230,7 @@ namespace castleFlex_alfa
                 int i;
                 do
                 {
-                    i = rnd.Next(1, 100);
+                    i = rnd.Next(0, 99);
                     p1.hand[4] = i;
                     if (p1.usedCards.Count == 99)
                     {
@@ -246,7 +247,7 @@ namespace castleFlex_alfa
                 int i;
                 do
                 {
-                    i = rnd.Next(1, 100);
+                    i = rnd.Next(0, 99);
                     p1.hand[5] = i;
                     if (p1.usedCards.Count == 99)
                     {
@@ -274,7 +275,7 @@ namespace castleFlex_alfa
             InitializeComponent();
             db = new ApplicationContext();
             db.cards.Load();
-            cards = new cardsList();
+            cards = new cardsList();            
             DispatcherTimer time = new DispatcherTimer
             {
                 Interval = new TimeSpan(0, 0, 1)
@@ -290,7 +291,7 @@ namespace castleFlex_alfa
             updateInfo(p1, p2);
             for (int i = 0; i <= 5; i++)
             {
-                p1.hand[i] = rnd.Next(1, 100);
+                p1.hand[i] = rnd.Next(0, 99);
                 p1.usedCards.Add(p1.hand[i]);
             }
             card1.Background = new ImageBrush(MainWindow.CreateImage(db.cards.Find(p1.hand[0]).pic));
@@ -390,7 +391,6 @@ namespace castleFlex_alfa
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             grid.IsEnabled = false;
