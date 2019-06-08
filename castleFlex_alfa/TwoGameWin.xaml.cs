@@ -24,6 +24,7 @@ namespace castleFlex_alfa
     {
         int t = 0;
         ApplicationContext db;
+        
         public cardsList cards;// = new cardsList();
         public Random rnd = new Random();
         public GlobalVariables global = new GlobalVariables();
@@ -390,7 +391,6 @@ namespace castleFlex_alfa
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             grid.IsEnabled = false;

@@ -29,6 +29,7 @@ namespace castleFlex_alfa
         public string ip = mw.ip.Text;
         public int port = Convert.ToInt32(mw.port.Text);
         public int recport = Convert.ToInt32(mw.recport.Text);
+        public bool server;
     }
     public partial class MainWindow : Window
     {
@@ -98,8 +99,23 @@ namespace castleFlex_alfa
         private void MultiStart_Click(object sender, RoutedEventArgs e)
         {
             TwoGameWin multiGame = new TwoGameWin();
-            multiGame.Show();
+            GlobalVariables global = new GlobalVariables();
+            if (serverBtn.IsChecked==false && clientBtn.IsChecked == false)
+            {
+                MessageBox.Show("Вы не выбрали режим подключения");
+            }
+            else if (serverBtn.IsChecked == true)
+            {
+                global.server = true;
+                multiGame.Show();
+            }
+            else if (clientBtn.IsChecked == true)
+            {
+                global.server = false;
+                multiGame.Show();
+            }
         }
+
         //просто бессмысленный коммент
     }
 }

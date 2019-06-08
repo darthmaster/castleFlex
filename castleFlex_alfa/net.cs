@@ -48,8 +48,6 @@ namespace castleFlex_alfa
             name = Encoding.Unicode.GetBytes(global.username);
             namer.Send(name, name.Length, ip, port);
             namer.Close();
-
-
         }
     }
 }
