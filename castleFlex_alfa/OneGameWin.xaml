@@ -57,18 +57,18 @@
 
         <Image Source="Resources/ybv6ppsQyutAVFMHiiJ2stCM7.png" HorizontalAlignment="Left"  Margin="282,10,0,0" VerticalAlignment="Top"  Height="196" Width="147" Grid.ColumnSpan="2" Grid.Column="1" />
         <Image Source="Resources/ybv6ppsQyutAVFMHiiJ2stCM7.png" HorizontalAlignment="Left"  Margin="10,10,0,0" VerticalAlignment="Top"  Height="196" Width="147" />
-        <Image HorizontalAlignment="Left" Height="40" Margin="25,48,0,0" VerticalAlignment="Top" Width="40" Source="Resources/wiz.png"/>
-        <Image HorizontalAlignment="Left" Height="40" Margin="87,133,0,0" VerticalAlignment="Top" Width="40" Source="Resources/ore.png"/>
-        <Image HorizontalAlignment="Left" Height="40" Margin="97,88,0,0" VerticalAlignment="Top" Width="40" Source="Resources/army.png"/>
-        <Image HorizontalAlignment="Left" Height="40" Margin="92,43,0,0" VerticalAlignment="Top" Width="40" Source="Resources/magic.png"/>
-        <Image HorizontalAlignment="Left" Height="40" Margin="25,133,0,0" VerticalAlignment="Top" Width="40" Source="Resources/bmine.png"/>
-        <Image HorizontalAlignment="Left" Height="40" Margin="25,92,0,0" VerticalAlignment="Top" Width="40" Source="Resources/rec.png" />
-        <Image HorizontalAlignment="Left" Height="40" Margin="298,48,0,0" VerticalAlignment="Top" Width="40" Source="Resources/wiz.png" Grid.Column="1"/>
-        <Image HorizontalAlignment="Left" Height="37" Margin="360,136,0,0" VerticalAlignment="Top" Width="37" Source="Resources/ore.png" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Image HorizontalAlignment="Left" Height="40" Margin="369,88,0,0" VerticalAlignment="Top" Width="40" Source="Resources/army.png" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Image HorizontalAlignment="Left" Height="40" Margin="365,43,0,0" VerticalAlignment="Top" Width="40" Source="Resources/magic.png" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <Image HorizontalAlignment="Left" Height="37" Margin="298,133,0,0" VerticalAlignment="Top" Width="37" Source="Resources/bmine.png" Grid.Column="1"/>
-        <Image Height="40" Margin="298,92,44,0" VerticalAlignment="Top" Source="Resources/rec.png" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="25,48,0,0" VerticalAlignment="Top" Width="40" Source="Resources/wiz.png" ToolTip="монастыри - места добычи маны"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="87,133,0,0" VerticalAlignment="Top" Width="40" Source="Resources/ore.png" ToolTip="руда - ресурс красных карт"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="97,88,0,0" VerticalAlignment="Top" Width="40" Source="Resources/army.png" ToolTip="отряды - ресурс залёных карт"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="92,43,0,0" VerticalAlignment="Top" Width="40" Source="Resources/magic.png" ToolTip="мана - ресурс синих карт"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="25,133,0,0" VerticalAlignment="Top" Width="40" Source="Resources/bmine.png" ToolTip="шахты - места добычи руды"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="25,92,0,0" VerticalAlignment="Top" Width="40" Source="Resources/rec.png" ToolTip="казармы - места производства отрядов"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="298,48,0,0" VerticalAlignment="Top" Width="40" Source="Resources/wiz.png" Grid.Column="1" ToolTip="монастыри - места добычи маны"/>
+        <Image HorizontalAlignment="Left" Height="37" Margin="360,136,0,0" VerticalAlignment="Top" Width="37" Source="Resources/ore.png" Grid.Column="1" Grid.ColumnSpan="2" ToolTip="руда - ресурс красных карт"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="369,88,0,0" VerticalAlignment="Top" Width="40" Source="Resources/army.png" Grid.Column="1" Grid.ColumnSpan="2" ToolTip="отряды - ресурс залёных карт"/>
+        <Image HorizontalAlignment="Left" Height="40" Margin="365,43,0,0" VerticalAlignment="Top" Width="40" Source="Resources/magic.png" Grid.ColumnSpan="2" Grid.Column="1" ToolTip="мана - ресурс синих карт"/>
+        <Image HorizontalAlignment="Left" Height="37" Margin="298,133,0,0" VerticalAlignment="Top" Width="37" Source="Resources/bmine.png" Grid.Column="1" ToolTip="шахты - места добычи руды"/>
+        <Image Height="40" Margin="298,92,44,0" VerticalAlignment="Top" Source="Resources/rec.png" Grid.Column="1" ToolTip="казармы - места производства отрядов"/>
         <Image Source="Resources/ora.jpg" HorizontalAlignment="Left"  Margin="0,442,0,0" VerticalAlignment="Top" Stretch="UniformToFill" Grid.ColumnSpan="3" Height="276" Width="1278" />
         <Grid Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>

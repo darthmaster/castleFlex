@@ -82,6 +82,58 @@ namespace castleFlex_alfa
             //t3.Margin = bs;
             
         }
+
+        public void Oldcard(int a)
+        {
+            if (dt == true)
+            {
+                if (oldca == 0)
+                {
+                    OldCard1.Source = null;
+                    OldCard2.Source = null;
+                    OldCard0.Source = CreateImage(db.cards.Find(a).pic);
+                    oldca++;
+                }
+                else if (oldca == 1)
+                {
+                    OldCard1.Source = CreateImage(db.cards.Find(a).pic);
+                    oldca++;
+                }
+                else if (oldca == 2)
+                {
+                    OldCard2.Source = CreateImage(db.cards.Find(a).pic);
+                    oldca++;
+                }
+                else
+                {
+                    oldca = 0;
+                    OldCard0.Source = CreateImage(db.cards.Find(a).pic);
+                }
+            }
+            else
+            {
+                if (oldca == 0)
+                {
+                    OldCard1.Source = null;
+                    OldCard2.Source = null;
+                    OldCard0.Source = CreateImage(db.cards.Find(a).pic);
+                }
+                else if (oldca == 1)
+                {
+                    OldCard1.Source = CreateImage(db.cards.Find(a).pic);
+                }
+                else if (oldca == 2)
+                {
+                    OldCard2.Source = CreateImage(db.cards.Find(a).pic);
+                }
+                else
+                {
+                    oldca = 0;
+                    OldCard0.Source = CreateImage(db.cards.Find(a).pic);
+                }
+            }
+        }
+
         public void Sswap(player a, player b)
         {
             swap = a.tower;
@@ -121,12 +173,9 @@ namespace castleFlex_alfa
             cardList.id = p2.hand[r];
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p2.hand[r]).name);
             card.Invoke(this, null);
-            if (db.cards.Find(p2.hand[r]).doubleTurn == 0)
-            {
-                dt = false;
-            }
-            else dt = true;
-
+            //if (db.cards.Find(p2.hand[r]).doubleTurn == 0){ dt = false;}else dt = true;
+            if (db.cards.Find(p2.hand[r]).doubleTurn != 0) dt = true;
+            Oldcard(p2.hand[r]);
             p2.hand[r] = arr[k];
             if (k == 99)
             {
@@ -135,7 +184,7 @@ namespace castleFlex_alfa
             else { k++; }
 
             Sswap(p2, p1);
-            //System.Threading.Thread.Sleep(2000); // подумать жи надо
+            System.Threading.Thread.Sleep(500); // подумать жи надо
             Dealer();
         }
 
@@ -268,6 +317,7 @@ namespace castleFlex_alfa
                 p1.army += p1.rec;
                 p1.ore += p1.mine;
             }
+            oldca = 0;
             updateInfo(p1, p2);
             win();
         }
@@ -278,52 +328,9 @@ namespace castleFlex_alfa
             //p1.hand[0] = 2;
             cardList.id = p1.hand[0];
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[0]).name);
-            
             card.Invoke(this, null);
             if (db.cards.Find(p1.hand[0]).doubleTurn != 0) dt = true;
-            if (dt == true)
-            {
-                if (oldca == 0)
-                {
-                    OldCard0.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
-                    oldca++;
-                }
-                else if (oldca == 1)
-                {
-                    OldCard1.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
-                    oldca++;
-                }
-                else if (oldca == 2)
-                {
-                    OldCard2.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
-                    oldca++;
-                }
-                else
-                {
-                    oldca = 0;
-                    OldCard0.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
-                }
-            }
-            else
-            {
-                if (oldca == 0)
-                {
-                    OldCard0.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
-                }
-                else if (oldca == 1)
-                {
-                    OldCard1.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
-                }
-                else if (oldca == 2)
-                {
-                    OldCard2.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
-                }
-                else
-                {
-                    oldca = 0;
-                    OldCard0.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
-                }
-            }
+            Oldcard(p1.hand[0]);
             p1.hand[0] = arr[k];
             if (k == 99)
             {
@@ -340,7 +347,7 @@ namespace castleFlex_alfa
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[1]).name);
             card.Invoke(this, null);
             if (db.cards.Find(p1.hand[1]).doubleTurn != 0) dt = true;
-
+            Oldcard(p1.hand[1]);
             p1.hand[1] = arr[k];
             if (k == 99)
             {
@@ -357,7 +364,7 @@ namespace castleFlex_alfa
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[2]).name);
             card.Invoke(this, null);
             if (db.cards.Find(p1.hand[2]).doubleTurn != 0) dt = true;
-
+            Oldcard(p1.hand[2]);
             p1.hand[2] = arr[k];
             if (k == 99)
             {
@@ -374,7 +381,7 @@ namespace castleFlex_alfa
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[3]).name);
             card.Invoke(this, null);
             if (db.cards.Find(p1.hand[3]).doubleTurn != 0) dt = true;
-
+            Oldcard(p1.hand[3]);
             p1.hand[3] = arr[k];
             if (k == 99)
             {
@@ -391,7 +398,7 @@ namespace castleFlex_alfa
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[4]).name);
             card.Invoke(this, null);
             if (db.cards.Find(p1.hand[4]).doubleTurn != 0) dt = true;
-
+            Oldcard(p1.hand[4]);
             p1.hand[4] = arr[k];
             if (k == 99)
             {
@@ -407,8 +414,8 @@ namespace castleFlex_alfa
             cardList.id = p1.hand[5];
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[5]).name);
             card.Invoke(this, null);
-            if (db.cards.Find(p1.hand[5]).doubleTurn == 0) dt = true;
-
+            if (db.cards.Find(p1.hand[5]).doubleTurn != 0) dt = true;
+            Oldcard(p1.hand[5]);
             p1.hand[5] = arr[k];
             if (k == 99)
             {
