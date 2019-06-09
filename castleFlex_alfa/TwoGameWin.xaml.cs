@@ -27,7 +27,6 @@ namespace castleFlex_alfa
         
         public cardsList cards;// = new cardsList();
         public Random rnd = new Random();
-        public GlobalVariables global = new GlobalVariables();
         public class player
         {
             public string name;
@@ -102,14 +101,14 @@ namespace castleFlex_alfa
                 $"{p2.wiz}*{p2.magic}*" +
                 $"{p2.rec}*{p2.army}*" +
                 $"{p2.mine}*{p2.ore}*";
-            try
-            {
-                net.sendData(gameInfo, global.ip , global.port);
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            //try
+            //{
+            //    net.sendData(gameInfo, global.ip , global.port);
+            //}
+            //catch(Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
             if ((p2.tower <= 0) || (p1.tower >= 100))
             {
                 MessageBox.Show("Вы победили!", "Игра окончена", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -124,23 +123,23 @@ namespace castleFlex_alfa
         }
         public void newTurn()
         {
-            try
-            {
-                //Thread rt = new Thread(new ThreadStart(rt));
-                string gameInfo = net.receiveData(global.recport);
-                string[] data = gameInfo.Split('*');
+            //try
+            //{
+            //    //Thread rt = new Thread(new ThreadStart(rt));
+            //    string gameInfo = net.receiveData(global.recport);
+            //    string[] data = gameInfo.Split('*');
 
-                p2.tower = Convert.ToInt32(data[0]); p2.wall = Convert.ToInt32(data[1]);
-                p2.wiz = Convert.ToInt32(data[2]); p2.magic = Convert.ToInt32(data[3]);
-                p2.rec = Convert.ToInt32(data[4]); p2.army = Convert.ToInt32(data[5]);
-                p2.mine = Convert.ToInt32(data[6]); p2.ore = Convert.ToInt32(data[7]);
+            //    p2.tower = Convert.ToInt32(data[0]); p2.wall = Convert.ToInt32(data[1]);
+            //    p2.wiz = Convert.ToInt32(data[2]); p2.magic = Convert.ToInt32(data[3]);
+            //    p2.rec = Convert.ToInt32(data[4]); p2.army = Convert.ToInt32(data[5]);
+            //    p2.mine = Convert.ToInt32(data[6]); p2.ore = Convert.ToInt32(data[7]);
 
-                p1.tower = Convert.ToInt32(data[8]); p1.wall = Convert.ToInt32(data[9]);
-                p1.wiz = Convert.ToInt32(data[10]); p1.magic = Convert.ToInt32(data[11]);
-                p1.rec = Convert.ToInt32(data[12]); p1.army = Convert.ToInt32(data[13]);
-                p1.mine = Convert.ToInt32(data[14]); p1.ore = Convert.ToInt32(data[15]);
-            }
-            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            //    p1.tower = Convert.ToInt32(data[8]); p1.wall = Convert.ToInt32(data[9]);
+            //    p1.wiz = Convert.ToInt32(data[10]); p1.magic = Convert.ToInt32(data[11]);
+            //    p1.rec = Convert.ToInt32(data[12]); p1.army = Convert.ToInt32(data[13]);
+            //    p1.mine = Convert.ToInt32(data[14]); p1.ore = Convert.ToInt32(data[15]);
+            //}
+            //catch (Exception ex) { Console.WriteLine(ex.Message); }
             if (p1.wiz <= 0) { p1.wiz = 1; }
             if (p1.rec <= 0) { p1.rec = 1; }
             if (p1.mine <= 0) { p1.mine = 1; }
@@ -282,10 +281,11 @@ namespace castleFlex_alfa
             };
             time.Tick += Timer_Tick;
             time.Start();
-            p1name.Content = global.username;
+            MessageBox.Show(GlobalVariables.username);
+            p1name.Content = GlobalVariables.username;
             try
             {
-                net.nameChanger(global.ip, global.port, global.recport);
+                net.nameChanger(GlobalVariables.ip, GlobalVariables.port, GlobalVariables.recport);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
             updateInfo(p1, p2);

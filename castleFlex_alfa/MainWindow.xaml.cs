@@ -16,23 +16,20 @@ using System.Data.SQLite;
 using System.Data;
 using System.Data.Entity;
 using System.IO;
-//using System.Drawing;
+
 namespace castleFlex_alfa
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public class GlobalVariables
     {
-        public static MainWindow mw = new MainWindow();
-        public string username = mw.username.Text;
-        public string ip = mw.ip.Text;
-        public int port = Convert.ToInt32(mw.port.Text);
-        public int recport = Convert.ToInt32(mw.recport.Text);
-        public bool server;
+        public static string username { get; set; }
+        public static string ip { get; set; }
+        public static int port { get; set; }
+        public static int recport { get; set; }
+        public static bool server { get; set; }
     }
     public partial class MainWindow : Window
     {
+        public GlobalVariables global = new GlobalVariables();
         ApplicationContext db;
         public static BitmapImage CreateImage(byte[] imageData)
         {
@@ -98,24 +95,25 @@ namespace castleFlex_alfa
 
         private void MultiStart_Click(object sender, RoutedEventArgs e)
         {
+            GlobalVariables.username = username.Text;
+            GlobalVariables.ip = ip.Text;
+            GlobalVariables.port = Convert.ToInt32(port.Text);
+            GlobalVariables.recport = Convert.ToInt32(recport.Text);
             TwoGameWin multiGame = new TwoGameWin();
-            GlobalVariables global = new GlobalVariables();
             if (serverBtn.IsChecked==false && clientBtn.IsChecked == false)
             {
                 MessageBox.Show("Вы не выбрали режим подключения");
             }
             else if (serverBtn.IsChecked == true)
             {
-                global.server = true;
-                multiGame.Show();
+                GlobalVariables.server = true;
+                multiGame.ShowDialog();
             }
             else if (clientBtn.IsChecked == true)
             {
-                global.server = false;
+                GlobalVariables.server = false;
                 multiGame.Show();
             }
         }
-
-        //просто бессмысленный коммент
     }
 }

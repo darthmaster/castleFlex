@@ -45,7 +45,7 @@ namespace castleFlex_alfa
             recName.Start();
 
             namer = new UdpClient();
-            name = Encoding.Unicode.GetBytes(global.username);
+            name = Encoding.Unicode.GetBytes(GlobalVariables.username);
             namer.Send(name, name.Length, ip, port);
             namer.Close();
         }
