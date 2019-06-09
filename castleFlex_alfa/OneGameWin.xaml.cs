@@ -18,15 +18,11 @@ using System.Reflection;
 
 namespace castleFlex_alfa
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class OneGameWin : Window
     {
         ApplicationContext db;
         public int k;
         public int[] arr = new int[100];
-        //public cardList cards;// = new cardsList();
         public cardList cards = new cardList();
         public class player
         {
@@ -40,7 +36,6 @@ namespace castleFlex_alfa
             public int mine;
             public int ore;
             public int[] hand;
-            public List<int> usedCards;
             public player(int tower, int wall, int wiz, int magic, int rec, int army, int mine, int ore)
             {
                 this.tower = tower;
@@ -52,13 +47,24 @@ namespace castleFlex_alfa
                 this.mine = mine;
                 this.ore = ore;
                 hand = new int[6];
-                //usedCards = new List<int>() { };
             }
         }
         public static player p1 = new player(50, 0, 1, 15, 1, 15, 1, 15);
         public static player p2 = new player(50, 0, 1, 15, 1, 15, 1, 15);
         public void updateInfo(player a, player b)
         {
+            if (a.wiz <= 0) { a.wiz = 1; }
+            if (a.rec <= 0) { a.rec = 1; }
+            if (a.mine <= 0) { a.mine = 1; }
+            if (a.magic < 0) { a.magic = 0; }
+            if (a.army < 0) { a.army = 0; }
+            if (a.ore < 0) { a.ore = 0; }
+            if (b.wiz <= 0) { b.wiz = 1; }
+            if (b.rec <= 0) { b.rec = 1; }
+            if (b.mine <= 0) { b.mine = 1; }
+            if (b.magic < 0) { b.magic = 0; }
+            if (b.army < 0) { b.army = 0; }
+            if (b.ore < 0) { b.ore = 0; }
             playerMages.Content = $"{a.wiz}";
             playerMagic.Content = $"{a.magic}";
             playerRecruts.Content = $"{a.rec}";
@@ -67,7 +73,6 @@ namespace castleFlex_alfa
             playerOre.Content = $"{a.ore}";
             ptv.Content = a.tower;
             pwv.Content = a.wall;
-
             enemyMages.Content = $"{b.wiz}";
             enemyMagic.Content = $"{b.magic}";
             enemyRecruts.Content = $"{b.rec}";
@@ -76,17 +81,17 @@ namespace castleFlex_alfa
             enemyOre.Content = $"{b.ore}";
             etv.Content = b.tower;
             ewv.Content = b.wall;
-            //t3z.Height = 125;
-            //System.Windows.Thickness bs = new System.Windows.Thickness(85, 125, 0, 0);
-            //t3.Margin = bs;
-
-
             Card1.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
             Card2.Source = CreateImage(db.cards.Find(p1.hand[1]).pic);
             Card3.Source = CreateImage(db.cards.Find(p1.hand[2]).pic);
             Card4.Source = CreateImage(db.cards.Find(p1.hand[3]).pic);
             Card5.Source = CreateImage(db.cards.Find(p1.hand[4]).pic);
             Card6.Source = CreateImage(db.cards.Find(p1.hand[5]).pic);
+            
+            //t3z.Height = 125;
+            //System.Windows.Thickness bs = new System.Windows.Thickness(85, 125, 0, 0);
+            //t3.Margin = bs;
+            
         }
         public void krupbe()
         {
@@ -101,7 +106,7 @@ namespace castleFlex_alfa
             //p1 = ppp;
             //p2 = ppp;
 
-        var rand = new Random();
+            var rand = new Random();
             var knownNumbers = new HashSet<int>();
             for (int i = 0; i < arr.Length; i++) // работает - не трогай!
             {
@@ -116,29 +121,12 @@ namespace castleFlex_alfa
             for (int i = 0; i <= 5; i++)
             {
                 p1.hand[i] = arr[i];
-                //p1.usedCards.Add(p1.hand[i]);
-            }
-            Card1.Source = CreateImage(db.cards.Find(p1.hand[0]).pic);
-            Card2.Source = CreateImage(db.cards.Find(p1.hand[1]).pic);
-            Card3.Source = CreateImage(db.cards.Find(p1.hand[2]).pic);
-            Card4.Source = CreateImage(db.cards.Find(p1.hand[3]).pic);
-            Card5.Source = CreateImage(db.cards.Find(p1.hand[4]).pic);
-            Card6.Source = CreateImage(db.cards.Find(p1.hand[5]).pic);
-            for (int i = 0; i <= 5; i++)
-            {
-                p2.hand[i] = arr[i+6];
-                //p2.usedCards.Add(p2.hand[i]);
+                p2.hand[i] = arr[i + 6];
             }
             k = 12;
-
             
             updateInfo(p1, p2);
-            //Card1.Source = CreateImage(db.cards.Find(9).pic);
-            //Card2.Source = CreateImage(db.cards.Find(11).pic);
-            //Card3.Source = CreateImage(db.cards.Find(13).pic);
-            //Card4.Source = CreateImage(db.cards.Find(5).pic);
-            //Card5.Source = CreateImage(db.cards.Find(7).pic);
-            //Card6.Source = CreateImage(db.cards.Find(39).pic);
+
             this.DataContext = db.cards.Local.ToBindingList();
             
         }
@@ -180,86 +168,17 @@ namespace castleFlex_alfa
                 MessageBox.Show("Вы проиграли!", "Игра окончена", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
             }
-            newTurn();
         }
         public void newTurn()
         {
-            if (p1.wiz <= 0) { p1.wiz = 1; }
-            if (p1.rec <= 0) { p1.rec = 1; }
-            if (p1.mine <= 0) { p1.mine = 1; }
-            if (p1.magic < 0) { p1.magic = 0; }
-            if (p1.army < 0) { p1.army = 0; }
-            if (p1.ore < 0) { p1.ore = 0; }
-            if (p2.wiz <= 0) { p2.wiz = 1; }
-            if (p2.rec <= 0) { p2.rec = 1; }
-            if (p2.mine <= 0) { p2.mine = 1; }
-            if (p2.magic < 0) { p2.magic = 0; }
-            if (p2.army < 0) { p2.army = 0; }
-            if (p2.ore < 0) { p2.ore = 0; }
-
-            if (Card1.IsEnabled == false)
-            {
-                p1.hand[0] = arr[k];
-                if (k == 100)
-                {
-                    Ksort();
-                } else { k++; }
-                Card1.IsEnabled = true;
-            }
-            if (Card2.IsEnabled == false)
-            {
-                p1.hand[1] = arr[k];
-                if (k == 100)
-                {
-                    Ksort();
-                }
-                else { k++; }
-                Card2.IsEnabled = true;
-            }
-            if (Card3.IsEnabled == false)
-            {
-                p1.hand[2] = arr[k];
-                if (k == 100)
-                {
-                    Ksort();
-                }
-                else { k++; }
-                Card3.IsEnabled = true;
-            }
-            if (Card4.IsEnabled == false)
-            {
-                p1.hand[3] = arr[k];
-                if (k == 100)
-                {
-                    Ksort();
-                }
-                else { k++; }
-                Card4.IsEnabled = true;
-            }
-            if (Card5.IsEnabled == false)
-            {
-                p1.hand[4] = arr[k];
-                if (k == 100)
-                {
-                    Ksort();
-                }
-                else { k++; }
-                Card5.IsEnabled = true;
-            }
-            if (Card6.IsEnabled == false)
-            {
-                p1.hand[5] = arr[k];
-                if (k == 100)
-                {
-                    Ksort();
-                }
-                else { k++; }
-                Card6.IsEnabled = true;
-            }
-
             p1.magic += p1.wiz;
             p1.army += p1.rec;
             p1.ore += p1.mine;
+            p2.magic += p2.wiz;
+            p2.army += p2.rec;
+            p2.ore += p2.mine;
+
+
             updateInfo(p1, p2);
             win();
         }
@@ -272,80 +191,105 @@ namespace castleFlex_alfa
 
         private void Card1_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            Card1.IsEnabled = false;
             cardList.id = p1.hand[0];
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[0]).name);
             card.Invoke(this, null);
-            updateInfo(p1, p2);
-            if (db.cards.Find(p1.hand[0]).doubleTurn == 0)
+            //if (db.cards.Find(p1.hand[0]).doubleTurn == 0) {}
+
+            p1.hand[0] = arr[k];
+            if (k == 100)
             {
-                Card1.IsEnabled = false;
-                newTurn();
-            } else Card1.IsEnabled = false;
+                Ksort();
+            }
+            else { k++; }
+            newTurn();
+            Card1.IsEnabled = true;
         }
         private void Card2_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            Card2.IsEnabled = false;
             cardList.id = p1.hand[1];
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[1]).name);
             card.Invoke(this, null);
-            updateInfo(p1, p2);
-            if (db.cards.Find(p1.hand[1]).doubleTurn == 0)
+            //if (db.cards.Find(p1.hand[1]).doubleTurn == 0) {}
+
+            p1.hand[1] = arr[k];
+            if (k == 100)
             {
-                Card2.IsEnabled = false;
-                newTurn();
+                Ksort();
             }
-            else Card2.IsEnabled = false;
+            else { k++; }
+            newTurn();
+            Card2.IsEnabled = true;
         }
         private void Card3_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            Card3.IsEnabled = false;
             cardList.id = p1.hand[2];
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[2]).name);
             card.Invoke(this, null);
-            updateInfo(p1, p2);
-            if (db.cards.Find(p1.hand[2]).doubleTurn == 0)
+            //if (db.cards.Find(p1.hand[2]).doubleTurn == 0) {}
+
+            p1.hand[2] = arr[k];
+            if (k == 100)
             {
-                Card3.IsEnabled = false;
-                newTurn();
+                Ksort();
             }
-            else Card3.IsEnabled = false;
+            else { k++; }
+            newTurn();
+            Card3.IsEnabled = true;
         }
         private void Card4_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            Card4.IsEnabled = false;
             cardList.id = p1.hand[3];
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[3]).name);
             card.Invoke(this, null);
-            updateInfo(p1, p2);
-            if (db.cards.Find(p1.hand[3]).doubleTurn == 0)
+            //if (db.cards.Find(p1.hand[3]).doubleTurn == 0) {}
+
+            p1.hand[3] = arr[k];
+            if (k == 100)
             {
-                Card4.IsEnabled = false;
-                newTurn();
+                Ksort();
             }
-            else Card4.IsEnabled = false;
+            else { k++; }
+            newTurn();
+            Card4.IsEnabled = true;
         }
         private void Card5_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            Card5.IsEnabled = false;
             cardList.id = p1.hand[4];
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[4]).name);
             card.Invoke(this, null);
-            updateInfo(p1, p2);
-            if (db.cards.Find(p1.hand[4]).doubleTurn == 0)
+            //if (db.cards.Find(p1.hand[4]).doubleTurn == 0) {}
+
+            p1.hand[4] = arr[k];
+            if (k == 100)
             {
-                Card5.IsEnabled = false;
-                newTurn();
+                Ksort();
             }
-            else Card5.IsEnabled = false;
+            else { k++; }
+            newTurn();
+            Card5.IsEnabled = true;
         }
         private void Card6_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            Card6.IsEnabled = false;
             cardList.id = p1.hand[5];
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[5]).name);
             card.Invoke(this, null);
-            updateInfo(p1, p2);
-            if (db.cards.Find(p1.hand[5]).doubleTurn == 0)
+            //if (db.cards.Find(p1.hand[5]).doubleTurn == 0) {}
+
+            p1.hand[5] = arr[k];
+            if (k == 100)
             {
-                Card6.IsEnabled = false;
-                newTurn();
+                Ksort();
             }
-            else Card6.IsEnabled = false;
+            else { k++; }
+            newTurn();
+            Card6.IsEnabled = true;
         }
 
         private void menu_Click(object sender, RoutedEventArgs e)
@@ -353,7 +297,6 @@ namespace castleFlex_alfa
             this.IsEnabled = false;
             if (MessageBox.Show("Вы действительно хотите выйти из матча?", "Выход", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                p1.usedCards.Clear();
                 this.Close();
             }
             this.IsEnabled = true;
