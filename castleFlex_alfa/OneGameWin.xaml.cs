@@ -22,7 +22,7 @@ namespace castleFlex_alfa
     {
         ApplicationContext db;
         public int k, swap, hodor, oldca=0;
-        bool dt;
+        bool dt, noncost = false;
         public int[] arr = new int[100];
         public cardList cards = new cardList();
         public class player
@@ -170,19 +170,7 @@ namespace castleFlex_alfa
             Sswap(p1,p2);
             var rand = new Random();
             r = rand.Next(6);
-            cardList.id = p2.hand[r];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p2.hand[r]).name);
-            card.Invoke(this, null);
-            //if (db.cards.Find(p2.hand[r]).doubleTurn == 0){ dt = false;}else dt = true;
-            if (db.cards.Find(p2.hand[r]).doubleTurn != 0) dt = true;
-            Oldcard(p2.hand[r]);
-            p2.hand[r] = arr[k];
-            if (k == 99)
-            {
-                Ksort();
-            }
-            else { k++; }
-
+            p2.hand[r] = CardInvoke(p2.hand[r]);
             Sswap(p2, p1);
             System.Threading.Thread.Sleep(500); // подумать жи надо
             Dealer();
@@ -209,6 +197,7 @@ namespace castleFlex_alfa
             if (p2.army < 0) { p2.army = 0; }
             if (p2.ore < 0) { p2.ore = 0; }
             #endregion
+            updateInfo(p1, p2);
             if (dt == false)
             {
                 if (hodor == 1)
@@ -268,6 +257,7 @@ namespace castleFlex_alfa
 
         public void resMessage(int cost)
         {
+            noncost = true;
             MessageBox.Show("Недостаточно ресурсов, карта сбрасывается");
         }
 
@@ -321,107 +311,78 @@ namespace castleFlex_alfa
             updateInfo(p1, p2);
             win();
         }
-
-        private void Card1_MouseDown(object sender, MouseButtonEventArgs e)
+        private int CardInvoke(int a)
         {
-            Card1.IsEnabled = false;
-            //p1.hand[0] = 2;
-            cardList.id = p1.hand[0];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[0]).name);
+            cardList.id = a;
+            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(a).name);
             card.Invoke(this, null);
-            if (db.cards.Find(p1.hand[0]).doubleTurn != 0) dt = true;
-            Oldcard(p1.hand[0]);
-            p1.hand[0] = arr[k];
+            if (noncost != true)
+            {
+                if (db.cards.Find(a).doubleTurn != 0) dt = true; else dt = false;
+            }
+            else { dt = false; }
+            noncost = false;
+            Oldcard(a);
+            a = arr[k];
             if (k == 99)
             {
                 Ksort();
             }
             else { k++; }
+            return a;
+        }
+        private void Card1_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Card1.IsEnabled = false;
+            //p1.hand[0] = 2;
+            //cardList.id = p1.hand[0];
+            //MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[0]).name);
+            //card.Invoke(this, null);
+            //if (db.cards.Find(p1.hand[0]).doubleTurn != 0) dt = true;
+            //Oldcard(p1.hand[0]);
+            //p1.hand[0] = arr[k];
+            //if (k == 99)
+            //{
+            //    Ksort();
+            //}
+            //else { k++; }
+            //Dealer();
+            p1.hand[0]=CardInvoke(p1.hand[0]);
             Dealer();
             Card1.IsEnabled = true;
         }
         private void Card2_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Card2.IsEnabled = false;
-            cardList.id = p1.hand[1];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[1]).name);
-            card.Invoke(this, null);
-            if (db.cards.Find(p1.hand[1]).doubleTurn != 0) dt = true;
-            Oldcard(p1.hand[1]);
-            p1.hand[1] = arr[k];
-            if (k == 99)
-            {
-                Ksort();
-            }
-            else { k++; }
+            p1.hand[1] = CardInvoke(p1.hand[1]);
             Dealer();
             Card2.IsEnabled = true;
         }
         private void Card3_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Card3.IsEnabled = false;
-            cardList.id = p1.hand[2];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[2]).name);
-            card.Invoke(this, null);
-            if (db.cards.Find(p1.hand[2]).doubleTurn != 0) dt = true;
-            Oldcard(p1.hand[2]);
-            p1.hand[2] = arr[k];
-            if (k == 99)
-            {
-                Ksort();
-            }
-            else { k++; }
+            p1.hand[2] = CardInvoke(p1.hand[2]);
             Dealer();
             Card3.IsEnabled = true;
         }
         private void Card4_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Card4.IsEnabled = false;
-            cardList.id = p1.hand[3];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[3]).name);
-            card.Invoke(this, null);
-            if (db.cards.Find(p1.hand[3]).doubleTurn != 0) dt = true;
-            Oldcard(p1.hand[3]);
-            p1.hand[3] = arr[k];
-            if (k == 99)
-            {
-                Ksort();
-            }
-            else { k++; }
+            p1.hand[3] = CardInvoke(p1.hand[3]);
             Dealer();
             Card4.IsEnabled = true;
         }
         private void Card5_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Card5.IsEnabled = false;
-            cardList.id = p1.hand[4];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[4]).name);
-            card.Invoke(this, null);
-            if (db.cards.Find(p1.hand[4]).doubleTurn != 0) dt = true;
-            Oldcard(p1.hand[4]);
-            p1.hand[4] = arr[k];
-            if (k == 99)
-            {
-                Ksort();
-            }
-            else { k++; }
+            p1.hand[4] = CardInvoke(p1.hand[4]);
             Dealer();
             Card5.IsEnabled = true;
         }
         private void Card6_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Card6.IsEnabled = false;
-            cardList.id = p1.hand[5];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[5]).name);
-            card.Invoke(this, null);
-            if (db.cards.Find(p1.hand[5]).doubleTurn != 0) dt = true;
-            Oldcard(p1.hand[5]);
-            p1.hand[5] = arr[k];
-            if (k == 99)
-            {
-                Ksort();
-            }
-            else { k++; }
+            p1.hand[5] = CardInvoke(p1.hand[5]);
             Dealer();
             Card6.IsEnabled = true;
         }
