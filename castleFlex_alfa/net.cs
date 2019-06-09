@@ -10,6 +10,7 @@ namespace castleFlex_alfa
 {
     class net
     {
+        public static TwoGameWin twoGameWin = new TwoGameWin();
         public static void sendData(string info,string ip, int port)
         {
             UdpClient sender = new UdpClient();
@@ -29,8 +30,8 @@ namespace castleFlex_alfa
         public static void nameChanger(string ip, int port, int recport)
         {
             UdpClient namer;
-            GlobalVariables global = new GlobalVariables();
-            TwoGameWin twoGameWin = new TwoGameWin();
+            //GlobalVariables global = new GlobalVariables();
+            
             byte[] name;
 
             void listenName()
