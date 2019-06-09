@@ -189,3 +189,4 @@ C:\Users\Commander\source\repos\Castle__Flex\castleFlex\castleFlex_alfa\obj\Debu
 C:\Users\Commander\source\repos\Castle__Flex\castleFlex\castleFlex_alfa\obj\Debug\castleFlex_alfa.csproj.CopyComplete
 C:\Users\Commander\source\repos\Castle__Flex\castleFlex\castleFlex_alfa\obj\Debug\castleFlex_alfa.exe
 C:\Users\Commander\source\repos\Castle__Flex\castleFlex\castleFlex_alfa\obj\Debug\castleFlex_alfa.pdb
+C:\Users\Commander\source\repos\Castle_Flex\castleFlex\castleFlex_alfa\obj\Debug\castleFlex_alfa.csprojAssemblyReference.cache
