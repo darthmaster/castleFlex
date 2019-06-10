@@ -21,7 +21,7 @@ namespace castleFlex_alfa
     public partial class OneGameWin : Window
     {
         ApplicationContext db;
-        public int k, swap, hodor, oldca=0, cash=0;
+        public int k, swap, hodor, oldca=0, cash=0, al;
         bool dt, noncost = false;
         string isp = "Использованая карта ", ispp, hp = "Ваш ход: ", hm = "Ход компьютера: ", fh = "Недостаточно ресурсов, сброс карты ";
         public int[] arr = new int[100];
@@ -214,16 +214,53 @@ namespace castleFlex_alfa
         {
             updateInfo(p1, p2);
             //MessageBox.Show("Ход противника");
-            int r;
-            Sswap(p1,p2);
-            var rand = new Random();
-            r = rand.Next(6);
-            p2.hand[r] = CardInvoke(p2.hand[r]);
+            Sswap(p1, p2);
+            if (al==0)
+            {
+                int r;
+                var rand = new Random();
+                r = rand.Next(6);
+                p2.hand[r] = CardInvoke(p2.hand[r]);
+            }
+            else if (al == 1)
+            {
+                for (int i = 0; i <= 5; i++)
+                {
+                    if (db.cards.Find(p2.hand[i]).type == "red")
+                    {
+                        if (p1.ore >= db.cards.Find(p2.hand[i]).cost)
+                        {
+                            p2.hand[i] = CardInvoke(p2.hand[i]);
+                            break;
+                        }
+                    }
+                    else if (db.cards.Find(p2.hand[i]).type == "blue")
+                    {
+                        if (p1.magic >= db.cards.Find(p2.hand[i]).cost)
+                        {
+                            p2.hand[i] = CardInvoke(p2.hand[i]);
+                            break;
+                        }
+                    }
+                    else if (db.cards.Find(p2.hand[i]).type == "green")
+                    {
+                        if (p1.army >= db.cards.Find(p2.hand[i]).cost)
+                        {
+                            p2.hand[i] = CardInvoke(p2.hand[i]);
+                            break;
+                        }
+                    }
+                    else if (i == 5)
+                    {
+                        p2.hand[i] = CardInvoke(p2.hand[i]);
+                        break;
+                    }
+                }
+            }
             Sswap(p2, p1);
             System.Threading.Thread.Sleep(300); // подумать жи надо
             Dealer();
         }
-
         public void Dealer()
         {
             #region debug143
@@ -289,14 +326,12 @@ namespace castleFlex_alfa
 
             startGame();
         }
-
         public void resMessage(int cost)
         {
             noncost = true;
             Cash(fh);
             //MessageBox.Show("Недостаточно ресурсов, карта сбрасывается");
         }
-
         public void startGame()
         {
             player ppp = new player(50, 0, 1, 15, 1, 15, 1, 15);
@@ -316,8 +351,8 @@ namespace castleFlex_alfa
             oldca = 0;
             cash = 0;
             Cash(hp);
+            al = 0;
         }
-
         public void Ksort()
         {
             var rand = new Random();
@@ -409,6 +444,32 @@ namespace castleFlex_alfa
             }
             else { k++; }
             return a;
+        }
+        private void kniga_Click(object sender, RoutedEventArgs e)
+        {
+            if (phonesList.Visibility == Visibility.Collapsed)
+            {
+                phonesList.Visibility = Visibility.Visible;
+            }
+            else phonesList.Visibility = Visibility.Collapsed;
+        }
+        private void mozg_Click(object sender, RoutedEventArgs e)
+        {
+            if (Algo.Visibility == Visibility.Collapsed)
+            {
+                Algo.Visibility = Visibility.Visible;
+            }
+            else Algo.Visibility = Visibility.Collapsed;
+        }
+        private void RadioButton1_Checked(object sender, RoutedEventArgs e)
+        {
+            Algo.Visibility = Visibility.Collapsed;
+            al = 0;
+        }
+        private void RadioButton2_Checked(object sender, RoutedEventArgs e)
+        {
+            Algo.Visibility = Visibility.Collapsed;
+            al = 1;
         }
         private void Card1_MouseDown(object sender, MouseButtonEventArgs e)
         {
