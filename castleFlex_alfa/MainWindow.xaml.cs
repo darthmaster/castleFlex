@@ -40,7 +40,7 @@ namespace castleFlex_alfa
             image.EndInit();
             return image;
         }  // функция преобразование byte to ImageSourse
-        public OneGameWin onegame = new OneGameWin();
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -53,6 +53,7 @@ namespace castleFlex_alfa
         }
         private void OneGame(object sender, RoutedEventArgs e) 
         {
+            OneGameWin onegame = new OneGameWin();
             onegame.Show();
         }
         private void TwoGether(object sender, RoutedEventArgs e)
