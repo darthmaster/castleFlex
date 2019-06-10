@@ -103,6 +103,7 @@ namespace castleFlex_alfa
                 $"{p2.wiz}*{p2.magic}*" +
                 $"{p2.rec}*{p2.army}*" +
                 $"{p2.mine}*{p2.ore}*";
+            
             try
             {
                 net.sendData(gameInfo, GlobalVariables.ip, GlobalVariables.port);
@@ -307,6 +308,7 @@ namespace castleFlex_alfa
             MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[0]).name);
             card.Invoke(this,null);
             updateInfo(p1, p2);
+            gameLog.Text += "\n" + db.cards.Find(p1.hand[0]).name;
             if (db.cards.Find(p1.hand[0]).doubleTurn == 0)
             {
                 card1.IsEnabled = false;

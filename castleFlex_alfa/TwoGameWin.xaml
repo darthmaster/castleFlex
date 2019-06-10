@@ -316,5 +316,6 @@
                 <ImageBrush ImageSource="Resources/icons8-боковое-меню-80.png"/>
             </Button.OpacityMask>
         </Button>
+        <TextBlock x:Name="gameLog" HorizontalAlignment="Left" Margin="240,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Width="170" Height="223"/>
     </Grid>
 </Window>
