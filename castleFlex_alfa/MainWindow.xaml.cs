@@ -44,7 +44,8 @@ namespace castleFlex_alfa
         public MainWindow()
         {
             InitializeComponent();
-            multi.Visibility = Visibility.Hidden;
+            multi.Visibility = Visibility.Collapsed;
+            guideBox.Visibility = Visibility.Collapsed;
             MediaElement.Play();
             db = new ApplicationContext();
             db.cards.Load();
@@ -56,6 +57,10 @@ namespace castleFlex_alfa
         }
         private void TwoGether(object sender, RoutedEventArgs e)
         {
+            if (guideBox.Visibility == Visibility.Visible)
+            {
+                guideBox.Visibility = Visibility.Collapsed;
+            }
             if (multi.Visibility == Visibility.Visible)
             {
                 multi.Visibility = Visibility.Hidden;
@@ -79,7 +84,33 @@ namespace castleFlex_alfa
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
         {
-
+            guideBox.Text = "    У каждого игрока имеется случайный набор из 6 карт, башня, стена, ресурсы трёх типов и их источники. \n    Ресурсы: " +
+                "\n    - Магия\n    - Отряды\n    - Руда" +
+                "\n    Источники ресурсов(соответственно):" +
+                "\n    - Монастырь\n    - Казармы\n    - Шахта" +
+                "\n    В начале каждого хода источники увеличивают количества соответствующих ресурсов игрока на текущие уровни этих источников. " +
+                "Каждый ход игрок должен использовать или сбросить одну из своих карт. Для использования карты требуется определённое количество " +
+                "одного из ресурсов.После использования карта выполняет комбинацию некоторых действий и вместо неё игроку случайным образом " +
+                "выдаётся другая. Далее, если карта не предписывает иное, ход переходит к другому игроку. \n    Действия карт:" +
+                "\n    - Причинение вреда стене и/или башне (противника или как противника, так и своей)" +
+                "\n    - Изменение количества ресурсов или уровней их источников у себя и/или противника" +
+                "\n    - Увеличение собственных стены и/или башни" +
+                "\n    Правила игры допускают победу любым из следующих способов:" +
+                "\n    - Строительство своей башни до необходимого минимума" +
+                "\n    - Накопление любого ресурса до необходимого минимума" +
+                "\n    - Уничтожение башни противника" +
+                "\n    Как правило, карты, требующие одинаковый тип ресурсов, сходны по действию. " +
+                "Магия — увеличение башни и нанесение урона, Руда — увеличение стен и башни, Отряды — на нанесение урона противнику. " +
+                "Урон может быть направлен конкретно на башню или стену, или иметь общий характер. " +
+                "Во втором случае в первую очередь урон принимает стена, затем башня.";
+            if (multi.Visibility == Visibility.Visible)
+            {
+                multi.Visibility = Visibility.Collapsed;
+            }
+            if (guideBox.Visibility == Visibility.Collapsed)
+            {
+                guideBox.Visibility = Visibility.Visible;
+            } else guideBox.Visibility = Visibility.Collapsed;
         }
 
         private void OtherButton_Click(object sender, RoutedEventArgs e)

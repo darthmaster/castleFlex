@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:castleFlex_alfa"
         xmlns:Properties="clr-namespace:castleFlex_alfa.Properties" x:Class="castleFlex_alfa.OneGameWin"
         mc:Ignorable="d"
-        Title="OneGameWin" Height="720" Width="1280" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" IsEnabled="True">
+        Title="OneGameWin" Height="720" Width="1280" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" IsEnabled="True" Icon="Resources/icons8-zamok-98multi.ico">
 
     <Grid HorizontalAlignment="Left" Height="720" VerticalAlignment="Top" Width="1280">
         <Grid.ColumnDefinitions>

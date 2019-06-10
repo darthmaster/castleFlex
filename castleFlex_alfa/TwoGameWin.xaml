@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:castleFlex_alfa"
         mc:Ignorable="d"
-        Title="CastleFlex. Multiplayer." d:DesignHeight="571.4" Width="960" Height="600" UseLayoutRounding="False" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" BorderThickness="1" AllowsTransparency="True" WindowStyle="None" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+        Title="CastleFlex. Multiplayer." d:DesignHeight="571.4" Width="960" Height="600" UseLayoutRounding="False" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" BorderThickness="1" AllowsTransparency="True" WindowStyle="None" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Icon="Resources/icons8-zamok-98multi.ico">
     <Window.Effect>
         <DropShadowEffect BlurRadius="100" Opacity="0.9" RenderingBias="Quality" ShadowDepth="1"/>
     </Window.Effect>

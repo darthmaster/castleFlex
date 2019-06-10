@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:castleFlex_alfa"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing" WindowStyle="None" ResizeMode="CanMinimize">
+        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing" WindowStyle="None" ResizeMode="CanMinimize" Icon="Resources/icons8-zamok-98multi.ico">
     <Grid>
         <MediaElement x:Name="MediaElement" Source="pack://siteoforigin:,,,/Resources/background_dev.mpg" Stretch="UniformToFill" MediaEnded="MediaElement_MediaEnded_1" LoadedBehavior="Manual" IsMuted="True" MouseDown="MediaElement_MouseDown"/>
         <Label Content="CastleFlex" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="85" Width="220" FontSize="72" VerticalContentAlignment="Center" FontFamily="Parchment" TextOptions.TextHintingMode="Animated" FontWeight="Bold" TextOptions.TextFormattingMode="Display" HorizontalContentAlignment="Center">
@@ -80,7 +80,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="otherButton" Content="Other" Margin="110,0,0,4.6" Width="255" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="OtherButton_Click" FontStyle="Italic" FontWeight="Bold" Height="40">
+        <Button x:Name="otherButton" Content="About" Margin="110,0,0,4.6" Width="255" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="OtherButton_Click" FontStyle="Italic" FontWeight="Bold" Height="40">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -110,5 +110,6 @@
             <RadioButton x:Name="serverBtn" Content="Server" HorizontalAlignment="Left" Margin="109,196,0,0" Background="White" Foreground="White" BorderBrush="#00707070" FontFamily="Monotype Corsiva" FontSize="20" Width="76" Height="22" VerticalAlignment="Top"/>
             <RadioButton x:Name="clientBtn" Content="Client" HorizontalAlignment="Left" Margin="183,196,0,0" VerticalAlignment="Top" Background="White" Foreground="White" BorderBrush="#00707070" FontFamily="Monotype Corsiva" FontSize="20" Width="75" Height="20"/>
         </Grid>
+        <TextBox Margin="141,85,140,64.6" TextWrapping="Wrap" AcceptsReturn="True" x:Name="guideBox" FontFamily="Monotype Corsiva" FontSize="20" Background="#FF7D00FF" BorderBrush="#00ABADB3" Foreground="White" Opacity="0.7" BorderThickness="0" AllowDrop="False" Focusable="False" AcceptsTab="True" AutoWordSelection="True" IsReadOnly="True" TextOptions.TextHintingMode="Fixed" HorizontalAlignment="Center" VerticalAlignment="Center" Width="519" Height="300" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
     </Grid>
 </Window>
