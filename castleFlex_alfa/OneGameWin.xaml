@@ -147,7 +147,7 @@
                 <Label Content="500" HorizontalAlignment="Left" Margin="1187,113,-38,0" VerticalAlignment="Top" Width="40" Name="enemyArmy"/>
                 <Label Content="800" HorizontalAlignment="Left" Margin="1187,150,-26,0" VerticalAlignment="Top" Width="28" Name="enemyOre" Height="26"/>
 
-                <Label Content="Label" HorizontalAlignment="Left" Margin="142,393,0,0" VerticalAlignment="Top" Width="38" x:Name="ptv" Height="25" Foreground="#7FFFFFFF">
+                <Label Content="Label" HorizontalAlignment="Left" Margin="142,393,0,0" VerticalAlignment="Top" Width="38" x:Name="ptv" Height="25" Foreground="#7FFFFFFF" FontSize="14">
                     <Label.Background>
                         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                             <GradientStop Color="#B5000000" Offset="1"/>
@@ -157,7 +157,7 @@
                         </LinearGradientBrush>
                     </Label.Background>
                 </Label>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="383,384,0,0" VerticalAlignment="Top" Width="44" x:Name="pwv" Height="25" Foreground="#7FFFFFFF">
+                <Label Content="Label" HorizontalAlignment="Left" Margin="383,384,0,0" VerticalAlignment="Top" Width="44" x:Name="pwv" Height="25" Foreground="#7FFFFFFF" FontSize="14">
                     <Label.Background>
                         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                             <GradientStop Color="#B5000000" Offset="1"/>
@@ -167,7 +167,7 @@
                         </LinearGradientBrush>
                     </Label.Background>
                 </Label>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="827,384,0,0" VerticalAlignment="Top" Width="59" x:Name="ewv" Height="25" Foreground="#7FFFFFFF">
+                <Label Content="Label" HorizontalAlignment="Left" Margin="827,384,0,0" VerticalAlignment="Top" Width="59" x:Name="ewv" Height="25" Foreground="#7FFFFFFF" FontSize="14">
                     <Label.Background>
                         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                             <GradientStop Color="#B5000000" Offset="1"/>
@@ -177,7 +177,7 @@
                         </LinearGradientBrush>
                     </Label.Background>
                 </Label>
-                <Label Content="Label" HorizontalAlignment="Left" Margin="1008,393,0,0" VerticalAlignment="Top" Width="42" x:Name="etv" Height="25" Foreground="#7FFFFFFF">
+                <Label Content="Label" HorizontalAlignment="Left" Margin="1008,393,0,0" VerticalAlignment="Top" Width="42" x:Name="etv" Height="25" Foreground="#7FFFFFFF" FontSize="14">
                     <Label.Background>
                         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                             <GradientStop Color="#B5000000" Offset="1"/>
@@ -190,6 +190,24 @@
                 <Image Name="OldCard0" HorizontalAlignment="Left" Height="188" Margin="466,10,0,0" VerticalAlignment="Top" Width="124" Grid.Column="0"/>
                 <Image Name="OldCard1" HorizontalAlignment="Left" Height="188" Margin="566,10,0,0" VerticalAlignment="Top" Width="124" Grid.Column="0"/>
                 <Image Name="OldCard2" HorizontalAlignment="Left" Height="188" Margin="666,10,0,0" VerticalAlignment="Top" Width="124" Grid.Column="0"/>
+                <Grid Margin="500,310,420,10" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Name="c1" Text="" Grid.Row="0" HorizontalAlignment="Left" FontSize="14" Background="#7F000000" Foreground="#7FFFFFFF" Width="269"/>
+                    <TextBlock Name="c2" Text="" Grid.Row="1" HorizontalAlignment="Left" FontSize="14" Background="#7F000000" Foreground="#7FFFFFFF" Width="269"/>
+                    <TextBlock Name="c3" Text="" Grid.Row="2" HorizontalAlignment="Left" FontSize="14" Background="#7F000000" Foreground="#7FFFFFFF" Width="269"/>
+                    <TextBlock Name="c4" Text="" Grid.Row="3" HorizontalAlignment="Left" FontSize="14" Background="#7F000000" Foreground="#7FFFFFFF" Width="269"/>
+                    <TextBlock Name="c5" Text="" Grid.Row="4" HorizontalAlignment="Left" FontSize="14" Background="#7F000000" Foreground="#7FFFFFFF" Width="269"/>
+                    <TextBlock Name="c6" Text="" Grid.Row="5" HorizontalAlignment="Left" FontSize="14" Background="#7F000000" Foreground="#7FFFFFFF" Width="269"/>
+                    <TextBlock Name="c7" Text="" Grid.Row="6" HorizontalAlignment="Left" FontSize="14" Background="#7F000000" Foreground="#7FFFFFFF" Width="269"/>
+                </Grid>
             </Grid>
         </Grid>
 

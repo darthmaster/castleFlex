@@ -21,8 +21,9 @@ namespace castleFlex_alfa
     public partial class OneGameWin : Window
     {
         ApplicationContext db;
-        public int k, swap, hodor, oldca=0;
+        public int k, swap, hodor, oldca=0, cash=0;
         bool dt, noncost = false;
+        string isp = "Использованая карта ", ispp, hp = "Ваш ход: ", hm = "Ход компьютера: ", fh = "Недостаточно ресурсов, сброс карты ";
         public int[] arr = new int[100];
         public cardList cards = new cardList();
         public class player
@@ -82,7 +83,54 @@ namespace castleFlex_alfa
             //t3.Margin = bs;
             
         }
-
+        public void Cash(string f)
+        {
+            if (cash == 0)
+            {
+                c1.Text = f;
+                cash++;
+            }
+            else if (cash == 1)
+            {
+                c2.Text = f;
+                cash++;
+            }
+            else if (cash == 2)
+            {
+                c3.Text = f;
+                cash++;
+            }
+            else if (cash == 4)
+            {
+                c4.Text = f;
+                cash++;
+            }
+            else if (cash == 5)
+            {
+                c5.Text = f;
+                cash++;
+            }
+            else if (cash == 6)
+            {
+                c6.Text = f;
+                cash++;
+            }
+            else if (cash == 7)
+            {
+                c7.Text = f;
+                cash++;
+            }
+            else
+            {
+                c1.Text = c2.Text;
+                c2.Text = c3.Text;
+                c3.Text = c4.Text;
+                c4.Text = c5.Text;
+                c5.Text = c6.Text;
+                c6.Text = c7.Text;
+                c7.Text = f;
+            }
+        }
         public void Oldcard(int a)
         {
             if (dt == true)
@@ -172,7 +220,7 @@ namespace castleFlex_alfa
             r = rand.Next(6);
             p2.hand[r] = CardInvoke(p2.hand[r]);
             Sswap(p2, p1);
-            System.Threading.Thread.Sleep(500); // подумать жи надо
+            System.Threading.Thread.Sleep(300); // подумать жи надо
             Dealer();
         }
 
@@ -205,6 +253,7 @@ namespace castleFlex_alfa
                     endH();
                     hodor = 2;
                     CardGrid.IsEnabled = false;
+                    Cash(hm);
                     Machine();
                 }
                 else if (hodor == 2)
@@ -212,6 +261,7 @@ namespace castleFlex_alfa
                     endH();
                     hodor = 1;
                     CardGrid.IsEnabled = true;
+                    Cash(hp);
                 }
             }
             else
@@ -235,35 +285,37 @@ namespace castleFlex_alfa
             InitializeComponent();
             db = new ApplicationContext();
             db.cards.Load();
-            //player ppp = new player(50, 0, 1, 15, 1, 15, 1, 15);
-            //p1 = ppp;
-            //p2 = ppp;
+            
 
+            startGame();
+        }
+
+        public void resMessage(int cost)
+        {
+            noncost = true;
+            Cash(fh);
+            //MessageBox.Show("Недостаточно ресурсов, карта сбрасывается");
+        }
+
+        public void startGame()
+        {
+            player ppp = new player(50, 0, 1, 15, 1, 15, 1, 15);
+            p1 = ppp;
+            p2 = ppp;
             Ksort();
-
             for (int i = 0; i <= 5; i++)
             {
                 p1.hand[i] = arr[i];
                 p2.hand[i] = arr[i + 6];
             }
             k = 12;
-            
             updateInfo(p1, p2);
-
             this.DataContext = db.cards.Local.ToBindingList();
-
             hodor = 1;
-        }
-
-        public void resMessage(int cost)
-        {
-            noncost = true;
-            MessageBox.Show("Недостаточно ресурсов, карта сбрасывается");
-        }
-
-        public void startGame()
-        {
-
+            noncost = false;
+            oldca = 0;
+            cash = 0;
+            Cash(hp);
         }
 
         public void Ksort()
@@ -314,8 +366,35 @@ namespace castleFlex_alfa
         private int CardInvoke(int a)
         {
             cardList.id = a;
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(a).name);
-            card.Invoke(this, null);
+            if (db.cards.Find(a).type == "red")
+            {
+                if (p1.ore >= db.cards.Find(a).cost)
+                {
+                    MethodInfo card = cards.GetType().GetMethod(db.cards.Find(a).name);
+                    card.Invoke(this, null);
+                }
+                else resMessage(db.cards.Find(a).cost);
+            }
+            else if (db.cards.Find(a).type == "blue")
+            {
+                if (p1.magic >= db.cards.Find(a).cost)
+                {
+                    MethodInfo card = cards.GetType().GetMethod(db.cards.Find(a).name);
+                    card.Invoke(this, null);
+                }
+                else resMessage(db.cards.Find(a).cost);
+            }
+            else if (db.cards.Find(a).type == "green")
+            {
+                if (p1.army >= db.cards.Find(a).cost)
+                {
+                    MethodInfo card = cards.GetType().GetMethod(db.cards.Find(a).name);
+                    card.Invoke(this, null);
+                }
+                else resMessage(db.cards.Find(a).cost);
+            }
+            ispp = isp + db.cards.Find(a).name;
+            Cash(ispp);
             if (noncost != true)
             {
                 if (db.cards.Find(a).doubleTurn != 0) dt = true; else dt = false;
