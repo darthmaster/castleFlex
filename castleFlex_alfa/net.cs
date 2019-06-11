@@ -42,13 +42,23 @@ namespace castleFlex_alfa
                 twoGameWin.p2name.Content = Encoding.Unicode.GetString(name);
                 namer.Close();
             }
-            //Thread recName = new Thread(new ThreadStart(listenName));
-            //recName.Start();
-
-            namer = new UdpClient();
-            name = Encoding.Unicode.GetBytes(GlobalVariables.username);
-            namer.Send(name, name.Length, ip, port);
-            namer.Close();
+            void sendName()
+            {
+                namer = new UdpClient();
+                name = Encoding.Unicode.GetBytes(GlobalVariables.username);
+                namer.Send(name, name.Length, ip, port);
+                namer.Close();
+            }
+            if (GlobalVariables.server == true)
+            {
+                listenName();
+                sendName();
+            }
+            else
+            {
+                sendName();
+                listenName();
+            }
         }
     }
 }
