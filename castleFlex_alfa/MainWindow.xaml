@@ -16,7 +16,7 @@
                 </LinearGradientBrush>
             </Label.Foreground>
         </Label>
-        <Button x:Name="button" Content="Singleplayer" Margin="241,0,0,382.6" Width="267" Click="OneGame" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontWeight="Bold" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="40" FontStyle="Italic">
+        <Button x:Name="button" Content="Singleplayer" Margin="241,0,0,382.6" Width="267" Click="OneGame" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontWeight="Bold" FontSize="20" BorderThickness="0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="40" FontStyle="Italic" Opacity="0.95" BorderBrush="#00000000">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -27,8 +27,8 @@
             </Button.RenderTransform>
             <Button.Background>
                 <RadialGradientBrush>
-                    <GradientStop Color="#FFFFD300"/>
-                    <GradientStop Color="#FF7D00FF" Offset="1"/>
+                    <GradientStop Color="#FFFFCD35"/>
+                    <GradientStop Color="#FF6100C5" Offset="1"/>
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
@@ -110,6 +110,6 @@
             <RadioButton x:Name="serverBtn" Content="Server" HorizontalAlignment="Left" Margin="109,196,0,0" Background="White" Foreground="White" BorderBrush="#00707070" FontFamily="Monotype Corsiva" FontSize="20" Width="76" Height="22" VerticalAlignment="Top"/>
             <RadioButton x:Name="clientBtn" Content="Client" HorizontalAlignment="Left" Margin="183,196,0,0" VerticalAlignment="Top" Background="White" Foreground="White" BorderBrush="#00707070" FontFamily="Monotype Corsiva" FontSize="20" Width="75" Height="20"/>
         </Grid>
-        <TextBox Margin="141,85,140,64.6" TextWrapping="Wrap" AcceptsReturn="True" x:Name="guideBox" FontFamily="Monotype Corsiva" FontSize="20" Background="#FF7D00FF" BorderBrush="#00ABADB3" Foreground="White" Opacity="0.7" BorderThickness="0" AllowDrop="False" Focusable="False" AcceptsTab="True" AutoWordSelection="True" IsReadOnly="True" TextOptions.TextHintingMode="Fixed" HorizontalAlignment="Center" VerticalAlignment="Center" Width="519" Height="300" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
+        <TextBox Margin="141,85,140,64.6" TextWrapping="Wrap" AcceptsReturn="True" x:Name="guideBox" FontFamily="Monotype Corsiva" FontSize="20" Background="#FF7D00FF" BorderBrush="#00ABADB3" Foreground="White" Opacity="0.7" BorderThickness="0" AllowDrop="False" Focusable="False" AcceptsTab="True" AutoWordSelection="True" IsReadOnly="True" TextOptions.TextHintingMode="Fixed" HorizontalAlignment="Center" VerticalAlignment="Center" Width="519" Height="300" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" ToolTip="колесо мыши - чтобы читать дальше" />
     </Grid>
 </Window>
