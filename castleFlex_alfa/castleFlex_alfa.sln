@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.452
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "castleFlex_alfa", "castleFlex_alfa.csproj", "{2FA0D671-AF20-47D9-BFD5-DE0BF06959BD}"
 EndProject
@@ -10,14 +10,19 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		DevBuild|Any CPU = DevBuild|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{2FA0D671-AF20-47D9-BFD5-DE0BF06959BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2FA0D671-AF20-47D9-BFD5-DE0BF06959BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA0D671-AF20-47D9-BFD5-DE0BF06959BD}.DevBuild|Any CPU.ActiveCfg = DevBuild|Any CPU
+		{2FA0D671-AF20-47D9-BFD5-DE0BF06959BD}.DevBuild|Any CPU.Build.0 = DevBuild|Any CPU
 		{2FA0D671-AF20-47D9-BFD5-DE0BF06959BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FA0D671-AF20-47D9-BFD5-DE0BF06959BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A4702F0A-8E24-43EC-B449-4779F5BBC259}.Debug|Any CPU.ActiveCfg = Debug
+		{A4702F0A-8E24-43EC-B449-4779F5BBC259}.DevBuild|Any CPU.ActiveCfg = DevBuild
+		{A4702F0A-8E24-43EC-B449-4779F5BBC259}.DevBuild|Any CPU.Build.0 = DevBuild
 		{A4702F0A-8E24-43EC-B449-4779F5BBC259}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
