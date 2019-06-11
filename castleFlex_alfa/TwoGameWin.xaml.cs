@@ -115,7 +115,8 @@ namespace castleFlex_alfa
                 $"{p2.tower}*{p2.wall}*" +
                 $"{p2.wiz}*{p2.magic}*" +
                 $"{p2.rec}*{p2.army}*" +
-                $"{p2.mine}*{p2.ore}*";
+                $"{p2.mine}*{p2.ore}*" +
+                $"{GlobalVariables.username}";
             
             try
             {
@@ -157,6 +158,7 @@ namespace castleFlex_alfa
                 p1.wiz = Convert.ToInt32(data[10]); p1.magic = Convert.ToInt32(data[11]);
                 p1.rec = Convert.ToInt32(data[12]); p1.army = Convert.ToInt32(data[13]);
                 p1.mine = Convert.ToInt32(data[14]); p1.ore = Convert.ToInt32(data[15]);
+                p2name.Content = data[16];
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
             if (p1.wiz <= 0) { p1.wiz = 1; }
@@ -301,6 +303,7 @@ namespace castleFlex_alfa
             time.Tick += Timer_Tick;
             time.Start();
             p1name.Content = GlobalVariables.username;
+            //net.nameChanger(GlobalVariables.ip, GlobalVariables.port, GlobalVariables.recport);
             updateInfo(p1, p2);
             for (int i = 0; i <= 5; i++)
             {
