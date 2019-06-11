@@ -147,7 +147,5 @@ namespace castleFlex_alfa
                 multiGame.Show();
             }
         }
-        
-        }
     }
 }
