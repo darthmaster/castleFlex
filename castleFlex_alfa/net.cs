@@ -42,8 +42,8 @@ namespace castleFlex_alfa
                 twoGameWin.p2name.Content = Encoding.Unicode.GetString(name);
                 namer.Close();
             }
-            Thread recName = new Thread(new ThreadStart(listenName));
-            recName.Start();
+            //Thread recName = new Thread(new ThreadStart(listenName));
+            //recName.Start();
 
             namer = new UdpClient();
             name = Encoding.Unicode.GetBytes(GlobalVariables.username);

@@ -26,7 +26,7 @@ namespace castleFlex_alfa
     {
         int t = 0;
         ApplicationContext db;
-        
+        public enum cardType {Red,Green,Blue}
         public cardsList cards;// = new cardsList();
         public Random rnd = new Random();
         public class player
@@ -82,9 +82,22 @@ namespace castleFlex_alfa
             enemyWall.Value = b.wall;
             ewv.Content = b.wall;
         }
-        public void resMessage(int cost)
+        public bool checkCost(int i)
         {
-            MessageBox.Show("Недостаточно ресурсов");
+            switch (db.cards.Find(p1.hand[i]).type)
+            {
+                case "red":
+                    return db.cards.Find(p1.hand[i]).cost <= p1.ore;
+                case "green":
+                    return db.cards.Find(p1.hand[i]).cost <= p1.army;
+                case "blue":
+                    return db.cards.Find(p1.hand[i]).cost <= p1.magic;
+                default: return false;
+            }
+        }
+        public MessageBoxResult resMessage(int cost)
+        {
+            return MessageBox.Show("Недостаточно ресурсов для использования карты\nСбросить её?","Мало ресурсов",MessageBoxButton.YesNo);
         }
         private void Timer_Tick(object sender, object e)
         {
@@ -304,87 +317,134 @@ namespace castleFlex_alfa
 
         private void Card1_Click(object sender, RoutedEventArgs e)
         {
-            cardsList.id = p1.hand[0];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[0]).name);
-            card.Invoke(this,null);
-            updateInfo(p1, p2);
-            gameLog.Text += "\n" + db.cards.Find(p1.hand[0]).name;
-            if (db.cards.Find(p1.hand[0]).doubleTurn == 0)
+            if (checkCost(0)==true)
+            {
+                cardsList.id = p1.hand[0];
+                MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[0]).name);
+                card.Invoke(this,null);
+                updateInfo(p1, p2);
+                gameLog.Text += "\n" + db.cards.Find(p1.hand[0]).name;
+                if (db.cards.Find(p1.hand[0]).doubleTurn == 0)
+                {
+                    card1.IsEnabled = false;
+                    endTurn();
+                }
+                else card1.IsEnabled = false;
+            } else if (resMessage(db.cards.Find(p1.hand[0]).cost) == MessageBoxResult.Yes)
             {
                 card1.IsEnabled = false;
                 endTurn();
             }
-            else card1.IsEnabled = false;
+            
         }
 
         private void Card2_Click(object sender, RoutedEventArgs e)
         {
-            cardsList.id = p1.hand[1];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[1]).name);
-            card.Invoke(this, null);
-            updateInfo(p1, p2);
-            if (db.cards.Find(p1.hand[1]).doubleTurn == 0)
+            if (checkCost(1))
+            {
+                cardsList.id = p1.hand[1];
+                MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[1]).name);
+                card.Invoke(this, null);
+                updateInfo(p1, p2);
+                if (db.cards.Find(p1.hand[1]).doubleTurn == 0)
+                {
+                    card2.IsEnabled = false;
+                    endTurn();
+                }
+                else card2.IsEnabled = false;
+            } else if (resMessage(db.cards.Find(p1.hand[1]).cost) == MessageBoxResult.Yes)
             {
                 card2.IsEnabled = false;
                 endTurn();
             }
-            else card2.IsEnabled = false;
         }
 
         private void Card3_Click(object sender, RoutedEventArgs e)
         {
-            cardsList.id = p1.hand[2];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[2]).name);
-            card.Invoke(this, null);
-            updateInfo(p1, p2);
-            if (db.cards.Find(p1.hand[2]).doubleTurn == 0)
+            if (checkCost(2))
+            {
+                cardsList.id = p1.hand[2];
+                MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[2]).name);
+                card.Invoke(this, null);
+                updateInfo(p1, p2);
+                if (db.cards.Find(p1.hand[2]).doubleTurn == 0)
+                {
+                    card3.IsEnabled = false;
+                    endTurn();
+                }
+                else card3.IsEnabled = false;
+            }
+            else if (resMessage(db.cards.Find(p1.hand[2]).cost) == MessageBoxResult.Yes)
             {
                 card3.IsEnabled = false;
                 endTurn();
             }
-            else card3.IsEnabled = false;
         }
 
         private void Card4_Click(object sender, RoutedEventArgs e)
         {
-            cardsList.id = p1.hand[3];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[3]).name);
-            card.Invoke(this, null);
-            updateInfo(p1, p2);
-            if (db.cards.Find(p1.hand[3]).doubleTurn == 0)
+            if (checkCost(3))
+            {
+                cardsList.id = p1.hand[3];
+                MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[3]).name);
+                card.Invoke(this, null);
+                updateInfo(p1, p2);
+                if (db.cards.Find(p1.hand[3]).doubleTurn == 0)
+                {
+                    card4.IsEnabled = false;
+                    endTurn();
+                }
+                else card4.IsEnabled = false;
+            }
+            else if (resMessage(db.cards.Find(p1.hand[3]).cost) == MessageBoxResult.Yes)
             {
                 card4.IsEnabled = false;
                 endTurn();
             }
-            else card4.IsEnabled = false;
         }
 
         private void Card5_Click(object sender, RoutedEventArgs e)
         {
-            cardsList.id = p1.hand[4];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[4]).name);
-            card.Invoke(this, null);
-            updateInfo(p1, p2);
-            if (db.cards.Find(p1.hand[4]).doubleTurn == 0)
+            if (checkCost(4))
+            {
+                cardsList.id = p1.hand[4];
+                MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[4]).name);
+                card.Invoke(this, null);
+                updateInfo(p1, p2);
+                if (db.cards.Find(p1.hand[4]).doubleTurn == 0)
+                {
+                    card5.IsEnabled = false;
+                    endTurn();
+                }
+                else card5.IsEnabled = false;
+            }
+            else if (resMessage(db.cards.Find(p1.hand[4]).cost) == MessageBoxResult.Yes)
             {
                 card5.IsEnabled = false;
                 endTurn();
             }
-            else card5.IsEnabled = false;
         }
 
         private void Card6_Click(object sender, RoutedEventArgs e)
         {
-            cardsList.id = p1.hand[5];
-            MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[5]).name);
-            card.Invoke(this, null);
-            updateInfo(p1, p2);
-            if (db.cards.Find(p1.hand[5]).doubleTurn == 0)
+            if (checkCost(5))
+            {
+                cardsList.id = p1.hand[5];
+                MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[5]).name);
+                card.Invoke(this, null);
+                updateInfo(p1, p2);
+                if (db.cards.Find(p1.hand[5]).doubleTurn == 0)
+                {
+                    card6.IsEnabled = false;
+                    endTurn();
+                }
+                else card6.IsEnabled = false;
+            }
+            else if (resMessage(db.cards.Find(p1.hand[5]).cost) == MessageBoxResult.Yes)
             {
                 card6.IsEnabled = false;
                 endTurn();
             }
-            else card6.IsEnabled = false;
         }
 
         private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
