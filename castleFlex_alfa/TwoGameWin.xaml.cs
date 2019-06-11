@@ -323,7 +323,7 @@ namespace castleFlex_alfa
                 MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[0]).name);
                 card.Invoke(this,null);
                 updateInfo(p1, p2);
-                gameLog.Text += "\n" + db.cards.Find(p1.hand[0]).name;
+                gameLog.Text += "\n"+GlobalVariables.username+" сыграл "+db.cards.Find(p1.hand[0]).name;
                 if (db.cards.Find(p1.hand[0]).doubleTurn == 0)
                 {
                     card1.IsEnabled = false;
@@ -332,6 +332,7 @@ namespace castleFlex_alfa
                 else card1.IsEnabled = false;
             } else if (resMessage(db.cards.Find(p1.hand[0]).cost) == MessageBoxResult.Yes)
             {
+                gameLog.Text += "\n" + GlobalVariables.username + " сбросил " + db.cards.Find(p1.hand[0]).name;
                 card1.IsEnabled = false;
                 endTurn();
             }
@@ -346,6 +347,7 @@ namespace castleFlex_alfa
                 MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[1]).name);
                 card.Invoke(this, null);
                 updateInfo(p1, p2);
+                gameLog.Text += "\n" + GlobalVariables.username + " сыграл " + db.cards.Find(p1.hand[1]).name;
                 if (db.cards.Find(p1.hand[1]).doubleTurn == 0)
                 {
                     card2.IsEnabled = false;
@@ -354,6 +356,7 @@ namespace castleFlex_alfa
                 else card2.IsEnabled = false;
             } else if (resMessage(db.cards.Find(p1.hand[1]).cost) == MessageBoxResult.Yes)
             {
+                gameLog.Text += "\n" + GlobalVariables.username + " сбросил " + db.cards.Find(p1.hand[1]).name;
                 card2.IsEnabled = false;
                 endTurn();
             }
@@ -367,6 +370,7 @@ namespace castleFlex_alfa
                 MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[2]).name);
                 card.Invoke(this, null);
                 updateInfo(p1, p2);
+                gameLog.Text += "\n" + GlobalVariables.username + " сыграл " + db.cards.Find(p1.hand[2]).name;
                 if (db.cards.Find(p1.hand[2]).doubleTurn == 0)
                 {
                     card3.IsEnabled = false;
@@ -376,6 +380,7 @@ namespace castleFlex_alfa
             }
             else if (resMessage(db.cards.Find(p1.hand[2]).cost) == MessageBoxResult.Yes)
             {
+                gameLog.Text += "\n" + GlobalVariables.username + " сбросил " + db.cards.Find(p1.hand[2]).name;
                 card3.IsEnabled = false;
                 endTurn();
             }
@@ -389,6 +394,7 @@ namespace castleFlex_alfa
                 MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[3]).name);
                 card.Invoke(this, null);
                 updateInfo(p1, p2);
+                gameLog.Text += "\n" + GlobalVariables.username + " сыграл " + db.cards.Find(p1.hand[3]).name;
                 if (db.cards.Find(p1.hand[3]).doubleTurn == 0)
                 {
                     card4.IsEnabled = false;
@@ -398,6 +404,7 @@ namespace castleFlex_alfa
             }
             else if (resMessage(db.cards.Find(p1.hand[3]).cost) == MessageBoxResult.Yes)
             {
+                gameLog.Text += "\n" + GlobalVariables.username + " сбросил " + db.cards.Find(p1.hand[3]).name;
                 card4.IsEnabled = false;
                 endTurn();
             }
@@ -411,6 +418,7 @@ namespace castleFlex_alfa
                 MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[4]).name);
                 card.Invoke(this, null);
                 updateInfo(p1, p2);
+                gameLog.Text += "\n" + GlobalVariables.username + " сыграл " + db.cards.Find(p1.hand[4]).name;
                 if (db.cards.Find(p1.hand[4]).doubleTurn == 0)
                 {
                     card5.IsEnabled = false;
@@ -420,6 +428,7 @@ namespace castleFlex_alfa
             }
             else if (resMessage(db.cards.Find(p1.hand[4]).cost) == MessageBoxResult.Yes)
             {
+                gameLog.Text += "\n" + GlobalVariables.username + " сбросил " + db.cards.Find(p1.hand[4]).name;
                 card5.IsEnabled = false;
                 endTurn();
             }
@@ -433,6 +442,7 @@ namespace castleFlex_alfa
                 MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[5]).name);
                 card.Invoke(this, null);
                 updateInfo(p1, p2);
+                gameLog.Text += "\n" + GlobalVariables.username + " сыграл " + db.cards.Find(p1.hand[5]).name;
                 if (db.cards.Find(p1.hand[5]).doubleTurn == 0)
                 {
                     card6.IsEnabled = false;
@@ -442,6 +452,7 @@ namespace castleFlex_alfa
             }
             else if (resMessage(db.cards.Find(p1.hand[5]).cost) == MessageBoxResult.Yes)
             {
+                gameLog.Text += "\n" + GlobalVariables.username + " сбросил " + db.cards.Find(p1.hand[5]).name;
                 card6.IsEnabled = false;
                 endTurn();
             }

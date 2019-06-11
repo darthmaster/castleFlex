@@ -43,8 +43,8 @@
             </Button.RenderTransform>
             <Button.Background>
                 <RadialGradientBrush>
-                    <GradientStop Color="#FFFFD300"/>
-                    <GradientStop Color="#FF7D00FF" Offset="1"/>
+                    <GradientStop Color="#FFFFCD35"/>
+                    <GradientStop Color="#FF6100C5" Offset="1"/>
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
@@ -59,8 +59,8 @@
             </Button.RenderTransform>
             <Button.Background>
                 <RadialGradientBrush>
-                    <GradientStop Color="#FFFFD300"/>
-                    <GradientStop Color="#FF7D00FF" Offset="1"/>
+                    <GradientStop Color="#FFFFCD35"/>
+                    <GradientStop Color="#FF6100C5" Offset="1"/>
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
@@ -75,8 +75,8 @@
             </Button.RenderTransform>
             <Button.Background>
                 <RadialGradientBrush>
-                    <GradientStop Color="#FFFFD300"/>
-                    <GradientStop Color="#FF7D00FF" Offset="1"/>
+                    <GradientStop Color="#FFFFCD35"/>
+                    <GradientStop Color="#FF6100C5" Offset="1"/>
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
@@ -91,8 +91,8 @@
             </Button.RenderTransform>
             <Button.Background>
                 <RadialGradientBrush>
-                    <GradientStop Color="#FFFFD300"/>
-                    <GradientStop Color="#FF7D00FF" Offset="1"/>
+                    <GradientStop Color="#FFFFCD35"/>
+                    <GradientStop Color="#FF6100C5" Offset="1"/>
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
