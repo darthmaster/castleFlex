@@ -212,8 +212,9 @@ namespace castleFlex_alfa
 
         public void Machine()
         {
+            MessageBox.Show("1");
             updateInfo(p1, p2);
-            //MessageBox.Show("Ход противника");
+            MessageBox.Show("Ход противника");
             Sswap(p1, p2);
             if (al==0)
             {
@@ -334,9 +335,8 @@ namespace castleFlex_alfa
         }
         public void startGame()
         {
-            player ppp = new player(50, 0, 1, 15, 1, 15, 1, 15);
-            p1 = ppp;
-            p2 = ppp;
+            p1 = new player(50, 0, 1, 15, 1, 15, 1, 15);
+            p2 = new player(50, 0, 1, 15, 1, 15, 1, 15);
             Ksort();
             for (int i = 0; i <= 5; i++)
             {
