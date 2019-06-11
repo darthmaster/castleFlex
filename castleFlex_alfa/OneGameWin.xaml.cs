@@ -120,7 +120,7 @@ namespace castleFlex_alfa
                 c7.Text = f;
                 cash++;
             }
-            else
+            else 
             {
                 c1.Text = c2.Text;
                 c2.Text = c3.Text;
