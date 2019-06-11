@@ -116,7 +116,16 @@ namespace castleFlex_alfa
 
         private void OtherButton_Click(object sender, RoutedEventArgs e)
         {
-
+            guideBox.Text = " Колледж информатики и программирования ";
+            if (multi.Visibility == Visibility.Visible)
+            {
+                multi.Visibility = Visibility.Collapsed;
+            }
+            if (guideBox.Visibility == Visibility.Collapsed)
+            {
+                guideBox.Visibility = Visibility.Visible;
+            }
+            else guideBox.Visibility = Visibility.Collapsed;
         }
 
         private void MediaElement_MouseDown(object sender, MouseButtonEventArgs e)

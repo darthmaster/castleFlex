@@ -16,7 +16,7 @@
                 </LinearGradientBrush>
             </Label.Foreground>
         </Label>
-        <Button x:Name="button" Content="Singleplayer" Margin="241,0,0,382.6" Width="267" Click="OneGame" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontWeight="Bold" FontSize="20" BorderThickness="0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="40" FontStyle="Italic" Opacity="0.95" BorderBrush="#00000000">
+        <Button x:Name="button" Content="Singleplayer" Margin="241,0,0,382.6" Width="267" Click="OneGame" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontWeight="Bold" FontSize="20" BorderThickness="0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="40" FontStyle="Italic" Opacity="0.95" BorderBrush="{x:Null}">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -32,7 +32,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="button_Copy" Content="Multiplayer" Margin="616,0,-83,382.6" Width="267" Click="TwoGether" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontWeight="Bold" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" FontStyle="Italic">
+        <Button x:Name="button_Copy" Content="Multiplayer" Margin="616,0,-83,382.6" Width="267" Click="TwoGether" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontWeight="Bold" FontSize="20" Opacity="0.95" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" FontStyle="Italic" BorderBrush="{x:Null}">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -48,7 +48,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="exitButton" Content="Exit" Margin="637,0,-91,4.6" Width="254" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" Click="ExitButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontStyle="Italic" FontWeight="Bold" Height="40">
+        <Button x:Name="exitButton" Content="Exit" Margin="637,0,-91,4.6" Width="254" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontSize="20" Opacity="0.95" BorderThickness="0" RenderTransformOrigin="10,10" Click="ExitButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontStyle="Italic" FontWeight="Bold" Height="40" BorderBrush="{x:Null}">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -64,7 +64,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="infoButton" Content="Information" Margin="374,0,0,4.6" Width="255" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="InfoButton_Click" FontStyle="Italic" FontWeight="Bold" Height="40">
+        <Button x:Name="infoButton" Content="Information" Margin="374,0,0,4.6" Width="255" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontSize="20" Opacity="0.95" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="InfoButton_Click" FontStyle="Italic" FontWeight="Bold" Height="40" BorderBrush="{x:Null}">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -80,7 +80,7 @@
                 </RadialGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="otherButton" Content="About" Margin="110,0,0,4.6" Width="255" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontSize="20" Opacity="0.8" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="OtherButton_Click" FontStyle="Italic" FontWeight="Bold" Height="40">
+        <Button x:Name="otherButton" Content="About" Margin="110,0,0,4.6" Width="255" Foreground="#FF9000FF" FontFamily="Monotype Corsiva" FontSize="20" Opacity="0.95" BorderThickness="0" RenderTransformOrigin="10,10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="OtherButton_Click" FontStyle="Italic" FontWeight="Bold" Height="40" BorderBrush="{x:Null}">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
