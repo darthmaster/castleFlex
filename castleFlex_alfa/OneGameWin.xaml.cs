@@ -366,12 +366,12 @@ namespace castleFlex_alfa
         }
         public void win()
         {
-            if ((p2.tower <= 0) || (p1.tower >= 100))
+            if ((p2.tower <= 0) || (p1.tower >= 100) || (p1.magic >= 300) || (p1.army >= 300) || (p1.ore >= 300))
             {
                 MessageBox.Show("Вы победили!", "Игра окончена", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
             }
-            else if ((p1.tower <= 0) || (p2.tower >= 100))
+            else if ((p1.tower <= 0) || (p2.tower >= 100) || (p2.magic >= 300) || (p2.army >= 300) || (p2.ore >= 300))
             {
                 MessageBox.Show("Вы проиграли!", "Игра окончена", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
