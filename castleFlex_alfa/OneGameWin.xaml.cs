@@ -181,7 +181,6 @@ namespace castleFlex_alfa
                 }
             }
         }
-
         public void Sswap(player a, player b)
         {
             swap = a.tower;
@@ -209,7 +208,6 @@ namespace castleFlex_alfa
             a.ore = b.ore;
             b.ore = swap;
         }
-
         public void Machine()
         {
             updateInfo(p1, p2);
