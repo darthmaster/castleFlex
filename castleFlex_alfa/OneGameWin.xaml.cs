@@ -212,9 +212,8 @@ namespace castleFlex_alfa
 
         public void Machine()
         {
-            MessageBox.Show("1");
             updateInfo(p1, p2);
-            MessageBox.Show("Ход противника");
+            //MessageBox.Show("Ход противника");
             Sswap(p1, p2);
             if (al==0)
             {
