@@ -21,6 +21,7 @@ namespace castleFlex_alfa
         public string type { get; set; }
         public string name { get; set; }
         public int doubleTurn { get; set; }
+        public int logic { get; set; }
     }
 
     public class cardsList
@@ -1424,1391 +1425,748 @@ namespace castleFlex_alfa
         public static int id;
 
         static OneGameWin OneGameWin = new OneGameWin();
+
         #region Эффекты карт
-        public static void Attack(int a) //нанесение урона врагу
+        public static void Attack(int a) 
         {
-            if ((OneGameWin.p2.wall - a) <= 0)
+            if ((OneGameWin.p2.wall - a) < 0)
             {
                 OneGameWin.p2.tower -= a - OneGameWin.p2.wall;
-                OneGameWin.p2.wall = 0;
             }
-            else OneGameWin.p2.wall -= a;
-        }
-        public static void SelfAttack(int a) //нанесение урона по себе
+            OneGameWin.p2.wall -= a;
+        } //нанесение урона противнику
+        public static void SelfAttack(int a) 
         {
-            if ((OneGameWin.p1.wall - a) <= 0)
+            if ((OneGameWin.p1.wall - a) < 0)
             {
                 OneGameWin.p1.tower -= a - OneGameWin.p1.wall;
-                OneGameWin.p1.wall = 0;
             }
-            else OneGameWin.p1.wall -= a;
-        }
-        public static void PWlP(int a) //стена +
-        {
-            OneGameWin.p1.wall += a;
-        }
-        public static void PWlM(int a) //стена -
-        {
             OneGameWin.p1.wall -= a;
-        }
-        public static void EWlP(int a) //вражеская стена +
+        } //нанесение урона по себе
+        public static void wall(int a)
         {
-            OneGameWin.p2.wall += a;
-        }
-        public static void EWlM(int a) //вражеская стена -
+            {
+                OneGameWin.p1.wall += a;
+            }
+        }  //стена
+        public static void ewall(int a)
         {
-            OneGameWin.p2.wall -= a;
-        }
-        public static void PTP(int a) //башня +
+            {
+                OneGameWin.p2.wall += a;
+            }
+        } //стена противника
+        public static void tower(int a)
         {
-            OneGameWin.p1.tower += a;
-        }
-        public static void PTM(int a) //башня -
+            {
+                OneGameWin.p1.tower += a;
+            }
+        }  //башня
+        public static void etower(int a)
         {
-            OneGameWin.p1.tower -= a;
-        }
-        public static void ETP(int a) //вражеская башня +
+            {
+                OneGameWin.p2.tower += a;
+            }
+        }  //башня противника
+        public static void wiz(int a) 
         {
-            OneGameWin.p2.tower += a;
-        }
-        public static void ETM(int a) //вражеская башня -
-        {
-            OneGameWin.p2.tower -= a;
-        }
-
-        public static void PWP(int a) //монастыри +
-        {
-            //p1 wiz +
             OneGameWin.p1.wiz += a;
-        }
-        public static void PWM(int a) //монастыри -
+        } //монастыри
+        public static void ewiz(int a)
         {
-            //p1 wiz -
-            OneGameWin.p1.wiz -= a;
-
-        }
-        public static void PMP(int a) //магия +
+            OneGameWin.p2.wiz += a;
+        } //монастыри противника
+        public static void mana(int a)
         {
             OneGameWin.p1.magic += a;
-        }
-        public static void PMM(int a) //магия -
-        {
-            OneGameWin.p1.magic -= a;
-        }
-        public static void PRP(int a) //казармы +
-        {
-            OneGameWin.p1.rec += a;
-        }
-        public static void PRM(int a) //казармы -
-        {
-            OneGameWin.p1.rec -= a;
-        }
-        public static void PAP(int a) //войска +
-        {
-            OneGameWin.p1.army += a;
-        }
-        public static void PAM(int a) //войска -
-        {
-            OneGameWin.p1.army -= a;
-        }
-        public static void PMiP(int a) //шахты +
-        {
-            OneGameWin.p1.mine += a;
-        }
-        public static void PMiM(int a) //шахты -
-        {
-            OneGameWin.p1.mine -= a;
-        }
-        public static void POP(int a) //руда +
-        {
-            OneGameWin.p1.ore += a;
-        }
-        public static void POM(int a) //руда -
-        {
-            OneGameWin.p1.ore -= a;
-        }
-        public static void EWP(int a) //вражеские монастыри +
-        {
-            //p1 wiz +
-            OneGameWin.p2.wiz += a;
-        }
-        public static void EWM(int a) //вражеские монастыри -
-        {
-            //p1 wiz -
-            OneGameWin.p2.wiz -= a;
-
-        }
-        public static void EMP(int a) //... я заебался писать комменты
+        } //мана
+        public static void emana(int a)
         {
             OneGameWin.p2.magic += a;
-        }
-        public static void EMM(int a)
+        } //мана  противника
+        public static void kazarm(int a) 
         {
-            OneGameWin.p2.magic -= a;
-        }
-        public static void ERP(int a)
+            OneGameWin.p1.rec += a;
+        } //казармы
+        public static void ekazarm(int a)
         {
             OneGameWin.p2.rec += a;
-        }
-        public static void ERM(int a)
+        } //казармы противника
+        public static void army(int a)
         {
-            OneGameWin.p2.rec -= a;
-        }
-        public static void EAP(int a)
+            OneGameWin.p1.army += a;
+        } //отряды
+        public static void earmy(int a)
         {
             OneGameWin.p2.army += a;
-        }
-        public static void EAM(int a)
+        } //отряды противника
+        public static void mine(int a)
         {
-            OneGameWin.p2.army -= a;
-        }
-        public static void EMiP(int a)
+            OneGameWin.p1.mine += a;
+        } //шахты
+        public static void emine(int a)
         {
             OneGameWin.p2.mine += a;
-        }
-        public static void EMiM(int a)
+        } //шахты противника
+        public static void ore(int a) 
         {
-            OneGameWin.p2.mine -= a;
-        }
-        public static void EOP(int a)
+            OneGameWin.p1.ore += a;
+        } //руда
+        public static void eore(int a)
         {
             OneGameWin.p2.ore += a;
-        }
-        public static void EOM(int a)
-        {
-            OneGameWin.p2.ore -= a;
-        }
+        } //руда противника
         #endregion
 
+        public static void castcost()
+        {
+            if (db.cards.Find(id).type == "red")
+            {
+                ore(-db.cards.Find(id).cost);
+            }
+            else if (db.cards.Find(id).type == "blue")
+            {
+                mana(-db.cards.Find(id).cost);
+            }
+            else if (db.cards.Find(id).type == "green")
+            {
+                army(-db.cards.Find(id).cost);
+            }
+        }
 
         #region Красные
         public static void Бастион()
         {
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                POM(db.cards.Find(id).cost);
-                PWlP(12);
-            }
-            else OneGameWin.resMessage(db.cards.Find(1).cost);
+            castcost();
+            wall(12);
         }
         public static void БлагодатнаяПочва()
         {
-            //1;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                //OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                //OneGameWin.p1.wall += 1;
-                POM(db.cards.Find(id).cost);
-                PWlP(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-            //играем снова
+            castcost();
+            wall(1);
         }
         public static void БольшаяЖила()
         {
-            //4;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                POM(db.cards.Find(id).cost);
-                if (OneGameWin.p1.mine < OneGameWin.p2.mine)
-                {
-                    //OneGameWin.p1.mine += 2;
-                    PMiP(2);
-                }
-                else PMiP(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
+            castcost();
+            if (OneGameWin.p1.mine < OneGameWin.p2.mine)
+            { mine(2);
+            } else mine(1);
         }
         public static void БольшаяСтена()
         {
-            //3;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                POM(db.cards.Find(id).cost);
-                PWlP(4);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
+            castcost();
+            wall(4);
         }
         public static void БракованнаяРуда()
         {
-            //0;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                POM(db.cards.Find(id).cost);
-                POM(8);
-                EOM(8);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            ore(-8);
+            eore(-8);
         }
         public static void ВеликаяСтена()
         {
-            //8;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                POM(db.cards.Find(id).cost);
-                PWlP(8);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
+            castcost();
+            wall(8);
         }
         public static void ВеличайшаяСтена()
         {
-            //16;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                POM(db.cards.Find(id).cost);
-                PWlP(15);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
+            castcost();
+            wall(15);
         }
         public static void Галереи()
         {
-            //9;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                POM(db.cards.Find(id).cost);
-                PWlP(5);
-
-                OneGameWin.p1.rec += 1;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wall(5);
+            kazarm(1);
         }
         public static void ГномыШахтёры()
         {
-            //7;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.wall += 4;
-                OneGameWin.p1.mine += 1;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wall(4);
+            mine(1);
         }
         public static void ГрунтовыеВоды()
         {
-            //6;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
+            castcost();
+            OneGameWin.p1.ore -= db.cards.Find(id).cost;
+            if (OneGameWin.p1.wall < OneGameWin.p2.wall)
             {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                if (OneGameWin.p1.wall < OneGameWin.p2.wall)
-                {
-                    OneGameWin.p1.rec -= 1;
-                    OneGameWin.p1.tower -= 2;
-                }
-                else if (OneGameWin.p1.wall > OneGameWin.p2.wall)
-                {
-                    OneGameWin.p2.rec -= 1;
-                    OneGameWin.p2.tower -= 2;
-                }
-                else
-                {
-                    OneGameWin.p1.rec -= 1;
-                    OneGameWin.p1.tower -= 2;
-                    OneGameWin.p2.rec -= 1;
-                    OneGameWin.p2.tower -= 2;
-                }
+                kazarm(-1);
+                tower(-2);
             }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            else if (OneGameWin.p1.wall > OneGameWin.p2.wall)
+            {
+                ekazarm(-1);
+                etower(-2);
+            }
+            //else
+            //{
+            //    kazarm(-1);
+            //    tower(-2);
+            //    ekazarm(-1);
+            //    etower(-2);
+            //}
         }
         public static void Землетрясение()
         {
-            //0;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.mine -= 1;
-                OneGameWin.p2.mine -= 1;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
+            castcost();
+            mine(-1);
+            emine(-1);
         }
         public static void Казармы()
         {
-            //10;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
+            castcost();
+            army(6);
+            wall(6);
+            if (OneGameWin.p1.rec < OneGameWin.p2.rec)
             {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.army += 6;
-                OneGameWin.p1.wall += 6;
-                if (OneGameWin.p1.rec < OneGameWin.p2.rec)
-                {
-                    OneGameWin.p1.rec += 1;
-                }
+                kazarm(1);
             }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
         }
         public static void КражаТехнологий()
         {
-            //5;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
+            castcost();
+            if (OneGameWin.p1.mine < OneGameWin.p2.mine)
             {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                if (OneGameWin.p1.mine < OneGameWin.p2.mine)
-                {
-                    OneGameWin.p1.mine = OneGameWin.p2.mine;
-                }
+                mine(-OneGameWin.p1.mine);
+                mine(OneGameWin.p2.mine);
             }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
         }
         public static void МагическаяГора()
         {
-            //9;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.wall += 7;
-                OneGameWin.p1.magic += 7;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wall(7);
+            mana(7);
         }
         public static void НовоеОборудование()
         {
-            //6;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.mine += 2;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            mine(2);
         }
         public static void Новшества()
         {
-            //2;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.mine += 1;
-                OneGameWin.p2.mine += 1;
-                OneGameWin.p1.magic += 4;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            mine(1);
+            emine(1);
+            mana(4);
         }
         public static void НовыеУспехи()
         {
-            //15;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.wall += 8;
-                OneGameWin.p1.tower += 5;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wall(8);
+            tower(5);
         }
         public static void Обвал()
         {
-            //4;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p2.mine -= 1;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            emine(-1);
         }
         public static void ОбвалРудника()
         {
-            //0;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.mine -= 1;
-                OneGameWin.p1.wall += 10;
-                OneGameWin.p1.magic += 5;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
+            castcost();
+            mine(-1);
+            wall(10);
+            mana(5);
         }
         public static void ОбычнаяСтена()
         {
-            //2;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.wall += 3;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wall(3);
         }
         public static void ПоющийУголь()
         {
-            //11;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.wall += 6;
-                OneGameWin.p1.tower += 3;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
+            castcost();
+            wall(6);
+            tower(3);
         }
         public static void РабскийТруд()
         {
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.wall += 9;
-                OneGameWin.p1.army -= 5;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
+            castcost();
+            wall(9);
+            army(-5);
         }
         public static void СадКамней()
         {
-            //1;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.wall += 1;
-                OneGameWin.p1.tower += 1;
-                OneGameWin.p1.army += 2;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wall(1);
+            tower(1);
+            army(2);
         }
         public static void Сверхурочные()
         {
-            //2;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.wall += 5;
-                OneGameWin.p1.magic -= 6;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wall(5);
+            mana(-6);
         }
         public static void Сдвиг()
         {
-            //17;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                int buf = OneGameWin.p1.wall;
-                OneGameWin.p1.wall = OneGameWin.p2.wall;
-                OneGameWin.p2.wall = buf;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
+            castcost();
+            int sdvig = OneGameWin.p1.wall;
+            wall(-OneGameWin.p1.wall);
+            wall(OneGameWin.p2.wall);
+            ewall(-OneGameWin.p2.wall);
+            ewall(sdvig);
         }
         public static void СекретнаяПещера()
         {
-            //8;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.wiz += 1;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
-            //играем снова
+            castcost();
+            wiz(1);
         }
         public static void СердцеДракона()
         {
-            //24;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.wall += 20;
-                OneGameWin.p1.tower += 8;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wall(20);
+            tower(8);
         }
         public static void Скаломёт()
         {
-            //18;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.wall += 6;
-                Attack(10);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wall(6);
+            Attack(10);
         }
         public static void СчастливаяМонетка()
         {
-            //0;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.ore += 2;
-                OneGameWin.p1.magic += 2;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
-            //играем снова
+            castcost();
+            ore(2);
+            mana(2);
         }
         public static void Толчки()
         {
-            //7;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                OneGameWin.p1.wall -= 5;
-                OneGameWin.p2.wall -= 5;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
-            //играем снова
+            castcost();
+            wall(-5);
+            ewall(-5);
         }
         public static void Укрепления()
         {
-            //14;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                OneGameWin.p1.ore -= db.cards.Find(id).cost;
-                PWP(7);
-                Attack(6);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wall(7);
+            Attack(6);
         }
         public static void УсиленнаяСтена()
         {
-            //5;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                POM(db.cards.Find(id).cost);
-                PWlP(6);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wall(6);
         }
         public static void Фундамент()
         {
-            //3;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                POM(db.cards.Find(id).cost);
-                if (OneGameWin.p1.wall == 0) { PWP(5); }
-                else { PWP(3); }
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            if (OneGameWin.p1.wall == 0) { wall(5); }
+            else { wall(3); }
         }
         public static void Шахтёры()
         {
-            //3;
-            if (OneGameWin.p1.ore >= db.cards.Find(id).cost)
-            {
-                POM(db.cards.Find(id).cost);
-                PMiP(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            mine(1);
         }
         #endregion
         #region Синие
         public static void Алмаз()
         {
-            //16;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(15);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(15);
         }
         public static void Аметист()
         {
-            //2;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(3);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(3);
         }
         public static void Бижутерия()
         {
-            //0;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
+            if (OneGameWin.p1.tower < OneGameWin.p2.tower)
             {
-                POM(db.cards.Find(id).cost);
-                if (OneGameWin.p1.tower < OneGameWin.p2.tower)
-                {
-                    PTP(2);
-                }
-                else PTP(1);
+                tower(2);
             }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            else tower(1);
         }
         public static void ВзрывСилы()
         {
-            //3;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                OneGameWin.p1.tower -= 5;
-                PWP(2);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(-5);
         }
         public static void Вступление()
         {
-            //5;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(4);
-                PAM(3);
-                OneGameWin.p2.tower -= 2;
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(4);
+            army(-3);
+            etower(-2);
         }
         public static void Гармония()
         {
-            //7;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PWP(1);
-                PTP(3);
-                PWlP(3);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wiz(1);
+            tower(3);
+            wall(3);
         }
         public static void ГлазДракона()
         {
-            //21;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(20);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
+            castcost();
+            tower(20);
         }
         public static void Дробление()
         {
-            //8;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PWM(1);
-                ETM(9);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wiz(-1);
+            etower(-9);
         }
         public static void ДымчатыйКварц()
         {
-            //2;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                ETM(1);
-                //играем снова
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            etower(-1);
         }
         public static void ЖемчугМудрости()
         {
-            //9;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(5);
-                PWP(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(5);
+            wiz(1);
         }
         public static void Затмение()
         {
-            //4;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(2);
-                ETM(2);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(2);
+            etower(-2);
         }
         public static void Кварц()
         {
-            //1;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(1);
-                //играем снова
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(1);
         }
         public static void КристальныйЩит()
         {
-            //12;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(8);
-                PWlP(3);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(8);
+            wall(3);
         }
         public static void Копье()
         {
-            //4;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                ETM(5);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            etower(-5);
         }
         public static void Матрица()
         {
-            //4;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PWP(1);
-                PTP(3);
-                ETP(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wiz(1);
+            tower(3);
+            etower(1);
         }
         public static void Медитизм()
         {
-            //18;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(13);
-                PAP(6);
-                POP(6);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(13);
+            army(6);
+            ore(6);
         }
         public static void Молния()
         {
-            //11;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
+            castcost();
+            if (OneGameWin.p1.tower > OneGameWin.p2.wall)
             {
-                PMM(db.cards.Find(id).cost);
-                if (OneGameWin.p1.tower > OneGameWin.p2.wall)
-                {
-                    ETM(8);
-                }
-                else
-                {
-                    Attack(8);
-                    SelfAttack(8);
-                }
+                etower(-8);
             }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            else
+            {
+                Attack(8);
+                SelfAttack(8);
+            }
         }
         public static void Монастырь()
         {
-            //15;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(10);
-                PWP(5);
-                PAP(5);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(10);
+            wall(5);
+            army(5);
         }
         public static void МягкийКамень()
         {
-            //7;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(5);
-                EOM(6);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(5);
+            eore(-6);
         }
         public static void ОгненныйРубин()
         {
-            //13;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(6);
-                ETP(4);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(6);
+            etower(-4);
         }
         public static void Отвердение()
         {
-            //8;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(11);
-                PWM(6);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(11);
+            wall(-6);
         }
         public static void Паритет()
         {
-            //7;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
+            if (OneGameWin.p1.wiz < OneGameWin.p2.wiz)
             {
-                PMM(db.cards.Find(id).cost);
-                if (OneGameWin.p1.wiz < OneGameWin.p2.wiz)
-                {
-                    OneGameWin.p1.wiz = OneGameWin.p2.wiz;
-                }
-                else OneGameWin.p2.wiz = OneGameWin.p1.wiz;
+                wiz(-OneGameWin.p1.wiz);
+                wiz(OneGameWin.p2.wiz);
             }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            else
+            {
+                ewiz(-OneGameWin.p2.wiz);
+                ewiz(OneGameWin.p1.wiz);
+            }
         }
         public static void ПомощьВРаботе()
         {
-            //4;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(7);
-                POM(10);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(7);
+            ore(-10);
         }
         public static void Радуга()
         {
-            //0;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(1);
-                ETP(1);
-                PMP(3);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(1);
+            etower(1);
+            mana(3);
         }
         public static void Раздоры()
         {
-            //5;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTM(7);
-                ETM(7);
-                PWM(1);
-                EWM(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(-7);
+            etower(-7);
+            wiz(-1);
+            ewiz(-1);
         }
         public static void Рубин()
         {
-            //3;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(5);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(5);
         }
         public static void РуднаяЖила()
         {
-            //5;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(8);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(8);
         }
         public static void Сапфир()
         {
-            //10;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(11);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(11);
         }
         public static void СияющийКамень()
         {
-            //17;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(12);
-                Attack(6);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(12);
+            Attack(6);
         }
         public static void ТкачиЗаклинаний()
         {
-            //3;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PWP(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            wiz(1);
         }
         public static void Трещина()
         {
-            //2;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                ETM(3);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            etower(-3);
         }
         public static void Эмельральд()
         {
-            //6;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(8);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(8);
         }
         public static void Эмпатия()
         {
-            //14;
-            if (OneGameWin.p1.magic >= db.cards.Find(id).cost)
-            {
-                PMM(db.cards.Find(id).cost);
-                PTP(8);
-                PRP(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            tower(8);
+            kazarm(1);
         }
         #endregion
         #region Зелёные
         public static void АрмияГоблинов()
         {
-            //3; 
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(6);
-                SelfAttack(3);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(6);
+            SelfAttack(3);
         }
         public static void Берсерк()
         {
-            //4;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(8);
-                PTM(3);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(8);
+            tower(-3);
         }
         public static void БешенаяОвца()
         {
-            //6;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(6);
-                EAM(3);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(6);
+            earmy(-3);
         }
         public static void Вампир()
         {
-            //17;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(10);
-                EAM(5);
-                ERM(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(10);
+            earmy(-5);
+            ekazarm(-1);
         }
         public static void Воитель()
         {
-            //13;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(13);
-                PMM(3);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(13);
+            mana(-3);
         }
         public static void Вор()
         {
-            //12;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                EOM(4);
-                EMM(10);
-                POP(2);
-                PMP(5);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            emana(-10);
+            eore(-5);
+            mana(5);
+            ore(2);
         }
         public static void ВсадникНаПегасе()
         {
-            //18;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                ETM(12);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            etower(-12);
         }
         public static void Гномы()
         {
-            //5;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(4);
-                PWlP(3);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(4);
+            wall(3);
         }
         public static void Гоблины()
         {
-            //1;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(4);
-                PMM(3);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(4);
+            mana(-3);
         }
         public static void ГоблиныЛучники()
         {
-            //4;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                ETM(3);
-                SelfAttack(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            etower(-3);
+            SelfAttack(1);
         }
         public static void ГремлинВБашне()
         {
-            //8;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(2);
-                PWlP(4);
-                PTP(2);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(2);
+            wall(4);
+            tower(2);
         }
         public static void Дракон()
         {
-            //25;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(20);
-                EMM(10);
-                ERM(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(20);
+            emana(-10);
+            ekazarm(-1);
         }
         public static void Единорог()
         {
-            //9;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                if (OneGameWin.p1.wiz > OneGameWin.p2.wiz) { Attack(12); }
-                else Attack(8);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            if (OneGameWin.p1.wiz > OneGameWin.p2.wiz) { Attack(12); }
+            else Attack(8);
         }
         public static void ЕдкоеОблако()
         {
-            //11;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                if (OneGameWin.p2.wall > 10) { Attack(10); }
-                else Attack(7);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            if (OneGameWin.p2.wall > 10) { Attack(10); }
+            else Attack(7);
         }
         public static void Жучара()
         {
-            //8;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                if (OneGameWin.p2.wall == 0) { Attack(10); }
-                else Attack(6);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            if (OneGameWin.p2.wall == 0) { Attack(10); }
+            else Attack(6);
         }
         public static void КаменныйГигант()
         {
-            //15;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(10);
-                PWlP(4);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(10);
+            wall(4);
         }
         public static void Камнееды()
         {
-            //11;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(8);
-                EMiM(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(8);
+            emine(-1);
         }
         public static void Карлик()
         {
-            //2;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(3);
-                PMP(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(8);
+            mana(1);
         }
         public static void Копьеносец()
         {
-            //2;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                if (OneGameWin.p1.wall > OneGameWin.p2.wall) { Attack(3); }
-                else Attack(2);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            if (OneGameWin.p1.wall > OneGameWin.p2.wall) { Attack(3); }
+            else Attack(2);
         }
         public static void КоровьеБешенство()
         {
-            //0;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                PAM(6);
-                EAM(6);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            army(-6);
+            earmy(-6);
         }
         public static void Крушитель()
         {
-            //5;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(6);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(6);
         }
         public static void МаленькиеЗмейки()
         {
-            //6;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                ETM(4);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            etower(-4);
         }
         public static void Минотавр()
         {
-            //3;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                PRP(1);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            kazarm(1);
         }
         public static void Оборотень()
         {
-            //9;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(9);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(9);
         }
         public static void Огр()
         {
-            //6;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(7);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(7);
         }
         public static void Орк()
         {
-            //3;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(5);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(5);
         }
         public static void Полнолуние()
         {
-            //0;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                PRP(1);
-                ERP(1);
-                PAP(3);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            kazarm(1);
+            ekazarm(1);
+            army(3);
         }
         public static void ПризрачнаяФея()
         {
-            //6;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                ETM(2);
-                //играем снова 
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            etower(-2);
         }
         public static void Суккубы()
         {
-            //14;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                ETM(5);
-                EAM(6);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            etower(-5);
         }
         public static void ТролльНаставник()
         {
-            //7;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                PRP(2);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            kazarm(2);
         }
         public static void Фея()
         {
-            //1;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(2);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
-            //играем снова
+            castcost();
+            Attack(2);
         }
         public static void Бес()
         {
-            //5;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                Attack(6);
-                POM(5);
-                PMM(5);
-                PAM(5);
-                EOM(5);
-                EMM(5);
-                EAM(5);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            Attack(6);
+            mana(-5);
+            army(-5);
+            ore(-5);
+            emana(-5);
+            earmy(-5);
+            eore(-5);
         }
         public static void ЭльфыЛучники()
         {
-            //10;
-            if (OneGameWin.p1.army >= db.cards.Find(id).cost)
-            {
-                PAM(db.cards.Find(id).cost);
-                if (OneGameWin.p1.wall > OneGameWin.p2.wall) { ETM(6); }
-                else Attack(6);
-            }
-            else OneGameWin.resMessage(db.cards.Find(id).cost);
-
+            castcost();
+            if (OneGameWin.p1.wall > OneGameWin.p2.wall) { etower(-7); }
+            else Attack(6);
         }
         #endregion
     }

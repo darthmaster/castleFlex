@@ -21,9 +21,9 @@ namespace castleFlex_alfa
     public partial class OneGameWin : Window
     {
         ApplicationContext db;
-        public int k, swap, hodor, oldca=0, cash=0, al;
+        public int k, swap, hodor, oldca = 0, cash, al, holdcart = 300, kkk = 300;
         bool dt, noncost = false;
-        string isp = "Использованая карта ", ispp, hp = "Ваш ход: ", hm = "Ход компьютера: ", fh = "Недостаточно ресурсов, сброс карты ";
+        string isp = "Использованая карта ", ispp, hp = "Ваш ход: ", hm = "Ход компьютера: ", fh = "Недостаточно ресурсов, сброс карты ", typeignore = "";
         public int[] arr = new int[100];
         public cardList cards = new cardList();
         public class player
@@ -77,11 +77,11 @@ namespace castleFlex_alfa
             Card4.Source = CreateImage(db.cards.Find(p1.hand[3]).pic);
             Card5.Source = CreateImage(db.cards.Find(p1.hand[4]).pic);
             Card6.Source = CreateImage(db.cards.Find(p1.hand[5]).pic);
-            
+
             //t3z.Height = 125;
             //System.Windows.Thickness bs = new System.Windows.Thickness(85, 125, 0, 0);
             //t3.Margin = bs;
-            
+
         }
         public void Cash(string f)
         {
@@ -100,22 +100,22 @@ namespace castleFlex_alfa
                 c3.Text = f;
                 cash++;
             }
-            else if (cash == 4)
+            else if (cash == 3)
             {
                 c4.Text = f;
                 cash++;
             }
-            else if (cash == 5)
+            else if (cash == 4)
             {
                 c5.Text = f;
                 cash++;
             }
-            else if (cash == 6)
+            else if (cash == 5)
             {
                 c6.Text = f;
                 cash++;
             }
-            else if (cash == 7)
+            else if (cash == 6)
             {
                 c7.Text = f;
                 cash++;
@@ -208,12 +208,30 @@ namespace castleFlex_alfa
             a.ore = b.ore;
             b.ore = swap;
         }
-        public void Machine()
+        public ref int cost(int x)
+        {
+            if (db.cards.Find(x).type == "red")
+            {
+                return ref p1.ore;
+            }
+            else if (db.cards.Find(x).type == "blue")
+            {
+                return ref p1.magic;
+            }
+            else if (db.cards.Find(x).type == "green")
+            {
+                return ref p1.army;
+            }
+            else
+                return ref p1.ore;
+        }
+        public async void Machine()
         {
             updateInfo(p1, p2);
+            await Task.Delay(1337);
             //MessageBox.Show("Ход противника");
             Sswap(p1, p2);
-            if (al==0)
+            if (al == 0)
             {
                 int r;
                 var rand = new Random();
@@ -222,42 +240,323 @@ namespace castleFlex_alfa
             }
             else if (al == 1)
             {
-                for (int i = 0; i <= 5; i++)
+                int r;
+                var rand = new Random();
+                r = rand.Next(100) + 1;
+                do
                 {
-                    if (db.cards.Find(p2.hand[i]).type == "red")
+                    //разыгровка
+                    if (holdcart != 300)
                     {
-                        if (p1.ore >= db.cards.Find(p2.hand[i]).cost)
+                        for (int j = 0; j <= 5; j++)
                         {
-                            p2.hand[i] = CardInvoke(p2.hand[i]);
+                            if ((p2.hand[j] == holdcart) && (cost(p2.hand[j]) >= db.cards.Find(p2.hand[j]).cost))
+                            {
+                                kkk = p2.hand[j];
+                                typeignore = "";
+                                holdcart = 300;
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                    }
+                    if ((p1.ore + p1.mine * 10 == 300) && (typeignore == "") && (holdcart == 300))
+                    {
+                        typeignore = "red";
+                    } // близость победы по ресурсам
+                    else if ((p1.magic + p1.wiz * 10 == 300) && (typeignore == "") && (holdcart == 300))
+                    {
+                        typeignore = "blue";
+                    } // близость победы по ресурсам
+                    else if ((p1.army + p1.rec * 10 == 300) && (typeignore == "") && (holdcart == 300))
+                    {
+                        typeignore = "green";
+                    } // близость победы по ресурсам
+                    else if (holdcart == 300)
+                    {
+                        typeignore = "";
+                    }
+                    for (int j = 0; j <= 5; j++)
+                    {
+                        if ((db.cards.Find(p2.hand[j]).logic == 0) && (cost(p2.hand[j]) >= db.cards.Find(p2.hand[j]).cost) && ((typeignore != db.cards.Find(p2.hand[j]).type) || (db.cards.Find(p2.hand[j]).cost == 0)))
+                        {
+                            kkk = p2.hand[j];
                             break;
                         }
                     }
-                    else if (db.cards.Find(p2.hand[i]).type == "blue")
+                    if (kkk != 300) { break; }
+                    if (r<69)
                     {
-                        if (p1.magic >= db.cards.Find(p2.hand[i]).cost)
+                        for (int j = 0; j <= 5; j++)
                         {
-                            p2.hand[i] = CardInvoke(p2.hand[i]);
-                            break;
+                            if ((db.cards.Find(p2.hand[0]).doubleTurn == 1) && (cost(p2.hand[j]) >= db.cards.Find(p2.hand[j]).cost) && ((typeignore != db.cards.Find(p2.hand[j]).type) || (db.cards.Find(p2.hand[j]).cost == 0)))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                    }
+                    if ((p1.tower < 15 || p1.tower > 85) && (p2.tower > 10 || p2.tower < 90 || p1.tower > 95))
+                    {
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 1) && (cost(p2.hand[j]) >= db.cards.Find(p2.hand[j]).cost) && ((typeignore != db.cards.Find(p2.hand[j]).type) || (db.cards.Find(p2.hand[j]).cost == 0)))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                    } //крайняя близость к победе через гонку башен или потере своей башни
+                    else if ((p2.tower <= 15))
+                    {
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 4) && (cost(p2.hand[j]) >= db.cards.Find(p2.hand[j]).cost) && ((typeignore != db.cards.Find(p2.hand[j]).type) || (db.cards.Find(p2.hand[j]).cost == 0)))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                            if (kkk != 300) { break; }
+                        }
+                    } // крайняя близость к победе связанной с потерей врагом башни             
+                    else if (r <= 35)
+                    {
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 1) && (cost(p2.hand[j]) >= db.cards.Find(p2.hand[j]).cost) && ((typeignore != db.cards.Find(p2.hand[j]).type) || (db.cards.Find(p2.hand[j]).cost == 0)))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                    }
+                    else if (k > 35 && k <= 50)
+                    {
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 2) && (cost(p2.hand[j]) >= db.cards.Find(p2.hand[j]).cost) && ((typeignore != db.cards.Find(p2.hand[j]).type) || (db.cards.Find(p2.hand[j]).cost == 0)))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                    }
+                    else if (k > 50 && k <= 70)
+                    {
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 3 && (cost(p2.hand[j]) >= db.cards.Find(p2.hand[j]).cost) && ((typeignore != db.cards.Find(p2.hand[j]).type) || (db.cards.Find(p2.hand[j]).cost == 0))))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                    }
+                    else if (k > 70 && k <= 95)
+                    {
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 4) && (cost(p2.hand[j]) >= db.cards.Find(p2.hand[j]).cost) && ((typeignore != db.cards.Find(p2.hand[j]).type) || (db.cards.Find(p2.hand[j]).cost == 0)))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                    }
+                    else if (k > 95)
+                    {
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 5) && (cost(p2.hand[j]) >= db.cards.Find(p2.hand[j]).cost) && ((typeignore != db.cards.Find(p2.hand[j]).type) || (db.cards.Find(p2.hand[j]).cost == 0)))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                    }
+                    //нехватка мана - выбор карты для накопления
+                    if ((holdcart == 300) && (p1.tower < 15 || p1.tower > 85) && (p2.tower > 10 || p2.tower < 90 || p1.tower > 95))
+                    {
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 1) && (db.cards.Find(p2.hand[j]).cost > 11))
+                            {
+                                holdcart = p2.hand[j];
+                                typeignore = db.cards.Find(p2.hand[j]).type;
+                                break;
+                            }
+                        }
+                    } //крайняя близость к победе через гонку башен или потере своей башни
+                    else if ((holdcart == 300) && (p2.tower <= 15))
+                    {
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 4) && (db.cards.Find(p2.hand[j]).cost > 11))
+                            {
+                                holdcart = p2.hand[j];
+                                typeignore = db.cards.Find(p2.hand[j]).type;
+                                break;
+                            }
+                        }
+                    } // крайняя близость к победе связанной с потерей врагом башни
+                    if (holdcart == 300 && r <= 35)
+                    {
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 1) && (db.cards.Find(p2.hand[j]).cost > 11))
+                            {
+                                holdcart = p2.hand[j];
+                                typeignore = db.cards.Find(p2.hand[j]).type;
+                                break;
+                            }
                         }
                     }
-                    else if (db.cards.Find(p2.hand[i]).type == "green")
+                    else if (holdcart == 300 && k > 35 && k <= 50)
                     {
-                        if (p1.army >= db.cards.Find(p2.hand[i]).cost)
+                        for (int j = 0; j <= 5; j++)
                         {
-                            p2.hand[i] = CardInvoke(p2.hand[i]);
-                            break;
+                            if ((db.cards.Find(p2.hand[j]).logic == 2) && (db.cards.Find(p2.hand[j]).cost > 11))
+                            {
+                                holdcart = p2.hand[j];
+                                typeignore = db.cards.Find(p2.hand[j]).type;
+                                break;
+                            }
                         }
                     }
-                    else if (i == 5)
+                    else if (holdcart == 300 && k > 50 && k <= 70)
                     {
-                        p2.hand[i] = CardInvoke(p2.hand[i]);
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 3) && (db.cards.Find(p2.hand[j]).cost > 11))
+                            {
+                                holdcart = p2.hand[j];
+                                typeignore = db.cards.Find(p2.hand[j]).type;
+                                break;
+                            }
+                        }
+                    }
+                    else if (holdcart == 300 && k > 70 && k <= 95)
+                    {
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 4) && (db.cards.Find(p2.hand[j]).cost > 11))
+                            {
+                                holdcart = p2.hand[j];
+                                typeignore = db.cards.Find(p2.hand[j]).type;
+                                break;
+                            }
+                        }
+                    }
+                    else if (holdcart == 300 && k > 95)
+                    {
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 5) && (db.cards.Find(p2.hand[j]).cost > 11))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                    }
+                    //выбор карты для сброса
+                    if (kkk == 300)
+                    {
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 5) && (cost(p2.hand[j]) < db.cards.Find(p2.hand[j]).cost) && (p2.hand[j]!= holdcart))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 3) && (cost(p2.hand[j]) < db.cards.Find(p2.hand[j]).cost) && (p2.hand[j] != holdcart))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 2) && (cost(p2.hand[j]) < db.cards.Find(p2.hand[j]).cost) && (p2.hand[j] != holdcart))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 4) && (cost(p2.hand[j]) < db.cards.Find(p2.hand[j]).cost) && (p2.hand[j] != holdcart))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 1) && (cost(p2.hand[j]) < db.cards.Find(p2.hand[j]).cost) && (p2.hand[j] != holdcart))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((db.cards.Find(p2.hand[j]).logic == 0) && (cost(p2.hand[j]) < db.cards.Find(p2.hand[j]).cost) && (p2.hand[j] != holdcart))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((cost(p2.hand[j]) < db.cards.Find(p2.hand[j]).cost) && (p2.hand[j] != holdcart))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((typeignore != db.cards.Find(p2.hand[j]).type))
+                            {
+                                kkk = p2.hand[j];
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
+                        MessageBox.Show("Ошибка0");
+                    }
+                } while (kkk != 300);
+                for (int j = 0; j <= 5; j++)
+                {
+                    if (p2.hand[j] == kkk)
+                    {
+                        p2.hand[j] = CardInvoke(p2.hand[j]);
+                        kkk = 300;
                         break;
                     }
                 }
+                //MessageBox.Show("Ошибка элемент: " + kkk + " Не найден среди: " + p2.hand[0] + " " + p2.hand[1] + " " + p2.hand[2] + " " + p2.hand[3] + " " + p2.hand[4] + " " + p2.hand[5]);
             }
             Sswap(p2, p1);
-            System.Threading.Thread.Sleep(300); // подумать жи надо
             Dealer();
+            return;
         }
         public void Dealer()
         {
@@ -363,6 +662,7 @@ namespace castleFlex_alfa
                 } while (!knownNumbers.Add(newElement));
                 arr[i] = newElement;
             } //украинский рандом
+            k = 0;
         }
         public void win()
         {
@@ -379,13 +679,13 @@ namespace castleFlex_alfa
         }
         public void endH()
         {
-            if (hodor == 1)
+            if (hodor == 2)
             {
                 p2.magic += p2.wiz;
                 p2.army += p2.rec;
                 p2.ore += p2.mine;
             }
-            else if (hodor == 2)
+            else if (hodor == 1)
             {
                 p1.magic += p1.wiz;
                 p1.army += p1.rec;
@@ -398,33 +698,12 @@ namespace castleFlex_alfa
         private int CardInvoke(int a)
         {
             cardList.id = a;
-            if (db.cards.Find(a).type == "red")
+            if (cost(a) >= db.cards.Find(a).cost)
             {
-                if (p1.ore >= db.cards.Find(a).cost)
-                {
-                    MethodInfo card = cards.GetType().GetMethod(db.cards.Find(a).name);
-                    card.Invoke(this, null);
-                }
-                else resMessage(db.cards.Find(a).cost);
+                MethodInfo card = cards.GetType().GetMethod(db.cards.Find(a).name);
+                card.Invoke(this, null);
             }
-            else if (db.cards.Find(a).type == "blue")
-            {
-                if (p1.magic >= db.cards.Find(a).cost)
-                {
-                    MethodInfo card = cards.GetType().GetMethod(db.cards.Find(a).name);
-                    card.Invoke(this, null);
-                }
-                else resMessage(db.cards.Find(a).cost);
-            }
-            else if (db.cards.Find(a).type == "green")
-            {
-                if (p1.army >= db.cards.Find(a).cost)
-                {
-                    MethodInfo card = cards.GetType().GetMethod(db.cards.Find(a).name);
-                    card.Invoke(this, null);
-                }
-                else resMessage(db.cards.Find(a).cost);
-            }
+            else resMessage(db.cards.Find(a).cost);
             ispp = isp + db.cards.Find(a).name;
             Cash(ispp);
             if (noncost != true)
@@ -471,19 +750,7 @@ namespace castleFlex_alfa
         private void Card1_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Card1.IsEnabled = false;
-            //p1.hand[0] = 2;
-            //cardList.id = p1.hand[0];
-            //MethodInfo card = cards.GetType().GetMethod(db.cards.Find(p1.hand[0]).name);
-            //card.Invoke(this, null);
-            //if (db.cards.Find(p1.hand[0]).doubleTurn != 0) dt = true;
-            //Oldcard(p1.hand[0]);
-            //p1.hand[0] = arr[k];
-            //if (k == 99)
-            //{
-            //    Ksort();
-            //}
-            //else { k++; }
-            //Dealer();
+            //p1.hand[0] = 25;
             p1.hand[0]=CardInvoke(p1.hand[0]);
             Dealer();
             Card1.IsEnabled = true;
@@ -532,11 +799,11 @@ namespace castleFlex_alfa
             image.EndInit();
             return image;
         }  // функция преобразование byto to ImageSourse
-        private void MediaElement_MouseDown(object sender, MouseButtonEventArgs e) // движение формы
+        private void MediaElement_MouseDown(object sender, MouseButtonEventArgs e) 
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
-        }
+        } // движение формы
         private void menu_Click(object sender, RoutedEventArgs e)
         {
             this.IsEnabled = false;
