@@ -136,25 +136,33 @@ namespace castleFlex_alfa
 
         private void MultiStart_Click(object sender, RoutedEventArgs e)
         {
-            GlobalVariables.username = username.Text;
-            GlobalVariables.ip = ip.Text;
-            GlobalVariables.port = Convert.ToInt32(port.Text);
-            GlobalVariables.recport = Convert.ToInt32(recport.Text);
-            TwoGameWin multiGame = new TwoGameWin();
-            if (serverBtn.IsChecked==false && clientBtn.IsChecked == false)
+            try
             {
-                MessageBox.Show("Вы не выбрали режим подключения");
+                GlobalVariables.username = username.Text;
+                GlobalVariables.ip = ip.Text;
+                GlobalVariables.port = Convert.ToInt32(port.Text);
+                GlobalVariables.recport = Convert.ToInt32(recport.Text);
+                TwoGameWin multiGame = new TwoGameWin();
+                if (serverBtn.IsChecked == false && clientBtn.IsChecked == false)
+                {
+                    MessageBox.Show("Вы не выбрали режим подключения");
+                }
+                else if (serverBtn.IsChecked == true)
+                {
+                    GlobalVariables.server = true;
+                    multiGame.ShowDialog();
+                }
+                else if (clientBtn.IsChecked == true)
+                {
+                    GlobalVariables.server = false;
+                    multiGame.Show();
+                }
             }
-            else if (serverBtn.IsChecked == true)
+            catch (Exception ex)
             {
-                GlobalVariables.server = true;
-                multiGame.ShowDialog();
+                MessageBox.Show("Ошибка: "+ex.Message,"Что-то пошло не так...");
             }
-            else if (clientBtn.IsChecked == true)
-            {
-                GlobalVariables.server = false;
-                multiGame.Show();
-            }
+            
         }
     }
 }

@@ -29,7 +29,7 @@
             </DockPanel.Background>
         </DockPanel>
 
-        <Label Content="Label" HorizontalAlignment="Left" Margin="2,25,0,0" VerticalAlignment="Top" Width="100" x:Name="playerMages" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft" HorizontalContentAlignment="Center">
+        <Label Content="p1wiz" HorizontalAlignment="Left" Margin="2,25,0,0" VerticalAlignment="Top" Width="100" x:Name="playerMages" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft" HorizontalContentAlignment="Center">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -39,7 +39,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="2,51,0,0" VerticalAlignment="Top" Width="100" x:Name="playerRecruts" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft" HorizontalContentAlignment="Center">
+        <Label Content="p1rec" HorizontalAlignment="Left" Margin="2,51,0,0" VerticalAlignment="Top" Width="100" x:Name="playerRecruts" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft" HorizontalContentAlignment="Center">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -49,7 +49,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="2,77,0,0" VerticalAlignment="Top" Width="100" x:Name="playerMines" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft" HorizontalContentAlignment="Center">
+        <Label Content="p1mine" HorizontalAlignment="Left" Margin="2,77,0,0" VerticalAlignment="Top" Width="100" x:Name="playerMines" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft" HorizontalContentAlignment="Center">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -59,7 +59,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="102,25,0,0" VerticalAlignment="Top" Width="100" x:Name="playerMagic" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch">
+        <Label Content="p1magic" HorizontalAlignment="Left" Margin="102,25,0,0" VerticalAlignment="Top" Width="100" x:Name="playerMagic" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -69,7 +69,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="102,51,0,0" VerticalAlignment="Top" Width="100" x:Name="playerArmy" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch">
+        <Label Content="p1army" HorizontalAlignment="Left" Margin="102,51,0,0" VerticalAlignment="Top" Width="100" x:Name="playerArmy" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -79,7 +79,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="102,77,0,0" VerticalAlignment="Top" Width="100" x:Name="playerOre" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch">
+        <Label Content="p1ore" HorizontalAlignment="Left" Margin="102,77,0,0" VerticalAlignment="Top" Width="100" x:Name="playerOre" Height="25" Foreground="#7FFFFFFF" FlowDirection="RightToLeft" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -89,7 +89,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="855,23,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyMages" Height="25" Foreground="#7FFFFFFF" HorizontalContentAlignment="Center">
+        <Label Content="p2wiz" HorizontalAlignment="Left" Margin="855,23,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyMages" Height="25" Foreground="#7FFFFFFF" HorizontalContentAlignment="Center">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -99,7 +99,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="855,49,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyRecruts" Height="25" Foreground="#7FFFFFFF" HorizontalContentAlignment="Center">
+        <Label Content="p2rec" HorizontalAlignment="Left" Margin="855,49,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyRecruts" Height="25" Foreground="#7FFFFFFF" HorizontalContentAlignment="Center">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -109,7 +109,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="855,75,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyMines" Height="25" Foreground="#7FFFFFFF" HorizontalContentAlignment="Center">
+        <Label Content="p2mine" HorizontalAlignment="Left" Margin="855,75,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyMines" Height="25" Foreground="#7FFFFFFF" HorizontalContentAlignment="Center">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -119,7 +119,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="758,23,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyMagic" Height="25" Foreground="#7FFFFFFF" HorizontalContentAlignment="Center">
+        <Label Content="p2magic" HorizontalAlignment="Left" Margin="758,23,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyMagic" Height="25" Foreground="#7FFFFFFF" HorizontalContentAlignment="Center">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -129,7 +129,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="758,49,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyArmy" Height="25" Foreground="#7FFFFFFF" HorizontalContentAlignment="Center">
+        <Label Content="p2army" HorizontalAlignment="Left" Margin="758,49,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyArmy" Height="25" Foreground="#7FFFFFFF" HorizontalContentAlignment="Center">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -139,7 +139,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="758,75,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyOre" Height="25" Foreground="#7FFFFFFF" HorizontalContentAlignment="Center">
+        <Label Content="p2ore" HorizontalAlignment="Left" Margin="758,75,0,0" VerticalAlignment="Top" Width="100" x:Name="enemyOre" Height="25" Foreground="#7FFFFFFF" HorizontalContentAlignment="Center">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -149,7 +149,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="50,300,0,0" VerticalAlignment="Top" Width="65" x:Name="ptv" Height="25" Foreground="#7FFFFFFF">
+        <Label Content="p1.tower" HorizontalAlignment="Left" Margin="50,300,0,0" VerticalAlignment="Top" Width="65" x:Name="ptv" Height="25" Foreground="#7FFFFFFF">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -159,7 +159,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="115,300,0,0" VerticalAlignment="Top" Width="45" x:Name="pwv" Height="25" Foreground="#7FFFFFFF">
+        <Label Content="p1wall" HorizontalAlignment="Left" Margin="115,300,0,0" VerticalAlignment="Top" Width="45" x:Name="pwv" Height="25" Foreground="#7FFFFFFF">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -169,7 +169,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="785,300,0,0" VerticalAlignment="Top" Width="59" x:Name="ewv" Height="25" Foreground="#7FFFFFFF">
+        <Label Content="p2wall" HorizontalAlignment="Left" Margin="785,300,0,0" VerticalAlignment="Top" Width="59" x:Name="ewv" Height="25" Foreground="#7FFFFFFF">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -179,7 +179,7 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="844,300,0,0" VerticalAlignment="Top" Width="64" x:Name="etv" Height="25" Foreground="#7FFFFFFF">
+        <Label Content="p2tower" HorizontalAlignment="Left" Margin="844,300,0,0" VerticalAlignment="Top" Width="64" x:Name="etv" Height="25" Foreground="#7FFFFFFF">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#B5000000" Offset="1"/>
@@ -298,6 +298,12 @@
 
         <Label x:Name="p1name" Content="player1" HorizontalAlignment="Left" Margin="0,-1,0,0" VerticalAlignment="Top" Foreground="#7FFFFFFF" FontFamily="Century Gothic" FontWeight="Bold" FontStyle="Italic" Background="#7F0031FF"/>
         <Label x:Name="p2name" Content="player2" HorizontalAlignment="Right" Margin="0,0,-1,0" VerticalAlignment="Top" Foreground="#7FFFFFFF" FontFamily="Century Gothic" FontWeight="Bold" FontStyle="Italic" Background="#7FFF0000"/>
+        <Button x:Name="menu" Content="Button" HorizontalAlignment="Left" Margin="908,540,-11.6,0" VerticalAlignment="Top" Width="62" Height="54" BorderBrush="White" Background="White" Click="Button_Click">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="Resources/icons8-боковое-меню-80.png"/>
+            </Button.OpacityMask>
+        </Button>
+        <TextBlock x:Name="gameLog" HorizontalAlignment="Left" Margin="342,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Width="271" Height="100" Background="#B2000000" Foreground="White" Text="Game Started" FontStyle="Italic"/>
 
         <Image HorizontalAlignment="Left" Height="25" Margin="10,28,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!wiz.png"/>
         <Image HorizontalAlignment="Left" Height="25" Margin="102,81,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!ore.png"/>
@@ -311,11 +317,5 @@
         <Image HorizontalAlignment="Left" Height="25" Margin="833,25,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!mag.png"/>
         <Image HorizontalAlignment="Left" Height="25" Margin="923,77,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!mine.png"/>
         <Image HorizontalAlignment="Left" Height="22" Margin="923,53,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!rec.png"/>
-        <Button x:Name="menu" Content="Button" HorizontalAlignment="Left" Margin="908,540,-11.6,0" VerticalAlignment="Top" Width="62" Height="54" BorderBrush="White" Background="White" Click="Button_Click">
-            <Button.OpacityMask>
-                <ImageBrush ImageSource="Resources/icons8-боковое-меню-80.png"/>
-            </Button.OpacityMask>
-        </Button>
-        <TextBlock x:Name="gameLog" HorizontalAlignment="Left" Margin="342,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Width="271" Height="100" Background="#B2000000" Foreground="White" Text="Game Started" FontStyle="Italic"/>
     </Grid>
 </Window>

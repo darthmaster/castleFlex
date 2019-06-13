@@ -26,7 +26,6 @@ namespace castleFlex_alfa
     {
         int t = 0;
         ApplicationContext db;
-        public enum cardType {Red,Green,Blue}
         public cardsList cards;// = new cardsList();
         public Random rnd = new Random();
         public class player
@@ -124,7 +123,7 @@ namespace castleFlex_alfa
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             if ((p2.tower <= 0) || (p1.tower >= 100))
             {
@@ -160,7 +159,7 @@ namespace castleFlex_alfa
                 p1.mine = Convert.ToInt32(data[14]); p1.ore = Convert.ToInt32(data[15]);
                 p2name.Content = data[16];
             }
-            catch (Exception ex) { Console.WriteLine(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
             if (p1.wiz <= 0) { p1.wiz = 1; }
             if (p1.rec <= 0) { p1.rec = 1; }
             if (p1.mine <= 0) { p1.mine = 1; }
