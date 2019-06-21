@@ -540,7 +540,17 @@ namespace castleFlex_alfa
                             }
                         }
                         if (kkk != 300) { break; }
-                        MessageBox.Show("Ошибка0");
+                        for (int j = 0; j <= 5; j++)
+                        {
+                            if ((p2.hand[j] == holdcart))
+                            {
+                                kkk = p2.hand[j];
+                                typeignore = "";
+                                holdcart = 300;
+                                break;
+                            }
+                        }
+                        if (kkk != 300) { break; }
                     }
                 } while (kkk != 300);
                 for (int j = 0; j <= 5; j++)
@@ -648,6 +658,8 @@ namespace castleFlex_alfa
             cash = 0;
             Cash(hp);
             al = 0;
+            holdcart = 300;
+            kkk = 300;
         }
         public void Ksort()
         {
