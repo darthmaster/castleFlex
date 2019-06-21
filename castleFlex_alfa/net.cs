@@ -22,15 +22,20 @@ namespace castleFlex_alfa
         {
             UdpClient receiver = new UdpClient(port);
             IPEndPoint ip = null;
-            byte[] data = receiver.Receive(ref ip);
+            byte[] data;
+            do
+            {
+                data = receiver.Receive(ref ip);
+            }
+            while (receiver.Available != 0);
             string info = Encoding.Unicode.GetString(data);
+            data = null;
             receiver.Close();
             return info;
         }
         public static void nameChanger(string ip, int port, int recport)
         {
             UdpClient namer;
-            //GlobalVariables global = new GlobalVariables();
             
             byte[] name;
 

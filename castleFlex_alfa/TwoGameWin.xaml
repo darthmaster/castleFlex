@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:castleFlex_alfa"
         mc:Ignorable="d"
-        Title="CastleFlex. Multiplayer." d:DesignHeight="571.4" Width="960" Height="600" UseLayoutRounding="False" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" BorderThickness="1" AllowsTransparency="True" WindowStyle="None" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Icon="Resources/icons8-zamok-98multi.ico">
+        Title="CastleFlex. Multiplayer." d:DesignHeight="571.4" Width="960" Height="600" UseLayoutRounding="False" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" BorderThickness="1" AllowsTransparency="True" WindowStyle="None" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Icon="Resources/icons8-zamok-98multi.ico" Closing="Window_Closing">
     <Window.Effect>
         <DropShadowEffect BlurRadius="100" Opacity="0.9" RenderingBias="Quality" ShadowDepth="1"/>
     </Window.Effect>
@@ -303,7 +303,7 @@
                 <ImageBrush ImageSource="Resources/icons8-боковое-меню-80.png"/>
             </Button.OpacityMask>
         </Button>
-        <TextBlock x:Name="gameLog" HorizontalAlignment="Left" Margin="342,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Width="271" Height="100" Background="#B2000000" Foreground="White" Text="Game Started" FontStyle="Italic"/>
+        <TextBlock x:Name="gameLog" HorizontalAlignment="Left" Margin="342,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Width="271" Height="100" Background="#B2000000" Foreground="White" Text="Игра началась" FontStyle="Italic" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="10,0,0,10" ScrollViewer.CanContentScroll="True"/>
 
         <Image HorizontalAlignment="Left" Height="25" Margin="10,28,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!wiz.png"/>
         <Image HorizontalAlignment="Left" Height="25" Margin="102,81,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!ore.png"/>
@@ -317,5 +317,6 @@
         <Image HorizontalAlignment="Left" Height="25" Margin="833,25,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!mag.png"/>
         <Image HorizontalAlignment="Left" Height="25" Margin="923,77,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!mine.png"/>
         <Image HorizontalAlignment="Left" Height="22" Margin="923,53,0,0" VerticalAlignment="Top" Width="25" Source="Resources/!rec.png"/>
+        <Label x:Name="enemyTurn" Content="Ход противника" HorizontalAlignment="Left" Margin="50,350,0,0" VerticalAlignment="Top" Height="248" Width="858" Background="#7F4B0000" Foreground="White" Opacity="0.7" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" AutomationProperties.HelpText="Подождите пока сходит ваш противник" FontSize="24"/>
     </Grid>
 </Window>

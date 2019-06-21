@@ -115,8 +115,13 @@ namespace castleFlex_alfa
         }
 
         private void OtherButton_Click(object sender, RoutedEventArgs e)
-        {
-            guideBox.Text = "\n \n \n \n     Игра разработана студентами колледжа информатики и программирования, Беловым Александром Игоревичем и Султановым Альбертом Ильдаровичем в 2019 году.";
+        { 
+            guideBox.Text = ($"\nCastle Flex, version: {typeof(MainWindow).Assembly.GetName().Version}\n \nИгра разработана студентами колледжа информатики и программирования:" +
+                "\n        Беловым Александром Игоревичем и " +
+                "\n        Султановым Альбертом Ильдаровичем в 2019 году." +
+                "\n\nКонтактные данные:\n" +
+                "        Email: fkmthn2012@gmail.com\n" +
+                "        Telegram: @darthmaster");
             if (multi.Visibility == Visibility.Visible)
             {
                 multi.Visibility = Visibility.Collapsed;
@@ -150,12 +155,14 @@ namespace castleFlex_alfa
                 else if (serverBtn.IsChecked == true)
                 {
                     GlobalVariables.server = true;
-                    multiGame.ShowDialog();
+                    this.Hide();
+                    multiGame.ShowDialog();                    
                 }
                 else if (clientBtn.IsChecked == true)
                 {
                     GlobalVariables.server = false;
-                    multiGame.Show();
+                    this.Hide();
+                    multiGame.ShowDialog();
                 }
             }
             catch (Exception ex)
